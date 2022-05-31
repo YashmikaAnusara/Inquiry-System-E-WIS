@@ -31,3 +31,8 @@
 .InquiryButton{
     width: 100%;
 }
+.InquiryPar{
+    justify-content: center;
+    display: flex;
+    margin-top: 3%;
+}

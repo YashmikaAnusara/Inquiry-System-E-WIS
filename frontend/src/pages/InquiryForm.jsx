@@ -153,6 +153,7 @@ export default function InquiryForm() {
           <Button className="InquiryButton" variant="contained">
             Submit
           </Button>
+          <p className="InquiryPar">© 2022 Inquiry Message, Inc.</p>
         </div>
       </div>
     </div>
