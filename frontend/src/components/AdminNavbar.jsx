@@ -3,7 +3,7 @@ import '../css/AdminNavbar.css'
 import Pic from '../images/pic1.jpg'
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import AddIcon from '@mui/icons-material/Add';
-import SettingsIcon from '@mui/icons-material/Settings';
+// import SettingsIcon from '@mui/icons-material/Settings';
 import { Link } from 'react-router-dom'
 import BranchReg from './BranchReg';
 
