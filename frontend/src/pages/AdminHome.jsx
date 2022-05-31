@@ -1,10 +1,35 @@
 import React from "react";
+import '../css/AdminHome.css'
+import AdminNavbar from "../components/AdminNavbar";
 
-export default function AdminHome(){
 
-    return(
+function AdminHome() {
+    return (
         <div>
-            <h1>Test 1.0</h1>
+            <div><AdminNavbar /></div>
+            <div className='contentMainWrapper'>
+               <div className="contentbodywrapper">
+
+                <h1>hello world</h1>
+                <h1>hello world</h1>
+                <h1>hello world</h1>
+                <h1>hello world</h1>
+                <h1>hello world</h1>
+                <h1>hello world</h1>
+                <h1>hello world</h1>
+                <h1>hello world</h1>
+                <h1>hello world</h1>
+                <h1>hello world</h1>
+                <h1>hello world</h1>
+                <h1>hello world</h1>
+                <h1>hello world</h1>
+                <h1>hello world</h1>
+                <h1>hello world</h1>
+                <h1>hello world</h1>
+               </div>
+            </div>
+
         </div>
     )
 }
+export default AdminHome;

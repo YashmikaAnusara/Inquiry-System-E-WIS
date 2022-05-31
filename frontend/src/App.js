@@ -6,7 +6,8 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<AdminHome />}/>
+          {/* <Route path="/" element={<AdminHome />}/> */}
+          <Route path="/dashBoard" element={<AdminHome />}/>
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+.contentMainWrapper {
+    float: left;
+    background-color: rgb(227, 242, 253);
+    width: 1015px;
+    height: 520px;
+    margin-left: 5px;
+    border-radius: 15px 10px 0 0;
+    overflow-y: scroll;
+}
+.contentMainWrapper::-webkit-scrollbar {
+    width: 10px;
+}
+/* Track */
+.contentMainWrapper::-webkit-scrollbar-track {
+    background-color: rgb(227, 242, 253);
+
+}
+/* Handle */
+.contentMainWrapper::-webkit-scrollbar-thumb {
+    background: rgb(175, 211, 236);
+    border-radius: 15px;
+}
+
+/* Handle on hover */
+.contentMainWrapper::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+.contentbodywrapper{
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
