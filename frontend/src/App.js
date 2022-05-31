@@ -7,8 +7,13 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
+
+          {/* <Route path="/" element={<AdminHome />}/> */}
+          <Route path="/dashBoard" element={<AdminHome />}/>
+
           <Route path="/" element={<AdminHome />}/>
           <Route path="/InquiryForm" element={<InquiryForm />}/>
+
         </Routes>
       </BrowserRouter>
     </div>
