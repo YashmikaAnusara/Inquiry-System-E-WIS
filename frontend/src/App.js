@@ -4,7 +4,7 @@ import InquiryForm from "./pages/InquiryForm";
 
 import Login from "./pages/LoginPage";
 
-import Notification from "./components/Alert";
+// import Notification from "./components/Alert";
 import BranchReg from "./components/BranchReg";
  
 

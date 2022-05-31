@@ -1,7 +1,7 @@
 import React from "react";
 import '../css/AdminHome.css'
 import AdminNavbar from "../components/AdminNavbar";
-import Graph from "../components/Char";
+// import Graph from "../components/Char";
 
 
 function AdminHome() {
@@ -25,7 +25,7 @@ function AdminHome() {
                          
                     </div>
                     <div className='graph'>
-                        <Graph />
+                        {/* <Graph /> */}
                     </div>
                      
 
