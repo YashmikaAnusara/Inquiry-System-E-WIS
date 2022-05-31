@@ -1,0 +1,14 @@
+.regFoprmMainWraper{
+    width:auto;
+    height:100%;
+    z-index: 1;
+}
+.regFoprmWraper{
+    margin:auto;
+    background-color:rgb(162, 162, 162);
+    width: 450px;
+    height:300px;
+    margin-top: 140px;
+    border-radius: 15px;
+
+}

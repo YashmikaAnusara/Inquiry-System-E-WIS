@@ -1,6 +1,7 @@
 import React from "react";
 import '../css/AdminHome.css'
 import AdminNavbar from "../components/AdminNavbar";
+import Graph from "../components/Char";
 
 
 function AdminHome() {
@@ -8,26 +9,30 @@ function AdminHome() {
         <div>
             <div><AdminNavbar /></div>
             <div className='contentMainWrapper'>
-               <div className="contentbodywrapper">
+                <div className="contentbodywrapper">
+                    <div className="cardMainWrapper">
+                        <div className='cardwrapper card1'>
 
-                <h1>hello world</h1>
-                <h1>hello world</h1>
-                <h1>hello world</h1>
-                <h1>hello world</h1>
-                <h1>hello world</h1>
-                <h1>hello world</h1>
-                <h1>hello world</h1>
-                <h1>hello world</h1>
-                <h1>hello world</h1>
-                <h1>hello world</h1>
-                <h1>hello world</h1>
-                <h1>hello world</h1>
-                <h1>hello world</h1>
-                <h1>hello world</h1>
-                <h1>hello world</h1>
-                <h1>hello world</h1>
-               </div>
+                        </div>
+                        <div className='cardwrapper card2'>
+
+                        </div>
+                        <div className='cardwrapper card3'>
+
+                        </div>
+                         
+                         
+                         
+                    </div>
+                    <div className='graph'>
+                        <Graph />
+                    </div>
+                     
+
+                </div>
             </div>
+
+            
 
         </div>
     )
