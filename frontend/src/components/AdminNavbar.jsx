@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import '../css/AdminNavbar.css'
 import Pic from '../images/pic1.jpg'
 import DashboardIcon from '@mui/icons-material/Dashboard';
@@ -8,25 +8,26 @@ import { Link } from 'react-router-dom'
 import BranchReg from './BranchReg';
 
 function AdminNavbar() {
-    const[active,setActive]=useState(false)
-    const addBranchHandler=()=>{
+    const [active, setActive] = useState(false)
+    const addBranchHandler = () => {
         setActive(true)
     }
     return (
         <div>
-            {active?<BranchReg/>:''}
-            
+            {active ? <BranchReg /> : ''}
+
             <div className='headerWraper'>
                 <input type='search' placeholder='Search' className='searchInput' />
 
+                 
+                    <div className="addBranchWrapper">
+                        <button className='addbranchBtn' onClick={addBranchHandler}><AddIcon /></button>
+                    </div>
+                    <div className="usericonWrapper">
+                        <img src={Pic} alt='Logo' className='userLogo' />
 
-                <div className="addBranchWrapper">
-                    <button className='addbranchBtn' onClick={addBranchHandler}><AddIcon /></button> 
-                </div>
-                <div className="usericonWrapper">
-                    <img src={Pic} alt='Logo' className='userLogo' />
-
-                </div>
+                    </div>
+                
             </div>
             <div className='navWraper'>
                 <div className="headerContentsectionWrapper">
@@ -48,6 +49,34 @@ function AdminNavbar() {
                             </div>
                         </div>
                     </Link>
+                </div>
+                <div className="headerContentsectionWrapper">
+                    <p className='DashboardTopic'>Pages</p>
+                    <div className='Dashboardcontent'>
+                        <div className="Dashboardcontentext">
+                            <DashboardIcon /><p className='DashboardcontenWord'> Dashboard</p>
+                        </div>
+                    </div>
+                    <div className='Dashboardcontent'>
+                        <div className="Dashboardcontentext">
+                            <DashboardIcon /><p className='DashboardcontenWord'> Dashboard</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div className="headerContentsectionWrapper">
+                    <p className='DashboardTopic'>Pages</p>
+                    <div className='Dashboardcontent'>
+                        <div className="Dashboardcontentext">
+                            <DashboardIcon /><p className='DashboardcontenWord'> Dashboard</p>
+                        </div>
+                    </div>
+                    <div className='Dashboardcontent'>
+                        <div className="Dashboardcontentext">
+                            <DashboardIcon /><p className='DashboardcontenWord'> Dashboard</p>
+                        </div>
+                    </div>
+
                 </div>
                 <div className="headerContentsectionWrapper">
                     <p className='DashboardTopic'>Pages</p>

@@ -6,8 +6,8 @@
 .contentMainWrapper {
     float: left;
     background-color: rgb(227, 242, 253);
-    width: 1010px;
-    height: 520px;
+    width: 80%;
+    height: 625px;
     margin-left: 5px;
     padding-right: 5px;
     border-radius: 15px 10px 0 0;
@@ -75,7 +75,7 @@
 }
 
 .graph {
-    width: 620px;
+    width: 640px;
     margin-top: 50px;
     margin-left:15px
 }

@@ -20,13 +20,19 @@ function AdminHome() {
                         <div className='cardwrapper card3'>
 
                         </div>
+                         
+                         
+                         
                     </div>
                     <div className='graph'>
                         <Graph />
                     </div>
+                     
 
                 </div>
             </div>
+
+            
 
         </div>
     )
