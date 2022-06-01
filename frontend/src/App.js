@@ -6,6 +6,7 @@ import Login from "./pages/LoginPage";
 
 // import Notification from "./components/Alert";
 import BranchReg from "./components/BranchReg";
+// import Graph from "./components/Char";
  
 
 
@@ -14,17 +15,12 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-
           {/* <Route path="/" element={<AdminHome />}/> */}
           <Route path="/dashBoard" element={<AdminHome />} />
 
-
-          <Route path="/dashBoard" element={<AdminHome />}/>
-          <Route path="/InquiryForm" element={<InquiryForm />}/>
-          <Route path="/branch" element={<BranchReg/>}/>
-          
-
-
+          <Route path="/dashBoard" element={<AdminHome />} />
+          <Route path="/InquiryForm" element={<InquiryForm />} />
+          <Route path="/branch" element={<BranchReg />} />
           <Route path="/" element={<AdminHome />} />
           <Route path="/InquiryForm" element={<InquiryForm />} />
           <Route path="/Login" element={<Login />} />
