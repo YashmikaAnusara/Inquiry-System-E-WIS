@@ -1,9 +1,9 @@
 const router = require("express").Router();
-let EmployeeRegister = require("../models/EmpReg");
+const BranchRegister = require("../models/BranchReg");
 
 router.route("/register").post((req, res) => {
-    const { Name, NIC, Contact, Email, Branch,Position,Password } = req.body
-    const details = new EmployeeRegister({ Name: Name, NIC: NIC, Contact: Contact, Email: Email, Branch: Branch,Position:Position,Password:Password });
+    const { Name, Contact, Email} = req.body
+    const details = new BranchRegister({ Name: Name,Contact: Contact, Email: Email});
     details.save()
         .then((data) => {
             res.send(data);
@@ -14,7 +14,7 @@ router.route("/register").post((req, res) => {
 });
 
 router.route("/get/details").get((req, res) => {
-    EmployeeRegister.find()
+    BranchRegister.find()
     .then(data=>{
         res.send(data)
     })

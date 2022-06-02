@@ -8,27 +8,49 @@
 }
 .emp-detail-grp{
     padding-top: 20px;
-    width:78%;
-    display: flex
+    width:91%;
+    display: flex;
 }
 .emp-details{
-    margin-left: 11vh;
+    padding-left: 20px;
+    width:45vh; 
     color:rgb(2, 27, 30);
     font-weight: 500;
+    margin-left: 10px;
+    /* background-color:aliceblue */
 }
-
- 
+.name{
+    width: 28vh; 
+}
+.nic{
+    width: 28vh; 
+}
+.contact{
+    width: 28vh; 
+}
+.pass{
+    width: 16vh; 
+    color:rgb(2, 27, 30);
+    font-weight: 500;
+    margin-left: 10px;
+    /* background-color:aliceblue */
+}
 .emp-action-btn{
     height:50%;
-    width: 9%;
+    width: 35px;
     outline: none;
     border: none;
-    margin-left:10px;
+   margin-left:30px;
     margin-top:15px;
+    background-color: transparent;
+    color:white;
+    border-radius:50%;
 }
-.update{
-    background-color: rgb(16, 147, 104);
+.emp-action-btn:hover{
+    
+    color:rgb(15, 41, 65) ;
 }
-.delete{
-    background-color:brown;
+.branch{
+    margin-left:40px
 }
+ 
