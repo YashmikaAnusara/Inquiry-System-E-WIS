@@ -6,11 +6,6 @@ const RegSchema = new Schema({
     type: String,
     required: true,
   },
-
-  NIC: {
-    type: String,
-    required: true,
-  },
   Contact: {
     type: String,
     required: true,
@@ -20,20 +15,8 @@ const RegSchema = new Schema({
     type: String,
     required: true,
   },
-  Branch: {
-    type: String,
-    required: true,
-  },
-  Position: {
-    type: String,
-    required: true,
-  },
-  Password: {
-    type: String,
-    required: true,
-  },
 
 });
 
-const data = mongoose.model("Employee_Reg", RegSchema);
+const data = mongoose.model("Branch_Reg", RegSchema);
 module.exports = data;

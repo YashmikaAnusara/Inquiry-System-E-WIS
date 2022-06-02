@@ -79,14 +79,14 @@
     background-color: rgb(63, 156, 229);
     overflow-y: auto;
 }
- /* .emp-reg-form{
+ .emp-reg-form{
     margin:auto;
     margin-top: 3vh;
     margin-bottom: 3vh;
     width:95%;
-    height: 100vh;
-    background-color:blue;
-}  */
+    /* height: 100vh;
+    background-color:blue; */
+} 
 
 .emp-popup-form{
 

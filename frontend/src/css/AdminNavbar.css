@@ -1,5 +1,5 @@
 .headerWraper {
-    height: 13vh;
+    height: 14vh;
     width: 100%;
     display: flex;  
     background-color: rgb(15, 41, 65);
@@ -11,69 +11,7 @@
     overflow-y: scroll;
     background-color: rgb(15, 41, 65);
 }
-.search-wrapper{
-     height:fit-content;
-     float: left;
-    background-color: aqua;
-}
-.action-btns{
-    
-    width:fit-content;
-    height:fit-content;
-    display: flex;
-    margin-left: 87%;
-   
-    margin-top: 18px;
 
-    
-}
-.usericonWrapper{
-    width:90px;
-    height: 45px;
-    margin-left: 10px;
-    background-color:rgb(237, 231, 246);
-    border-radius: 40px;
-}
-.usericonWrapper:hover{
-    background-color:rgb(194, 167, 247);
-      color: white;
-}
-.addBranchWrapper{
-    width:25px;
-    height: 25px;
-    padding: 5px 5px 5px 7px;
-    border-radius: 8px;
-    margin-top: 4px;
-  }
-  .addbranchBtn{
-      background-color:transparent;
-      outline:none;
-      border:none;
-      color: white;
-
-  }
-  .addBranchWrapper:hover{
-    background-color: rgb(187, 175, 205);
-     
-  }
-.userLogo{
-    margin-top: 8px;
-    margin-left: 10px;
-    width: 30px;
-    height:30px;
-    border-radius: 80%;
-}
-.searchInput {
-    width: 350px;
-    height: 40px; 
-    outline-color: rgb(30, 79, 226);
-    border-radius: 10px;
-    background-color: rgb(242, 242, 242);
-    border: 1px solid rgb(167, 167, 167);
-}
-.searchInput:hover{
-    border: 1.5px solid rgb(131, 131, 131);
-}
 .navWraper::-webkit-scrollbar {
     display: none
 }
@@ -116,6 +54,43 @@
 }
  
 .Dashboardcontentext:hover {
+    background-color:rgb(120, 121, 122);
+    color: rgb(255, 255, 255);
+    font-weight: 400;
+}
+.inquiry-header-section-Wrapper {
+    width: 85%;
+    height:29%;
+    margin: auto;
+    margin-top: 20px;
+    border-bottom: 1px solid rgb(188, 188, 188);
+    padding-bottom: 20px;
+    overflow-y:scroll;
+}
+.inquiry-header-section-Wrapper::-webkit-scrollbar {
+    display: none
+}
+
+.inquiry-dashboard-content {
+    margin-top: 15px;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.inquiry-dashboard-conten-text {
+    margin-top: 10px;
+    padding: 10px 22px 0;
+    height: 33px;    
+    display: flex;
+}
+.inquiry-dashboard-conten-Word{
+    margin-top: 2px;
+    margin-left:10px;
+    text-decoration: none;
+}
+ 
+.inquiry-dashboard-conten-text:hover {
     background-color:rgb(120, 121, 122);
     color: rgb(255, 255, 255);
     font-weight: 400;

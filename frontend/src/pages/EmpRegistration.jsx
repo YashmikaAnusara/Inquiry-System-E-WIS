@@ -4,7 +4,7 @@ import '../css/EmpRegistration.css'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import EmpRegForm from '../components/EmpRegForm';
 import CloseIcon from '@mui/icons-material/Close';
-
+import EmpDetails from '../components/EmpDetails';
 import axios from 'axios';
 
 function EmpRegistration() {
@@ -21,7 +21,7 @@ function EmpRegistration() {
             })
 
 
-    }, [details])
+    }, [])
 
     const addFormHandler = () => {
         setActive(!active)
@@ -44,16 +44,14 @@ function EmpRegistration() {
                             <button onClick={addFormHandler} className='emp-add-btn'><AddCircleIcon fontSize='large' /></button>
                         </div>
                     </div>
+                    
                     <div className='emp-body-wrapper clearfix'>
-
-                        {/* <div className='emp-reg-form'>
+                        <div className='emp-reg-form'>
+                            
                             {details.map((detail) => (
-                                <div><EmpDetails Name={detail.Name} NIC={detail.NIC} Contact={detail.Contact} Email={detail.Email}/></div>
+                                <div><EmpDetails Name={detail.Name} NIC={detail.NIC} Contact={detail.Contact} Email={detail.Email} Password={detail.Password}/></div>
                             ))}
-                        </div> */}
-
-
-
+                        </div>
                     </div>
                 </div>
             </div>
