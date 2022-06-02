@@ -1,15 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import "../css/LoginPage.css";
+import { useNavigate } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import LoadingButton from "@mui/lab/LoadingButton";
+import axios from "axios";
 
 export default function LoginPage() {
   const [loading, setLoading] = React.useState(false);
+  const [username, setusername] = useState("");
+  const [password, setpassword] = useState("");
+  const nav = useNavigate();
 
-  function handleClick() {
-    setLoading(true);
-  }
+  const handleClick = () => {
+    axios
+      .get(`http://localhost:8070/Login/Log/${username}/${password}`)
+      .then((res) => {
+        if (res.data.positions === "Admin") {
+          setLoading(true);
+          setTimeout(() => {
+            nav("/dashBoard");
+          }, 3000);
+        } else if (res.data.positions === "Manger") {
+          setLoading(true);
+          setTimeout(() => {
+            nav("/InquiryForm");
+          }, 3000);
+        }
+      })
+      .catch((err) => {
+        alert("It's it not ok");
+      });
+  };
 
   return (
     <div className="LoginBody">
@@ -34,18 +56,24 @@ export default function LoginPage() {
           <div className="LoginFrom">
             <h3 className="LoginSubText">Sign in with Email Address</h3>
             <TextField
-              id="outlined-basic"
+              value={username}
               label="Username"
               fullWidth
               margin="normal"
+              onChange={(e) => {
+                setusername(e.target.value);
+              }}
               variant="outlined"
             />
             <TextField
               type="password"
-              id="outlined-basic"
+              value={password}
               label="Password"
               fullWidth
               margin="normal"
+              onChange={(e) => {
+                setpassword(e.target.value);
+              }}
               variant="outlined"
             />
             <div className="LoginButton">
