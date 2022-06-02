@@ -108,3 +108,9 @@
     outline: none;
     border: none
 }
+.branch-reg-form{
+    margin:auto;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    width:95%;
+}

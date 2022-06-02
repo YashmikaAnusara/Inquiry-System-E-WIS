@@ -5,7 +5,7 @@ import InquiryForm from "./pages/InquiryForm";
 import LoginPage from "./pages/LoginPage";
 import EmpRegistration from "./pages/EmpRegistration";
 import BranchRegistration from "./pages/BranchRegistration";
-
+import MarktingHome from "./pages/MarktingHome";
  
 
 function App() {
@@ -18,6 +18,8 @@ function App() {
           <Route path="/Login" element={<LoginPage />} />
           <Route path="/addemployee" element={<EmpRegistration />} />
           <Route path="/addbranch" element={<BranchRegistration />} />
+          <Route path="/market" element={<MarktingHome />} />
+          
         </Routes>
       </BrowserRouter>
     </div>

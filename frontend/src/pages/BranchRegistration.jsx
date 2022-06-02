@@ -28,7 +28,7 @@ function BranchRegistration() {
                         </div>
                     </div>
                     <div className='branch-body-wrapper clearfix'>
-                        <div className='emp-reg-form'>
+                        <div className='branch-reg-form'>
                             {/* {details.map((detail) => ( */}
                                 <BranchDetails />
                                 <BranchDetails />
