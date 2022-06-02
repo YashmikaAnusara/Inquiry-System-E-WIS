@@ -32,7 +32,7 @@ export default function LoginPage() {
           }, 3000);
         } else if (res.data.positions === "Manger") {
           setTimeout(() => {
-            nav("/InquiryForm");
+            nav("/marketingdashBoard");
           }, 3000);
         } else if (positions === "") {
           setTimeout(() => {
