@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import '../css/AdminNavbar.css'
 // import Pic from '../images/pic1.jpg'
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import AddIcon from '@mui/icons-material/Add';
+// import AddIcon from '@mui/icons-material/Add'; 
 // import SettingsIcon from '@mui/icons-material/Settings';
 import { Link } from 'react-router-dom'
 import BranchReg from './BranchRegForm';
@@ -22,9 +22,9 @@ function AdminNavbar() {
                 <input type='search' placeholder='Search' className='searchInput' />
                </div> */}
                 <div className='action-btns'>
-                    <div className="addBranchWrapper">
+                    {/* <div className="addBranchWrapper">
                         <button className='addbranchBtn' onClick={addBranchHandler}><AddIcon /></button>
-                    </div>
+                    </div> */}
                     {/* <div className="usericonWrapper">
                         <img src={Pic} alt='Logo' className='userLogo' />
                     </div> */}
@@ -74,6 +74,7 @@ function AdminNavbar() {
                             </div>
                         </div>
                     </Link>
+                    
                 </div>
                 
             </div>

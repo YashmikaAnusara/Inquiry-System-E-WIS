@@ -5,33 +5,41 @@ import Notification from './Alert'
 
 function EmpRegForm() {
   const [active, setActive] = useState(false)
-  const [type, setType] = useState("success")
-  const [Name, setName] = useState()
-  const [NIC, setnic] = useState()
-  const [Contact, setContact] = useState()
-  const [Email, setEmail] = useState()
-  const [Branch, setBranch] = useState()
+  const [type, setType] = useState()
+  const [Name, setName] = useState('')
+  const [NIC, setnic] = useState('')
+  const [Contact, setContact] = useState('')
+  const [Email, setEmail] = useState('')
+  const [Branch, setBranch] = useState('')
+  const [Position, setPosition] = useState('')
+
+  const [message,setMessage]=useState()
 
   const data = {
     Name,
     NIC,
     Contact,
     Email,
-    Branch
+    Branch,
+    Position
   }
 
   const regHandler = () => {
+
+
     axios.post('http://localhost:8070/employee/register',data)
       .then(() => { 
+        setType("success")
+        setMessage("Done")
         setActive(true)
-        
         setTimeout(() => {
           setActive(false)
         }, 4000)
         
       })
-      .catch((err) => {
-        alert(err)
+      .catch(() => {
+        setType("erorr")
+        setMessage("Error")
       })
 
 
@@ -46,10 +54,16 @@ function EmpRegForm() {
       <center> <select className='select-input-feilds' onChange={(event) => { setBranch(event.target.value) }}>
         <option value="">Select a Branch...</option>
         <option value="Test">Test</option>
+        <option value="Test">Test</option>
+      </select></center>
+      <center> <select className='select-input-feilds' onChange={(event) => { setPosition(event.target.value) }}>
+        <option value="">Select a Position...</option>
+        <option value="Test">Secratory</option>
+        <option value="Test">Secratory</option>
       </select></center>
 
       <center> <button className='reg-btn' onClick={regHandler}>Register</button></center>
-      {active && <Notification type={type} message="Done" />}
+      {active && <Notification type={type} message={message} />}
 
     </div>
   )

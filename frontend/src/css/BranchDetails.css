@@ -6,6 +6,18 @@
     box-shadow: 1px 1px rgb(37, 105, 224);
     display: flex;
 }
+.emp-detail-grp{
+    padding-top: 20px;
+    width:78%;
+    display: flex
+}
+.emp-details{
+    margin-left: 11vh;
+    color:rgb(2, 27, 30);
+    font-weight: 500;
+}
+
+ 
 .emp-action-btn{
     height:50%;
     width: 9%;
@@ -13,5 +25,10 @@
     border: none;
     margin-left:10px;
     margin-top:15px;
-
+}
+.update{
+    background-color: rgb(16, 147, 104);
+}
+.delete{
+    background-color:brown;
 }

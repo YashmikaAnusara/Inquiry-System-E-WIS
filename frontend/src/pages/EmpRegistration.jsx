@@ -4,7 +4,7 @@ import '../css/EmpRegistration.css'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import EmpRegForm from '../components/EmpRegForm';
 import CloseIcon from '@mui/icons-material/Close';
-import EmpDetails from '../components/EmpDetails'
+
 import axios from 'axios';
 
 function EmpRegistration() {
@@ -45,12 +45,15 @@ function EmpRegistration() {
                         </div>
                     </div>
                     <div className='emp-body-wrapper clearfix'>
-                        <div className='emp-reg-form'>
-                            {details.map((detail, index) => (
-                               
-                                <div><EmpDetails/><EmpDetails/><EmpDetails/><EmpDetails/><EmpDetails/><EmpDetails/><EmpDetails/><EmpDetails/></div>
+
+                        {/* <div className='emp-reg-form'>
+                            {details.map((detail) => (
+                                <div><EmpDetails Name={detail.Name} NIC={detail.NIC} Contact={detail.Contact} Email={detail.Email}/></div>
                             ))}
-                        </div>
+                        </div> */}
+
+
+
                     </div>
                 </div>
             </div>
