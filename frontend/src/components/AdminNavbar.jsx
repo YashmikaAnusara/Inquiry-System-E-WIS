@@ -42,28 +42,29 @@ function AdminNavbar() {
                     </Link>
                 </div>
                 <div className="headerContentsectionWrapper">
-                    <p className='DashboardTopic'>Dashboard</p>
+                    <p className='DashboardTopic'>Inquiry</p>
                     <Link to='/InquiryForm'>
                         <div className='Dashboardcontent'>
                             <div className="Dashboardcontentext">
-                                <DashboardIcon /><p className='DashboardcontenWord'> Dashboard</p>
+                                <DashboardIcon /><p className='DashboardcontenWord'> All Inquiry </p>
+                            </div>
+                        </div>
+                    </Link>
+                    <Link to='/InquiryForm'>
+                        <div className='Dashboardcontent'>
+                            <div className="Dashboardcontentext">
+                                <DashboardIcon /><p className='DashboardcontenWord'> Branch Inquiry</p>
                             </div>
                         </div>
                     </Link>
                 </div>
                 <div className="headerContentsectionWrapper">
-                    <p className='DashboardTopic'>Pages</p>
+                    <p className='DashboardTopic'>Employees</p>
                     <div className='Dashboardcontent'>
                         <div className="Dashboardcontentext">
-                            <DashboardIcon /><p className='DashboardcontenWord'> Dashboard</p>
+                            <DashboardIcon /><p className='DashboardcontenWord'>Rgisterstion</p>
                         </div>
                     </div>
-                    <div className='Dashboardcontent'>
-                        <div className="Dashboardcontentext">
-                            <DashboardIcon /><p className='DashboardcontenWord'> Dashboard</p>
-                        </div>
-                    </div>
-
                 </div>
                 <div className="headerContentsectionWrapper">
                     <p className='DashboardTopic'>Pages</p>
