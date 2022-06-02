@@ -27,6 +27,11 @@ router.route("/Log/:username/:password").get((req, res) => {
     $and: [{ username: { $eq: username } }, { password: { $eq: password } }],
   })
     .then((data) => {
+      // if (data === null) {
+      //   res.send(null);
+      // } else {
+      //   res.send(data);
+      // }
       res.send(data);
     })
     .catch((err) => {
