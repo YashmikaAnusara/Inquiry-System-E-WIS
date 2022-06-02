@@ -2,8 +2,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AdminHome from "./pages/AdminHome";
 import InquiryForm from "./pages/InquiryForm";
 // import Notification from "./components/Alert";
-import BranchReg from "./components/BranchReg";
 import LoginPage from "./pages/LoginPage";
+import EmpRegistration from "./pages/EmpRegistration";
+import BranchRegistration from "./pages/BranchRegistration";
+
  
 
 function App() {
@@ -13,8 +15,9 @@ function App() {
         <Routes>
           <Route path="/dashBoard" element={<AdminHome />} />
           <Route path="/InquiryForm" element={<InquiryForm />} />
-          <Route path="/branch" element={<BranchReg />} />
           <Route path="/Login" element={<LoginPage />} />
+          <Route path="/addemployee" element={<EmpRegistration />} />
+          <Route path="/addbranch" element={<BranchRegistration />} />
         </Routes>
       </BrowserRouter>
     </div>

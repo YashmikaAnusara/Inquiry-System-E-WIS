@@ -5,7 +5,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import AddIcon from '@mui/icons-material/Add';
 // import SettingsIcon from '@mui/icons-material/Settings';
 import { Link } from 'react-router-dom'
-import BranchReg from './BranchReg';
+import BranchReg from './BranchRegForm';
 
 function AdminNavbar() {
     const [active, setActive] = useState(false)
@@ -17,7 +17,7 @@ function AdminNavbar() {
             {active ? <BranchReg /> : ''}
 
             <div className='headerWraper'>
-               {/* <div className='search-wrapper'>
+                {/* <div className='search-wrapper'>
 
                 <input type='search' placeholder='Search' className='searchInput' />
                </div> */}
@@ -42,7 +42,7 @@ function AdminNavbar() {
                     </Link>
                 </div>
                 <div className="headerContentsectionWrapper">
-                    <p className='DashboardTopic'>Inquiry</p>
+                    <p className='DashboardTopic'>Inquiries</p>
                     <Link to='/InquiryForm'>
                         <div className='Dashboardcontent'>
                             <div className="Dashboardcontentext">
@@ -59,41 +59,23 @@ function AdminNavbar() {
                     </Link>
                 </div>
                 <div className="headerContentsectionWrapper">
-                    <p className='DashboardTopic'>Employees</p>
-                    <div className='Dashboardcontent'>
-                        <div className="Dashboardcontentext">
-                            <DashboardIcon /><p className='DashboardcontenWord'>Rgisterstion</p>
+                    <p className='DashboardTopic'>Configurations</p>
+                    <Link to='/addbranch'>
+                        <div className='Dashboardcontent'>
+                            <div className="Dashboardcontentext">
+                                <DashboardIcon /><p className='DashboardcontenWord'>Add Branch</p>
+                            </div>
                         </div>
-                    </div>
+                    </Link>
+                    <Link to='/addemployee'>
+                        <div className='Dashboardcontent'>
+                            <div className="Dashboardcontentext">
+                                <DashboardIcon /><p className='DashboardcontenWord'>Add Employee</p>
+                            </div>
+                        </div>
+                    </Link>
                 </div>
-                <div className="headerContentsectionWrapper">
-                    <p className='DashboardTopic'>Pages</p>
-                    <div className='Dashboardcontent'>
-                        <div className="Dashboardcontentext">
-                            <DashboardIcon /><p className='DashboardcontenWord'> Dashboard</p>
-                        </div>
-                    </div>
-                    <div className='Dashboardcontent'>
-                        <div className="Dashboardcontentext">
-                            <DashboardIcon /><p className='DashboardcontenWord'> Dashboard</p>
-                        </div>
-                    </div>
-
-                </div>
-                <div className="headerContentsectionWrapper">
-                    <p className='DashboardTopic'>Pages</p>
-                    <div className='Dashboardcontent'>
-                        <div className="Dashboardcontentext">
-                            <DashboardIcon /><p className='DashboardcontenWord'> Dashboard</p>
-                        </div>
-                    </div>
-                    <div className='Dashboardcontent'>
-                        <div className="Dashboardcontentext">
-                            <DashboardIcon /><p className='DashboardcontenWord'> Dashboard</p>
-                        </div>
-                    </div>
-
-                </div>
+                
             </div>
         </div>
     )
