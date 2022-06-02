@@ -1,9 +1,8 @@
 import React from 'react'
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, } from '';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, } from "chart.js";
 import { Bar } from "react-chartjs-2";
 
-function Graph() { 
-
+function Graph() {
     ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
     const state = {
         labels: ["January", "February", "March", "April", "May","June","July","Agust","September","October","November","December"],
