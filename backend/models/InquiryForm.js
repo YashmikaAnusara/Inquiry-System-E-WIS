@@ -17,6 +17,11 @@ const InquiryForm = new Schema({
     required: true,
   },
 
+  email: {
+    type: String,
+    required: true,
+  },
+
   course: {
     type: String,
     required: true,
@@ -24,10 +29,10 @@ const InquiryForm = new Schema({
 
   branch: {
     type: String,
-    required: true,
+    // required: true,
   },
 
-  Message: {
+  message: {
     type: String,
     required: true,
   },
