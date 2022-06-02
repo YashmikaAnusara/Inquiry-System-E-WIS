@@ -16,6 +16,92 @@ function AdminNavbar() {
     <div>
       {active ? <BranchReg /> : ""}
 
+
+            <div className='headerWraper'>
+               {/* <div className='search-wrapper'>
+
+                <input type='search' placeholder='Search' className='searchInput' />
+               </div> */}
+                <div className='action-btns'>
+                    <div className="addBranchWrapper">
+                        <button className='addbranchBtn' onClick={addBranchHandler}><AddIcon /></button>
+                    </div>
+                    {/* <div className="usericonWrapper">
+                        <img src={Pic} alt='Logo' className='userLogo' />
+                    </div> */}
+                </div>
+            </div>
+            <div className='navWraper'>
+                <div className="headerContentsectionWrapper">
+                    <p className='DashboardTopic'>Dashboard</p>
+                    <Link to='/dashBoard'>
+                        <div className='Dashboardcontent'>
+                            <div className="Dashboardcontentext">
+                                <DashboardIcon /><p className='DashboardcontenWord'> Dashboard</p>
+                            </div>
+                        </div>
+                    </Link>
+                </div>
+                <div className="headerContentsectionWrapper">
+                    <p className='DashboardTopic'>Inquiry</p>
+                    <Link to='/InquiryForm'>
+                        <div className='Dashboardcontent'>
+                            <div className="Dashboardcontentext">
+                                <DashboardIcon /><p className='DashboardcontenWord'>All Inquiries</p>
+                            </div>
+                        </div>
+                    </Link>
+                    <Link to='/InquiryForm'>
+                        <div className='Dashboardcontent'>
+                            <div className="Dashboardcontentext">
+                                <DashboardIcon /><p className='DashboardcontenWord'>Branch Inquiries</p>
+                            </div>
+                        </div>
+                    </Link>
+                </div>
+                <div className="headerContentsectionWrapper">
+                    <p className='DashboardTopic'>Employees</p>
+                    <div className='Dashboardcontent'>
+                        <div className="Dashboardcontentext">
+                            <DashboardIcon /><p className='DashboardcontenWord'>Register</p>
+                        </div>
+                    </div>
+                    <div className='Dashboardcontent'>
+                        <div className="Dashboardcontentext">
+                            <DashboardIcon /><p className='DashboardcontenWord'> Dashboard</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div className="headerContentsectionWrapper">
+                    <p className='DashboardTopic'>Pages</p>
+                    <div className='Dashboardcontent'>
+                        <div className="Dashboardcontentext">
+                            <DashboardIcon /><p className='DashboardcontenWord'> Dashboard</p>
+                        </div>
+                    </div>
+                    <div className='Dashboardcontent'>
+                        <div className="Dashboardcontentext">
+                            <DashboardIcon /><p className='DashboardcontenWord'> Dashboard</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div className="headerContentsectionWrapper">
+                    <p className='DashboardTopic'>Pages</p>
+                    <div className='Dashboardcontent'>
+                        <div className="Dashboardcontentext">
+                            <DashboardIcon /><p className='DashboardcontenWord'> Dashboard</p>
+                        </div>
+                    </div>
+                    <div className='Dashboardcontent'>
+                        <div className="Dashboardcontentext">
+                            <DashboardIcon /><p className='DashboardcontenWord'> Dashboard</p>
+                        </div>
+                    </div>
+
+                </div>
+
       <div className="headerWraper">
         <input type="search" placeholder="Search" className="searchInput" />
 
@@ -94,6 +180,7 @@ function AdminNavbar() {
             <div className="Dashboardcontentext">
               <DashboardIcon />
               <p className="DashboardcontenWord"> Dashboard</p>
+
             </div>
           </div>
         </div>

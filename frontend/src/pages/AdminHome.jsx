@@ -27,6 +27,9 @@ function AdminHome() {
                     <div className='graph'>
                         {/* <Graph /> */}
                     </div>
+                    <div className='graph'>
+                        <Graph />
+                    </div>
                      
 
                 </div>
