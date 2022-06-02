@@ -1,0 +1,35 @@
+.branch-reg-form-wrapper{
+    width:35%;
+    margin:auto;
+    margin-top:10%;
+    z-index: 1;
+    border-radius: 10px;
+    background-color: rgb(5, 51, 67);
+    padding-bottom: 5vh;
+    padding-top: 5vh;
+}
+.branch-input-feilds{
+    width:80%;
+    height:5vh;
+    margin-top: 20px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    padding-left: 10px;
+}
+.branch-reg-btn{
+    width:35%;
+    height:5vh;
+    margin-top: 20px;
+    outline:none;
+    border:1px solid white;
+    border-radius: 5px;
+    background-color:transparent;
+    color:white;
+    margin-bottom: 20px;
+}
+.branch-reg-btn:hover{
+    background-color: rgb(237, 231, 246);
+    color: rgb(15, 41, 65);
+
+}

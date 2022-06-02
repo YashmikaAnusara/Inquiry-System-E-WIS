@@ -2,14 +2,14 @@
     height: 13vh;
     width: 100%;
     display: flex;  
-    background-color: rgb(5, 51, 67);
+    background-color: rgb(15, 41, 65);
 }
 .navWraper {
     height:86vh;
     width: 17%;
     float: left;
     overflow-y: scroll;
-    background-color: rgb(5, 51, 67);
+    background-color: rgb(15, 41, 65);
 }
 .search-wrapper{
      height:fit-content;
@@ -89,7 +89,7 @@
 
 .DashboardTopic {
     font-size: 15px;
-    color: rgb(235, 235, 235);
+    color: rgb(221, 221, 221);
     font-weight: 500;
      
 }
@@ -105,10 +105,8 @@
 
 .Dashboardcontentext {
     margin-top: 10px;
-    padding: 10px 27px 0;
-    height: 33px;
-    width: 130px;
-    border-radius: 10px;
+    padding: 10px 22px 0;
+    height: 33px;    
     display: flex;
 }
 .DashboardcontenWord{
@@ -118,7 +116,7 @@
 }
  
 .Dashboardcontentext:hover {
-    background-color: rgb(237, 231, 246);
-    color: rgb(68, 0, 203);
+    background-color:rgb(120, 121, 122);
+    color: rgb(255, 255, 255);
     font-weight: 400;
 }
