@@ -24,6 +24,10 @@ const RegSchema = new Schema({
     type: String,
     required: true,
   },
+  Position: {
+    type: String,
+    required: true,
+  },
 
 });
 
