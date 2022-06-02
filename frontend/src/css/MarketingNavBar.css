@@ -1,8 +1,19 @@
 .headerWraper {
+
   height: 9vh;
+
+
+    height: 14vh;
+    width: 100%;
+    display: flex;  
+    background-color: rgb(15, 41, 65);
+
+  height: 13vh;
+
   width: 100%;
   display: flex;
   background-color: rgb(15, 41, 65);
+
 }
 .navWraper {
   height: 91vh;

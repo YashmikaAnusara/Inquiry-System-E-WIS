@@ -1,35 +1,33 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../css/AdminNavbar.css'
-// import Pic from '../images/pic1.jpg'
 import DashboardIcon from '@mui/icons-material/Dashboard';
-// import AddIcon from '@mui/icons-material/Add'; 
-// import SettingsIcon from '@mui/icons-material/Settings';
+import HomeIcon from '@mui/icons-material/Home';
+import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
+import AddBusinessIcon from '@mui/icons-material/AddBusiness';
+
 import { Link } from 'react-router-dom'
-import BranchReg from './BranchRegForm';
+import axios from 'axios';
 
 function AdminNavbar() {
-    const [active, setActive] = useState(false)
-    const addBranchHandler = () => {
-        setActive(true)
-    }
+    const [details, setDetails] = useState([])
+
+    useEffect(() => {
+        axios.get('http://localhost:8070/branch/get/details')
+            .then((res) => {
+                setDetails(res.data)
+            })
+            .catch(e => {
+                alert(e)
+            })
+
+    }, [])
+
     return (
         <div>
-            {active ? <BranchReg /> : ''}
-
             <div className='headerWraper'>
-                {/* <div className='search-wrapper'>
 
-                <input type='search' placeholder='Search' className='searchInput' />
-               </div> */}
-                <div className='action-btns'>
-                    {/* <div className="addBranchWrapper">
-                        <button className='addbranchBtn' onClick={addBranchHandler}><AddIcon /></button>
-                    </div> */}
-                    {/* <div className="usericonWrapper">
-                        <img src={Pic} alt='Logo' className='userLogo' />
-                    </div> */}
-                </div>
             </div>
+
             <div className='navWraper'>
                 <div className="headerContentsectionWrapper">
                     <p className='DashboardTopic'>Dashboard</p>
@@ -41,42 +39,38 @@ function AdminNavbar() {
                         </div>
                     </Link>
                 </div>
-                <div className="headerContentsectionWrapper">
+                <div className="inquiry-header-section-Wrapper">
                     <p className='DashboardTopic'>Inquiries</p>
-                    <Link to='/InquiryForm'>
-                        <div className='Dashboardcontent'>
-                            <div className="Dashboardcontentext">
-                                <DashboardIcon /><p className='DashboardcontenWord'> All Inquiry </p>
+                    {details.map((detail) => (
+                        <Link to={`/inquiry/${detail.Name}/${detail.Email}`}>
+                            <div className='inquiry-dashboard-content'>
+                                <div className="inquiry-dashboard-conten-text">
+                                    <HomeIcon /><p className='inquiry-dashboard-conten-Word'> {detail.Name}</p>
+                                </div>
                             </div>
-                        </div>
-                    </Link>
-                    <Link to='/InquiryForm'>
-                        <div className='Dashboardcontent'>
-                            <div className="Dashboardcontentext">
-                                <DashboardIcon /><p className='DashboardcontenWord'> Branch Inquiry</p>
-                            </div>
-                        </div>
-                    </Link>
+                        </Link>
+
+                    ))}
                 </div>
                 <div className="headerContentsectionWrapper">
                     <p className='DashboardTopic'>Configurations</p>
-                    <Link to='/addbranch'>
+                    <Link to='/branch'>
                         <div className='Dashboardcontent'>
                             <div className="Dashboardcontentext">
-                                <DashboardIcon /><p className='DashboardcontenWord'>Add Branch</p>
+                                <AddBusinessIcon /><p className='DashboardcontenWord'>Branches</p>
                             </div>
                         </div>
                     </Link>
-                    <Link to='/addemployee'>
+                    <Link to='/employee'>
                         <div className='Dashboardcontent'>
                             <div className="Dashboardcontentext">
-                                <DashboardIcon /><p className='DashboardcontenWord'>Add Employee</p>
+                                <PersonAddAlt1Icon /><p className='DashboardcontenWord'>Employees</p>
                             </div>
                         </div>
                     </Link>
-                    
+
                 </div>
-                
+
             </div>
         </div>
     )

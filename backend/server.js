@@ -32,7 +32,17 @@ connection.once("open", () => {
 
 //Routers Connection
 const Login = require("./routes/Login");
+
 const Employee = require("./routes/EmpRegister");
+
+const Branch=require('./routes/BranchRegister')
+const Employee=require("./routes/EmpRegister")
+//Routers
+app.use("/Login", Login);
+app.use("/employee", Employee);
+app.use("/branch", Branch);
+ 
+
 const InquiryForm = require("./routes/InquiryForm");
 
 //Routers

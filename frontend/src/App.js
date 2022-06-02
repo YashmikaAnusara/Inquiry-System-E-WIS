@@ -8,6 +8,10 @@ import BranchRegistration from "./pages/BranchRegistration";
 import MarktingHome from "./pages/MarktingHome";
 import ViewEmployee from "./pages/ViewEmployee";
 
+import InquiriesPage from "./pages/InquiriesPage";
+ 
+
+
 function App() {
   return (
     <div>
@@ -15,11 +19,21 @@ function App() {
         <Routes>
           <Route path="/dashBoard" element={<AdminHome />} />
           <Route path="/InquiryForm" element={<InquiryForm />} />
+          <Route path="/inquiry/:branch/:email" element={<InquiriesPage />} />
           <Route path="/Login" element={<LoginPage />} />
+
+          <Route path="/employee" element={<EmpRegistration />} />
+          <Route path="/branch" element={<BranchRegistration />} />
+          <Route path="/market" element={<MarktingHome />} />
+          
+
           <Route path="/addemployee" element={<EmpRegistration />} />
           <Route path="/addbranch" element={<BranchRegistration />} />
           <Route path="/marketingdashBoard" element={<MarktingHome />} />
+
           <Route path="/viewemployee" element={<ViewEmployee />} />
+
+
         </Routes>
       </BrowserRouter>
     </div>

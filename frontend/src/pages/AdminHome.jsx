@@ -12,17 +12,14 @@ function AdminHome() {
                 <div className="contentbodywrapper">
                     <div className="cardMainWrapper">
                         <div className='cardwrapper card1'>
-
+                            <div><p>120</p></div>
+                            <div><p>120</p></div>
                         </div>
-                        <div className='cardwrapper card2'>
 
-                        </div>
                         <div className='cardwrapper card3'>
-
+                            <div><p>120</p></div>
+                            <div><p>120</p></div>
                         </div>
-                         
-                         
-                         
                     </div>
                     {/* <div className='graph'>
                         <Graph />
@@ -30,12 +27,10 @@ function AdminHome() {
                     <div className='graph'>
                         <Graph />
                     </div> */}
-                     
-
                 </div>
             </div>
 
-            
+
 
         </div>
     )
