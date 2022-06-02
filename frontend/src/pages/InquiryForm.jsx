@@ -38,7 +38,7 @@ export default function InquiryForm() {
 
       if (active) {
         //Enter the Fetch Data URL
-        fetch("")
+        fetch("http://localhost:8070/branch/get/details")
           .then((response) => response.json())
           .then((data) => {
             setOptions(data);
@@ -160,9 +160,9 @@ export default function InquiryForm() {
             onClose={() => {
               setOpen(false);
             }}
-            getOptionLabel={(option) => option.branch}
+            getOptionLabel={(option) => option.Name}
             onChange={(e, value) => {
-              setBranch(value.branch);
+              setBranch(value.Name);
             }}
             options={options}
             loading={loading}
