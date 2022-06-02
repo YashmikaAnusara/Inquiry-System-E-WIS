@@ -37,6 +37,7 @@
 .container .card:hover .content {
   transform: translateY(0px);
   opacity: 1;
+  
 }
 
 .icon {
@@ -52,6 +53,7 @@
 .card:hover .icon {
   transform: translateY(0px);
   opacity: 1;
+  margin-top: 4%;
 }
 
 .container .card .content h2 {

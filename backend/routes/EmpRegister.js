@@ -55,4 +55,15 @@ router.route("/delete/employee/:id").get((req, res) => {
     });
 });
 
+router.route("/update/detail/:id").get((req, res) => {
+  let id = req.params.id;
+
+  EmployeeRegister.findOneAndUpdate({ _id: id })
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.json(data);
+    });
+});
 module.exports = router;
