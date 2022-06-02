@@ -6,8 +6,10 @@ import LoginPage from "./pages/LoginPage";
 import EmpRegistration from "./pages/EmpRegistration";
 import BranchRegistration from "./pages/BranchRegistration";
 import MarktingHome from "./pages/MarktingHome";
+
 import InquiriesPage from "./pages/InquiriesPage";
  
+
 
 function App() {
   return (
@@ -18,10 +20,16 @@ function App() {
           <Route path="/InquiryForm" element={<InquiryForm />} />
           <Route path="/inquiry/:branch/:email" element={<InquiriesPage />} />
           <Route path="/Login" element={<LoginPage />} />
+
           <Route path="/employee" element={<EmpRegistration />} />
           <Route path="/branch" element={<BranchRegistration />} />
           <Route path="/market" element={<MarktingHome />} />
           
+
+          <Route path="/addemployee" element={<EmpRegistration />} />
+          <Route path="/addbranch" element={<BranchRegistration />} />
+          <Route path="/marketingdashBoard" element={<MarktingHome />} />
+
         </Routes>
       </BrowserRouter>
     </div>
