@@ -31,6 +31,7 @@ export default function LoginPage() {
             nav("/dashBoard");
           }, 3000);
         } else if (res.data.positions === "Marketing") {
+          sessionStorage.setItem("marketingbranch", res.data.Branch);
           setTimeout(() => {
             nav("/marketingdashBoard");
           }, 3000);

@@ -6,7 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import EmpRegistration from "./pages/EmpRegistration";
 import BranchRegistration from "./pages/BranchRegistration";
 import MarktingHome from "./pages/MarktingHome";
-import ViewEmployee from "./pages/View Employee";
+import ViewEmployee from "./pages/ViewEmployee";
 
 function App() {
   return (
