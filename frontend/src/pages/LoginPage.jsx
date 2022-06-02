@@ -40,7 +40,7 @@ export default function LoginPage() {
           <h1>Hi, Wellcome</h1>
         </div>
         <div className="LoginText">
-          <h1>CADDY Center</h1>
+          <h1>CADD Center</h1>
         </div>
         <Box
           component="form"
