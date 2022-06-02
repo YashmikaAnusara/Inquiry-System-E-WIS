@@ -30,7 +30,7 @@ export default function LoginPage() {
           setTimeout(() => {
             nav("/dashBoard");
           }, 3000);
-        } else if (res.data.positions === "Manger") {
+        } else if (res.data.positions === "Marketing") {
           setTimeout(() => {
             nav("/marketingdashBoard");
           }, 3000);

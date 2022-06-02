@@ -1,11 +1,11 @@
 .headerWraper {
-  height: 13vh;
+  height: 9vh;
   width: 100%;
   display: flex;
   background-color: rgb(15, 41, 65);
 }
 .navWraper {
-  height: 86vh;
+  height: 91vh;
   width: 17%;
   float: left;
   overflow-y: scroll;
