@@ -5,32 +5,54 @@ import TextField from "@mui/material/TextField";
 import Box from "@mui/material/Box";
 import LoadingButton from "@mui/lab/LoadingButton";
 import axios from "axios";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 export default function LoginPage() {
   const [loading, setLoading] = React.useState(false);
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
+  const [positions] = useState("");
+  const [error, seterror] = React.useState(false);
+  const [logerror, setlogerror] = React.useState(false);
   const nav = useNavigate();
 
   const handleClick = () => {
+    setLoading(true);
     axios
       .get(`http://localhost:8070/Login/Log/${username}/${password}`)
       .then((res) => {
         if (res.data.positions === "Admin") {
-          setLoading(true);
           setTimeout(() => {
             nav("/dashBoard");
           }, 3000);
         } else if (res.data.positions === "Manger") {
-          setLoading(true);
           setTimeout(() => {
             nav("/InquiryForm");
+          }, 3000);
+        } else if (positions === "") {
+          setTimeout(() => {
+            setLoading(false);
+            setlogerror(true);
           }, 3000);
         }
       })
       .catch((err) => {
-        alert("It's it not ok");
+        seterror(true);
+        setLoading(false);
       });
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    seterror(false);
+    setlogerror(false);
   };
 
   return (
@@ -56,6 +78,7 @@ export default function LoginPage() {
           <div className="LoginFrom">
             <h3 className="LoginSubText">Sign in with Email Address</h3>
             <TextField
+              type="email"
               value={username}
               label="Username"
               fullWidth
@@ -90,6 +113,17 @@ export default function LoginPage() {
           </div>
         </Box>
       </div>
+
+      <Snackbar open={error} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
+          Enter your credentials to continue
+        </Alert>
+      </Snackbar>
+      <Snackbar open={logerror} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
+          Your username or password is incorrect
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

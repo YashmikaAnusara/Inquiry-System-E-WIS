@@ -5,6 +5,7 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import CircularProgress from "@mui/material/CircularProgress";
 import Button from "@mui/material/Button";
+import axios from "axios";
 
 function sleep(delay = 0) {
   return new Promise((resolve) => {
@@ -17,7 +18,13 @@ export default function InquiryForm() {
   const [options, setOptions] = React.useState([]);
   const loading = open && options.length === 0;
 
+  const [FirstName, setFirstName] = useState("");
+  const [SecondName, setSecondName] = useState("");
+  const [Email, setEmail] = useState("");
+  const [MobileNumber, setMobileNumber] = useState("");
+  const [Course, setCourse] = useState("");
   const [Branch, setBranch] = useState("");
+  const [Message, setMessage] = useState("");
 
   React.useEffect(() => {
     let active = true;
@@ -49,6 +56,23 @@ export default function InquiryForm() {
       setOptions([]);
     }
   }, [open]);
+
+  const submithandler = (e) => {
+    const data = {
+      FirstName,
+      SecondName,
+      Email,
+      MobileNumber,
+      Course,
+      Branch,
+      Message,
+    };
+    axios
+      .post(`http://localhost:8070/InquiryForm/AddInquiry`, data)
+      .then((res) => {
+        alert("data added");
+      });
+  };
   return (
     <div className="InquiryBody">
       <div className="InquiryCon">
@@ -68,23 +92,43 @@ export default function InquiryForm() {
             id="outlined-basic"
             label="First Name"
             variant="outlined"
+            value={FirstName}
+            onChange={(e) => {
+              setFirstName(e.target.value);
+            }}
+            required
           />
           <TextField
             id="outlined-basic"
             label="Second Name"
             variant="outlined"
+            value={SecondName}
+            onChange={(e) => {
+              setSecondName(e.target.value);
+            }}
+            required
           />
           <TextField
             type="email"
             id="outlined-basic"
             label="E-mail"
             variant="outlined"
+            value={Email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+            required
           />
           <TextField
             type="number"
             id="outlined-basic"
             label="Mobile Number"
             variant="outlined"
+            value={MobileNumber}
+            onChange={(e) => {
+              setMobileNumber(e.target.value);
+            }}
+            required
           />
           <TextField
             id="outlined-basic"
@@ -93,6 +137,11 @@ export default function InquiryForm() {
             label="Course"
             variant="outlined"
             SelectProps={{ native: true }}
+            value={Course}
+            onChange={(e) => {
+              setCourse(e.target.value);
+            }}
+            required
           >
             <option value=""></option>
             <option value="IT">IT </option>
@@ -148,9 +197,19 @@ export default function InquiryForm() {
           fullWidth
           margin="normal"
           className="InquiryMessage"
+          value={Message}
+          onChange={(e) => {
+            setMessage(e.target.value);
+          }}
+          required
         />
         <div>
-          <Button className="InquiryButton" variant="contained">
+          <Button
+            type="submit"
+            className="InquiryButton"
+            variant="contained"
+            onClick={submithandler}
+          >
             Submit
           </Button>
           <p className="InquiryPar">© 2022 Inquiry Message, Inc.</p>
