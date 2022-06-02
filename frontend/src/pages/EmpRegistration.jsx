@@ -1,12 +1,28 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import AdminNavbar from "../components/AdminNavbar";
 import '../css/EmpRegistration.css'
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import EmpRegForm from '../components/EmpRegForm';
 import CloseIcon from '@mui/icons-material/Close';
+import EmpDetails from '../components/EmpDetails'
+import axios from 'axios';
+
 function EmpRegistration() {
     const [active, setActive] = useState(false);
-    // const [details, setDetails] = useState([]);
+    const [details, setDetails] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:8070/employee/get/details')
+            .then((res) => {
+                setDetails(res.data)
+            })
+            .catch(e => {
+                alert(e)
+            })
+
+
+    }, [details])
+
     const addFormHandler = () => {
         setActive(!active)
     }
@@ -30,8 +46,10 @@ function EmpRegistration() {
                     </div>
                     <div className='emp-body-wrapper clearfix'>
                         <div className='emp-reg-form'>
-
-
+                            {details.map((detail, index) => (
+                               
+                                <div><EmpDetails/><EmpDetails/><EmpDetails/><EmpDetails/><EmpDetails/><EmpDetails/><EmpDetails/><EmpDetails/></div>
+                            ))}
                         </div>
                     </div>
                 </div>
