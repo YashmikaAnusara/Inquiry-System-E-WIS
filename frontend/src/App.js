@@ -9,6 +9,7 @@ import MarktingHome from "./pages/MarktingHome";
 import ViewEmployee from "./pages/ViewEmployee";
 import Updateemployee from "./pages/Updateemployee";
 import InquiriesPage from "./pages/InquiriesPage";
+import Deleteemployee from "./pages/Deleteemployee";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/marketingdashBoard" element={<MarktingHome />} />
           <Route path="/viewemployee" element={<ViewEmployee />} />
           <Route path="/updateemployee/:id" element={<Updateemployee />} />
+          <Route path="/deleteemployee/:id" element={<Deleteemployee />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -95,4 +95,16 @@ router.route("/update/employee/:id").put((req, res) => {
     });
 });
 
+router.route("/delete/detail/:id").delete((req, res) => {
+  let id = req.params.id;
+
+  EmployeeRegister.findByIdAndDelete(id)
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
 module.exports = router;
