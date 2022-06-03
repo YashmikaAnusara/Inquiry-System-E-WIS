@@ -18,7 +18,7 @@ function MarketingNavBar() {
       <div className="navWraper">
         <div className="headerContentsectionWrapper">
           <p className="DashboardTopic">Dashboard</p>
-          <Link to="/dashBoard">
+          <Link to="/marketingdashBoard">
             <div className="Dashboardcontent">
               <div className="Dashboardcontentext">
                 <DashboardIcon />
@@ -42,7 +42,7 @@ function MarketingNavBar() {
 
         <div className="headerContentsectionWrapper">
           <p className="DashboardTopic">Configurations</p>
-          <Link to="/addemployee">
+          <Link to="/viewemployee">
             <div className="Dashboardcontent">
               <div className="Dashboardcontentext">
                 <DashboardIcon />

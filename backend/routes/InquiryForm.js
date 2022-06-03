@@ -30,6 +30,7 @@ router.route("/AddInquiry").post((req, res) => {
 });
 
 
+
 router.route('/get/details/:branch').get((req, res)=>{
   const branch=req.params.branch
   InquiryForm.find({branch:{$eq:branch}})
@@ -49,7 +50,17 @@ router.route('/remove/:id').get((req, res)=>{
     })
     .catch((err)=>{
         res.send(err)
+
+router.route("/Get/:branch").get((req, res) => {
+  const branch = req.params.branch;
+  InquiryForm.find({ branch: { $eq: branch } })
+    .then((data) => {
+      res.json(data);
+
     })
-})
+    .catch((err) => {
+      res.send(err);
+    });
+});
 
 module.exports = router;

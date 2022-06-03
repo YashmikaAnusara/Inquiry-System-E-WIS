@@ -32,19 +32,15 @@ connection.once("open", () => {
 
 //Routers Connection
 const Login = require("./routes/Login");
-const Branch=require('./routes/BranchRegister')
-const Employee=require("./routes/EmpRegister")
+const Employee = require("./routes/EmpRegister");
+const InquiryForm = require("./routes/InquiryForm");
+const Branch = require("./routes/BranchRegister");
+
 //Routers
 app.use("/Login", Login);
 app.use("/employee", Employee);
 app.use("/branch", Branch);
- 
-const InquiryForm = require("./routes/InquiryForm");
-
-//Routers
-app.use("/Login", Login);
 app.use("/InquiryForm", InquiryForm);
- 
 
 //Run on port
 app.listen(PORT, () => {
