@@ -29,16 +29,15 @@ router.route("/AddInquiry").post((req, res) => {
     });
 });
 
-
-router.route('/get/details/:branch').get((req, res)=>{
-  const branch=req.params.branch
-  InquiryForm.find({branch:{$eq:branch}})
-    .then(data=>{
-        res.send(data)
+router.route("/Get/:branch").get((req, res) => {
+  const branch = req.params.branch;
+  InquiryForm.find({ branch: { $eq: branch } })
+    .then((data) => {
+      res.json(data);
     })
-    .catch((err)=>{
-        res.send(err)
-    })
-})
+    .catch((err) => {
+      res.send(err);
+    });
+});
 
 module.exports = router;

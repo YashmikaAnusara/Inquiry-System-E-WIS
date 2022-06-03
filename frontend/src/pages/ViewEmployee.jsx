@@ -9,14 +9,6 @@ import Box from "@mui/material/Box";
 export default function ViewEmployee() {
   const [employee, setemployee] = useState([]);
 
-  // const deleteemployee = (id) => {
-  //   console.log(id);
-  //   axios
-  //     .delete(`http://localhost:8070/employee/delete/employee/${id}`)
-  //     .then((res) => {
-  //       alert("delete");
-  //     });
-  // };
   useEffect(() => {
     const branch = sessionStorage.getItem("marketingbranch");
     axios

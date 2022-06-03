@@ -1,81 +1,80 @@
 * {
-    margin: 0;
-    padding: 0
+  margin: 0;
+  padding: 0;
 }
 
 .contentMainWrapper {
-  
-    background-color: rgb(227, 242, 253);
-    width: 82%;
-    height:86vh;
-    margin-left: 5px;
-    padding-right: 5px;
-    overflow-y: scroll;
+  background-color: rgb(227, 242, 253);
+  width: 82%;
+  height: 86vh;
+  margin-left: 5px;
+  padding-right: 5px;
+  overflow-y: scroll;
 }
 
 .contentMainWrapper::-webkit-scrollbar {
-    width: 5px;
+  width: 5px;
 }
 
 /* Track */
 .contentMainWrapper::-webkit-scrollbar-track {
-    background-color: rgb(227, 242, 253);
-
+  background-color: rgb(227, 242, 253);
 }
 
 /* Handle */
 
 .contentMainWrapper::-webkit-scrollbar-thumb {
-    background: rgb(175, 211, 236);
-    border-radius: 15px;
+  background: rgb(175, 211, 236);
+  border-radius: 15px;
 }
 
 /* Handle on hover */
 .contentMainWrapper::-webkit-scrollbar-thumb:hover {
-    background: #555;
+  background: #555;
 }
 
 .contentbodywrapper {
-    margin-top: 10px;
-    margin-left: 20px;
+  margin-top: 10px;
+  margin-left: 20px;
 }
 
 .cardMainWrapper {
-
-    width: fit-content;
-    display: flex;
-    margin: auto;
-    gap: 40px;
-    margin-top: 40px
+  width: fit-content;
+  display: flex;
+  margin: auto;
+  gap: 40px;
+  margin-top: 40px;
 }
 
 .cardwrapper {
-    width: 270px;
-    height: 120px;
-    border-radius: 15px;
-    transition: transform .2s;
+  width: 270px;
+  height: 120px;
+  border-radius: 15px;
+  transition: transform 0.2s;
 }
 
 .cardwrapper:hover {
-    transform: scale(1.03);
-  
+  transform: scale(1.03);
 }
 
 .card1 {
-    background-color: rgb(100, 100, 191);
-
+  background-color: rgb(100, 100, 191);
 }
 
 .card2 {
-    background-color: rgb(243, 223, 167);
+  background-color: rgb(243, 223, 167);
 }
 
 .card3 {
-    background-color: rgb(30, 136, 229);
+  background-color: rgb(30, 136, 229);
 }
 
 .graph {
-    width: 640px;
-    margin-top: 50px;
-    margin-left:15px
+  width: 640px;
+  margin-top: 50px;
+  margin-left: 15px;
+}
+
+.chart {
+  padding-top: 3%;
 }
