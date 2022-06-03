@@ -40,11 +40,7 @@ const Branch = require("./routes/BranchRegister");
 app.use("/Login", Login);
 app.use("/employee", Employee);
 app.use("/branch", Branch);
-
-//Routers
-app.use("/Login", Login);
 app.use("/InquiryForm", InquiryForm);
-app.use("/employee", Employee);
 
 //Run on port
 app.listen(PORT, () => {

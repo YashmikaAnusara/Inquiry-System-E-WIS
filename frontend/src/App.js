@@ -8,7 +8,6 @@ import BranchRegistration from "./pages/BranchRegistration";
 import MarktingHome from "./pages/MarktingHome";
 import ViewEmployee from "./pages/ViewEmployee";
 import Updateemployee from "./pages/Updateemployee";
-
 import InquiriesPage from "./pages/InquiriesPage";
 
 function App() {

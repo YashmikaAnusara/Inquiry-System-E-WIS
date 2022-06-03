@@ -58,12 +58,40 @@ router.route("/delete/employee/:id").get((req, res) => {
 router.route("/update/detail/:id").get((req, res) => {
   let id = req.params.id;
 
-  EmployeeRegister.findByIdAndUpdate(id)
+  EmployeeRegister.findById(id)
     .then((data) => {
       res.json(data);
     })
     .catch((err) => {
       res.json(err);
+    });
+});
+
+router.route("/update/employee/:id").put((req, res) => {
+  let id = req.params.id;
+
+  const Name = req.body.Name;
+  const NIC = req.body.NIC;
+  const Contact = req.body.Contact;
+  const Email = req.body.Email;
+  const Branch = req.body.Branch;
+  const Position = req.body.Position;
+
+  const details = {
+    Name,
+    NIC,
+    Contact,
+    Email,
+    Branch,
+    Position,
+  };
+
+  EmployeeRegister.findByIdAndUpdate(id, details)
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.send("err");
     });
 });
 

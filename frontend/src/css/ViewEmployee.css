@@ -1,6 +1,12 @@
 .viewemployeeback {
-  /* background-color: whitesmoke; */
-  background-image: url(../images/pic4.jpg);
+  background-color: whitesmoke;
+  /* background-image: url(../images/pic4.jpg); */
+  /* background: rgb(15, 41, 65);
+  background: linear-gradient(
+    90deg,
+    rgba(15, 41, 65, 1) 0%,
+    rgba(172, 172, 172, 1) 100%
+  ); */
   overflow-y: scroll;
   height: 90.8vh;
 }
@@ -49,6 +55,7 @@
   position: absolute;
   transform: translateY(100px);
   opacity: 1;
+  color: rgb(0, 0, 0);
   align-self: start;
   transition: 0.5s;
 }
@@ -64,19 +71,18 @@
   top: -95px;
   right: 0px;
   font-size: 3em;
-  color: var(--letter-colour);
+  color: white;
   pointer-events: none;
 }
 
 .container .card .content h3 {
   font-size: 1em;
-  color: var(--text-colour);
+  color: rgb(0, 0, 0);
   z-index: 1;
 }
 .container .card .content a {
   position: relative;
   display: inline-block;
-  padding: 1% 2%;
   color: #000;
   border-radius: 20px;
   text-decoration: none;
