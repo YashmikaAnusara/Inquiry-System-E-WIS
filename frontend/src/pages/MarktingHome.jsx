@@ -11,7 +11,19 @@ const data = [
   },
   {
     name: "Page B",
-    uv: 100,
+    uv: 200,
+  },
+  {
+    name: "Page C",
+    uv: 500,
+  },
+  {
+    name: "Page D",
+    uv: 900,
+  },
+  {
+    name: "Page E",
+    uv: 1000,
   },
 ];
 
