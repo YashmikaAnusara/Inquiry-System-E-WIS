@@ -10,12 +10,15 @@ import axios from 'axios';
 function BranchRegistration() {
     const [active, setActive] = useState(false);
     const [details,setDetails]=useState([])
+    const [search,setSearch]=useState('')
     const addBranchHandler = () => {
         setActive(!active)
     }
     const closeHandler = () => {
         setActive(!active)
     }
+
+     
 
     useEffect(()=>{
         axios.get('http://localhost:8070/branch/get/details')
@@ -27,6 +30,11 @@ function BranchRegistration() {
         })
 
     },[])
+ 
+    const filterteacher=details.filter(data=>{
+        return data.Email.toLowerCase().includes(search.toLowerCase())||data.Name.toLowerCase().includes(search.toLowerCase())
+      })
+
 
     return (
         <div>
@@ -35,7 +43,7 @@ function BranchRegistration() {
                 <div className="branchcontentbodywrapper">
                     <div className='branch-header'>
                         <div className='branch-search-wrapper'>
-                            <input type='search' className='branch-search' placeholder='Search Branch...' />
+                            <input type='search' className='branch-search' placeholder='Search Branch...' onChange={(event)=>{setSearch(event.target.value)}}/>
                         </div>
                         <div className='branch-add-wrapper'>
                             <button className='branch-add-btn' onClick={addBranchHandler}><AddCircleIcon className='add-btn' fontSize='large' /></button>
@@ -43,7 +51,7 @@ function BranchRegistration() {
                     </div>
                     <div className='branch-body-wrapper clearfix'>
                         <div className='branch-reg-form'>
-                            {details.map((detail) => (
+                            {filterteacher.map((detail) => (
                                 <BranchDetails Name={detail.Name} Contact={detail.Contact} Email={detail.Email} id={detail._id}/>
                             ))}
                         </div>
