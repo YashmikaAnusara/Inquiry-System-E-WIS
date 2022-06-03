@@ -14,6 +14,7 @@ function BranchInquiriesPage() {
     const branch = sessionStorage.getItem("marketingbranch");
     const branch2 = sessionStorage.getItem("marketingbranch2");
     const branch3 = sessionStorage.getItem("marketingbranch3");
+    
     axios
       .get(`http://localhost:8070/InquiryForm/get/details/${branch}`)
       .then((res) => {
@@ -42,8 +43,8 @@ function BranchInquiriesPage() {
           </div>
           <div className="inquiry-body-wrapper clearfix">
             <div className="inquiry-details">
-              {details.map((detail) => (
-                <div>
+              {details.map((detail,index) => (
+                <div key={index}>
                   <BranchInquiriesDeatils
                     firstName={detail.firstname}
                     secondName={detail.secondname}
