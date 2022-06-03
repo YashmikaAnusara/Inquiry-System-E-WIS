@@ -49,6 +49,10 @@ router.route('/remove/:id').get((req, res)=>{
         res.send(data)
     })
     .catch((err)=>{
+
+      res.send(err)
+      
+
         res.send(err)
     });
   });
