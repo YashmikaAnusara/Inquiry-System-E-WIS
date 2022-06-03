@@ -41,45 +41,49 @@
     height: 10vh;
     width:100%;
     display: flex;
-    background-color: rgb(63, 156, 229);
 }
 .branch-search-wrapper{
-    width:50%;
     height: 10vh;
+    width:100%;
+    display: flex;
+    padding-left:25px
 }
 .branch-search{
     width:60vh;
     height: 6vh;
-    margin:2.2% 0 0 20%;
-    border-radius: 5px;
-    outline: none;
-    border: none;
+    margin-top: 10px;
+    border-radius: 25px;
+    
+    border: 1px solid black;
     padding-left: 10px;
 }
 .branch-add-wrapper{
-    width:50%; 
-    height: 10vh;
+    
+    width:59%; 
+    padding-top: 10px;
+    margin-right: 25px;
 }
 .branch-add-btn{
     background-color: transparent;
     color: white;
     float: right;
-    margin:2.2% 10% 0 0%;
     border-radius: 100%;
     outline: none;
     border: none;
     width: 40px;
-    height: 40px;
+    height: 40px; 
 }
-.branch-add-btn:hover{
-    background-color:rgb(105, 177, 231);
+.add-btn{
+   color:rgb(15, 41, 65)
 }
 .branch-body-wrapper{
     
     height: 72vh;
     width:100%;
     margin-top:1vh;
-    background-color: rgb(63, 156, 229);
+    
+    overflow-y: auto;
+    
 }
 .branch-reg-form{
     margin:auto;

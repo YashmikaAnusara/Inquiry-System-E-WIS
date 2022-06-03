@@ -29,11 +29,34 @@ router.route("/AddInquiry").post((req, res) => {
     });
 });
 
+
+
+router.route('/get/details/:branch').get((req, res)=>{
+  const branch=req.params.branch
+  InquiryForm.find({branch:{$eq:branch}})
+    .then(data=>{
+        res.send(data) 
+    })
+    .catch((err)=>{
+        res.send(err)
+    })
+})
+
+router.route('/remove/:id').get((req, res)=>{
+  let id=req.params.id
+  InquiryForm.deleteOne({_id:id})
+    .then(data=>{
+        res.send(data)
+    })
+    .catch((err)=>{
+        res.send(err)
+
 router.route("/Get/:branch").get((req, res) => {
   const branch = req.params.branch;
   InquiryForm.find({ branch: { $eq: branch } })
     .then((data) => {
       res.json(data);
+
     })
     .catch((err) => {
       res.send(err);

@@ -6,11 +6,51 @@ import { useParams } from "react-router-dom";
 import EmailIcon from "@mui/icons-material/Email";
 import HomeIcon from "@mui/icons-material/Home";
 
+import InquiriesDetail from '../components/InquiriesDetail'
+
 function InquiriesPage() {
   const params = useParams();
   const [details, setDetails] = useState([]);
   const branch = params.branch;
   const email = params.email;
+
+
+    useEffect(() => {
+        axios.get(`http://localhost:8070/InquiryForm/get/details/${branch}`)
+        .then(res=>{
+            setDetails(res.data)
+        })
+        .catch(err=>{
+            alert(err)
+        })
+    },[branch])
+    
+
+    return (
+        <div>
+            <div><AdminNavbar /></div>
+            <div className='inquiry-content-Wrapper'>
+                <div className="inquiry-content-wrapper">
+
+                    <div className='inquiry-header'>
+                        <div className='inquiry-search-wrapper'>
+                            <input type='search' className='inquiry-search' placeholder='Search Branch...' />
+                        </div>
+                        <div className='inquiry-branch-wrapper'>
+
+                            <div className='icon-wrapper'> <HomeIcon fontSize='small' className='inquiry-icon' /> <p className='inquiry-branch'>{branch}</p></div>
+                            <div className='icon-wrapper'><EmailIcon fontSize='small' className='inquiry-icon' /> <p className='inquiry-branch'>{email}</p> </div>
+                            
+                        </div>
+                    </div>
+                    <div className='inquiry-body-wrapper clearfix'>
+                        <div className='inquiry-details'>
+                            {details.map((detail) => (
+                                <div><InquiriesDetail firstName={detail.firstname} secondName={detail.secondname} email={detail.email} contact={detail.mobilenumber} course={detail.course} branch={detail.branch} message={detail.message} id={detail._id}/></div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
 
   useEffect(() => {
     axios
@@ -55,6 +95,7 @@ function InquiriesPage() {
               {details.map((detail) => (
                 <div>{detail.firstname}</div>
               ))}
+
             </div>
           </div>
         </div>

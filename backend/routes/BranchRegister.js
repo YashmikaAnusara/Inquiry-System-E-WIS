@@ -23,4 +23,15 @@ router.route("/get/details").get((req, res) => {
     })
 })
 
+router.route("/remove/:id").get((req, res) => {
+    let id=req.params.id
+    BranchRegister.deleteOne({_id:id})
+    .then(data=>{
+        res.send(data)
+    })
+    .catch((err)=>{
+        res.send(err)
+    })
+})
+
 module.exports = router;
