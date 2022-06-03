@@ -1,8 +1,12 @@
 .viewemployeeback {
-  background-color: rgb(227, 242, 253);
+  /* background-color: whitesmoke; */
+  background-image: url(../images/pic4.jpg);
+  overflow-y: scroll;
+  height: 90.8vh;
 }
 .container {
   position: relative;
+
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -37,7 +41,6 @@
 .container .card:hover .content {
   transform: translateY(0px);
   opacity: 1;
-  
 }
 
 .icon {
