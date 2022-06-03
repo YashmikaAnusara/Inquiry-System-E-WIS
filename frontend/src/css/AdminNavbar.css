@@ -1,10 +1,10 @@
-.headerWraper {
+.admin-headerWraper {
     height: 14vh;
     width: 100%;
     display: flex;  
     background-color: rgb(15, 41, 65);
 }
-.navWraper {
+.admin-navWraper {
     height:86vh;
     width: 17%;
     float: left;
@@ -12,7 +12,7 @@
     background-color: rgb(15, 41, 65);
 }
 
-.navWraper::-webkit-scrollbar {
+.admin-navWraper::-webkit-scrollbar {
     display: none
 }
 

@@ -24,11 +24,11 @@ function AdminNavbar() {
 
     return (
         <div>
-            <div className='headerWraper'>
+            <div className='admin-headerWraper'>
 
             </div>
 
-            <div className='navWraper'>
+            <div className='admin-navWraper'>
                 <div className="headerContentsectionWrapper">
                     <p className='DashboardTopic'>Dashboard</p>
                     <Link to='/dashBoard'>
