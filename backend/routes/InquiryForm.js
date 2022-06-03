@@ -50,6 +50,8 @@ router.route('/remove/:id').get((req, res)=>{
     })
     .catch((err)=>{
         res.send(err)
+    });
+  });
 
 router.route("/Get/:branch").get((req, res) => {
   const branch = req.params.branch;
