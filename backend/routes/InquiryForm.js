@@ -49,8 +49,8 @@ router.route('/remove/:id').get((req, res)=>{
         res.send(data)
     })
     .catch((err)=>{
-        res.send(err)
-
+      res.send(err)
+      
 router.route("/Get/:branch").get((req, res) => {
   const branch = req.params.branch;
   InquiryForm.find({ branch: { $eq: branch } })
