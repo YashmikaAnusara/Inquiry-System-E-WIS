@@ -48,9 +48,11 @@ export default function ViewEmployee() {
                           Update
                         </Button>
                       </Link>
-                      <Button size="medium" variant="contained">
-                        Delete
-                      </Button>
+                      <Link to={`/deleteemployee/${data._id}`}>
+                        <Button size="medium" variant="contained">
+                          Delete
+                        </Button>
+                      </Link>
                     </div>
                   </Box>
                 </div>
