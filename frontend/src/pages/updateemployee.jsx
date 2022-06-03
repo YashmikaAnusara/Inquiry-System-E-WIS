@@ -4,12 +4,19 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useParams } from "react-router";
 import LoadingButton from "@mui/lab/LoadingButton";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 import axios from "axios";
 import "../css/Updateemployee.css";
 
 export default function Updateemployee() {
+  const Alert = React.forwardRef(function Alert(props, ref) {
+    return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+  });
   const { id } = useParams();
 
+  const [open, setOpen] = React.useState(false);
+  const [open2, setOpen2] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
   const [Name, setName] = useState("");
   const [NIC, setNIC] = useState("");
@@ -35,6 +42,28 @@ export default function Updateemployee() {
 
   const submithendle = (e) => {
     setLoading(true);
+    const data = { Name, NIC, Contact, Email, Branch };
+    setTimeout(() => {
+      axios
+        .put(`http://localhost:8070/employee/update/employee/${id}`, data)
+        .then((res) => {
+          console.log(data);
+          setLoading(false);
+          setOpen(true);
+        })
+        .catch((err) => {
+          setLoading(false);
+          setOpen2(true);
+        });
+    }, 3000);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen2(false);
+    setOpen(false);
   };
 
   return (
@@ -115,6 +144,16 @@ export default function Updateemployee() {
           </div>
         </div>
       </div>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
+          Employee Updated Successfully
+        </Alert>
+      </Snackbar>
+      <Snackbar open={open2} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="error" sx={{ width: "100%" }}>
+          Database Error
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

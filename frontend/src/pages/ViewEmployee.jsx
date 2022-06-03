@@ -44,9 +44,13 @@ export default function ViewEmployee() {
                   <Box sx={{ "& button": { m: 1 } }}>
                     <div className="button">
                       <Link to={`/updateemployee/${data._id}`}>
-                        <Button size="medium">Update</Button>
+                        <Button size="medium" variant="contained">
+                          Update
+                        </Button>
                       </Link>
-                      <Button size="medium">Delete</Button>
+                      <Button size="medium" variant="contained">
+                        Delete
+                      </Button>
                     </div>
                   </Box>
                 </div>

@@ -30,7 +30,7 @@ const RegSchema = new Schema({
   },
   Password: {
     type: String,
-    required: true,
+    // required: true,
   },
 
 });
