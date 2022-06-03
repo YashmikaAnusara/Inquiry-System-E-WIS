@@ -43,7 +43,7 @@ export default function ViewEmployee() {
                   <h3>Email : {data.Email}</h3>
                   <Box sx={{ "& button": { m: 1 } }}>
                     <div className="button">
-                      <Link to="/updateemployee/{data._id}">
+                      <Link to="/updateemployee">
                         <Button size="medium">Update</Button>
                       </Link>
                       <Button size="medium">Delete</Button>
