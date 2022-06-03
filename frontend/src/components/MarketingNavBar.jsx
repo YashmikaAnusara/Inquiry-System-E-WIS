@@ -30,7 +30,7 @@ function MarketingNavBar() {
 
         <div className="headerContentsectionWrapper">
           <p className="DashboardTopic">Inquiries</p>
-          <Link to="/InquiryForm">
+          <Link to="/Branchinquiry">
             <div className="Dashboardcontent">
               <div className="Dashboardcontentext">
                 <DashboardIcon />

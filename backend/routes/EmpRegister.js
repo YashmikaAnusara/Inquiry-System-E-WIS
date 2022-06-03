@@ -2,16 +2,36 @@ const router = require("express").Router();
 let EmployeeRegister = require("../models/EmpReg");
 
 router.route("/register").post((req, res) => {
-    const { Name, NIC, Contact, Email, Branch,Branch_Two,Branch_Three,Position,Password } = req.body
-    const details = new EmployeeRegister({ Name: Name, NIC: NIC, Contact: Contact, Email: Email, Branch: Branch,Branch_Two:Branch_Two,Branch_Three:Branch_Three,Position:Position,Password:Password });
-    details.save()
-        .then((data) => {
-            res.send(data);
-        })
-        .catch((err) => {
-            res.status();
-        });
-
+  const {
+    Name,
+    NIC,
+    Contact,
+    Email,
+    Branch,
+    Branch_Two,
+    Branch_Three,
+    Position,
+    Password,
+  } = req.body;
+  const details = new EmployeeRegister({
+    Name: Name,
+    NIC: NIC,
+    Contact: Contact,
+    Email: Email,
+    Branch: Branch,
+    Branch_Two: Branch_Two,
+    Branch_Three: Branch_Three,
+    Position: Position,
+    Password: Password,
+  });
+  details
+    .save()
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status();
+    });
 });
 
 router.route("/get/details").get((req, res) => {
@@ -97,6 +117,26 @@ router.route("/delete/detail/:id").delete((req, res) => {
     })
     .catch((err) => {
       res.json(err);
+    });
+});
+
+router.route("/Log/:username/:password").get((req, res) => {
+  let email = req.params.username;
+  let Password = req.params.password;
+
+  EmployeeRegister.findOne({
+    $and: [{ email: { $eq: email } }, { Password: { $eq: Password } }],
+  })
+    .then((data) => {
+      // if (data === null) {
+      //   res.send(null);
+      // } else {
+      //   res.send(data);
+      // }
+      res.send(data);
+    })
+    .catch((err) => {
+      console.log(err);
     });
 });
 
