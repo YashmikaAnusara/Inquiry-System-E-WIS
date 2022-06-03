@@ -2,19 +2,18 @@ import React, { useState, useEffect } from "react";
 import MarketingNavBar from "../components/MarketingNavBar";
 import "../css/InquiriesPage.css";
 import axios from "axios";
-import { useParams } from "react-router-dom";
 import BranchInquiriesDeatils from "../components/BranchInquiriesDeatils";
 
 function BranchInquiriesPage() {
-  const params = useParams();
   const [details, setDetails] = useState([]);
-  const email = params.email;
+  const branch = sessionStorage.getItem("marketingbranch");
+  const branch2 = sessionStorage.getItem("marketingbranch2");
+  const branch3 = sessionStorage.getItem("marketingbranch3");
 
   useEffect(() => {
     const branch = sessionStorage.getItem("marketingbranch");
     const branch2 = sessionStorage.getItem("marketingbranch2");
     const branch3 = sessionStorage.getItem("marketingbranch3");
-    
     axios
       .get(`http://localhost:8070/InquiryForm/get/details/${branch}`)
       .then((res) => {
@@ -40,10 +39,13 @@ function BranchInquiriesPage() {
                 placeholder="Search Branch..."
               />
             </div>
+            {branch ? <button> test1</button> : null}
+            {branch2 ? <button> test2</button> : null}
+            {branch3 ? <button> test3</button> : null}
           </div>
           <div className="inquiry-body-wrapper clearfix">
             <div className="inquiry-details">
-              {details.map((detail,index) => (
+              {details.map((detail, index) => (
                 <div key={index}>
                   <BranchInquiriesDeatils
                     firstName={detail.firstname}
