@@ -26,12 +26,14 @@ export default function LoginPage() {
     axios
       .get(`http://localhost:8070/Login/Log/${username}/${password}`)
       .then((res) => {
-        if (res.data.positions === "Admin") {
+        if (res.data.Position === "Admin") {
           setTimeout(() => {
             nav("/dashBoard");
           }, 3000);
-        } else if (res.data.positions === "Marketing") {
+        } else if (res.data.Position === "Senior-Manager") {
           sessionStorage.setItem("marketingbranch", res.data.Branch);
+          sessionStorage.setItem("marketingbranch2", res.data.Branch_Two);
+          sessionStorage.setItem("marketingbranch3", res.data.Branch_Three);
           setTimeout(() => {
             nav("/marketingdashBoard");
           }, 3000);
@@ -39,6 +41,7 @@ export default function LoginPage() {
           setTimeout(() => {
             setLoading(false);
             setlogerror(true);
+            console.log(res.data);
           }, 3000);
         }
       })

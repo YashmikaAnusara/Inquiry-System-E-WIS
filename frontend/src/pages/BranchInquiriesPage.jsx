@@ -12,6 +12,8 @@ function BranchInquiriesPage() {
 
   useEffect(() => {
     const branch = sessionStorage.getItem("marketingbranch");
+    const branch2 = sessionStorage.getItem("marketingbranch2");
+    const branch3 = sessionStorage.getItem("marketingbranch3");
     axios
       .get(`http://localhost:8070/InquiryForm/get/details/${branch}`)
       .then((res) => {

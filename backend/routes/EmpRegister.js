@@ -120,24 +120,4 @@ router.route("/delete/detail/:id").delete((req, res) => {
     });
 });
 
-router.route("/Log/:username/:password").get((req, res) => {
-  let email = req.params.username;
-  let Password = req.params.password;
-
-  EmployeeRegister.findOne({
-    $and: [{ email: { $eq: email } }, { Password: { $eq: Password } }],
-  })
-    .then((data) => {
-      // if (data === null) {
-      //   res.send(null);
-      // } else {
-      //   res.send(data);
-      // }
-      res.send(data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
 module.exports = router;
