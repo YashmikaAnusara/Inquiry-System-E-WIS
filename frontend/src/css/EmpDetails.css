@@ -1,0 +1,89 @@
+.detail-main-wrapper{
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    margin-top: 10px;
+    box-shadow: 1px 1px rgb(37, 105, 224);
+    display: flex;
+    border-radius: 25px;
+}
+.emp-detail-grp{
+    padding: 2px 0px 8px 50px;
+    width:88%;
+    display: flex;
+    /* background-color:aquamarine */
+}
+.emp-details{
+    width:45vh; 
+    color:rgb(2, 27, 30);
+    font-weight: 500;
+    margin-left: 10px;
+    /* background-color:rgb(28, 60, 87) */
+}
+ 
+.detail-line{
+    display: flex;
+    margin-top: 10px;
+    gap:13px
+}
+
+.name{
+    width: 28vh; 
+}
+.nic{
+    width: 28vh; 
+}
+.contact{
+    width: 28vh; 
+}
+.pass{
+    
+    /* background-color:aliceblue */
+}
+.emp-action-btn{
+    height:50%;
+    width: 35px;
+    outline: none;
+    border: none;
+    margin-top:6vh;
+    color:rgb(15, 41, 65);
+    border-radius:50%;
+    background-color: transparent;
+}
+.emp-action-btn:hover{
+    
+    color:rgb(82, 102, 120) ;
+}
+.branch{
+    margin-left:40px
+}
+.edit-btn-close{
+    float: right;
+    margin-right: 10vh;
+    margin-top: 5vh;
+    color: red;
+    border-radius: 5px;
+    outline: none;
+    border: none
+}
+.edit-popup-form{
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    position: fixed;
+    background-color: rgba(130, 130, 130, 0.8); 
+}
+.password-btn{
+    background-color:transparent;
+    outline: none;
+    border: none;
+}
+.password-btn:hover{
+    color: red;
+}
+#Hide:before{
+    content: "Joe's Task: ";
+}
+ #show{
+
+ }

@@ -41,7 +41,7 @@ function EmpRegistration() {
                             <input type='search' className='emp-search' placeholder='Search Employee...' />
                         </div>
                         <div className='emp-add-wrapper'>
-                            <button onClick={addFormHandler} className='emp-add-btn'><AddCircleIcon fontSize='large' /></button>
+                            <button onClick={addFormHandler} className='emp-add-btn'><AddCircleIcon fontSize='large' className='add-btn'/></button>
                         </div>
                     </div>
                     
@@ -49,7 +49,7 @@ function EmpRegistration() {
                         <div className='emp-reg-form'>
                             
                             {details.map((detail) => (
-                                <div><EmpDetails Name={detail.Name} NIC={detail.NIC} Contact={detail.Contact} Email={detail.Email} Password={detail.Password}/></div>
+                                <div><EmpDetails Name={detail.Name} NIC={detail.NIC} Contact={detail.Contact} Email={detail.Email} Password={detail.Password} Branch1={detail.Branch} Branch2={detail.Branch_Two} Branch3={detail.Branch_Three} Position={detail.Position}/></div>
                             ))}
                         </div>
                     </div>

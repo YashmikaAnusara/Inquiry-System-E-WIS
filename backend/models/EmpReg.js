@@ -24,6 +24,14 @@ const RegSchema = new Schema({
     type: String,
     required: true,
   },
+  Branch_Two: {
+    type: String,
+     
+  },
+  Branch_Three: {
+    type: String,
+     
+  },
   Position: {
     type: String,
     required: true,

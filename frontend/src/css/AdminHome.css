@@ -40,23 +40,23 @@
     margin-left: 20px;
 }
 
-.cardMainWrapper {
+.card-main-wrapper {
 
     width: fit-content;
     display: flex;
     margin: auto;
-    gap: 40px;
-    margin-top: 40px
+    gap: 15vh;
+    margin-top: 5vh
 }
 
-.cardwrapper {
-    width: 270px;
-    height: 120px;
+.card-wrapper {
+    width: 60vh;
+    height: 20vh;
     border-radius: 15px;
     transition: transform .2s;
 }
 
-.cardwrapper:hover {
+.card-wrapper:hover {
     transform: scale(1.03);
   
 }
@@ -69,13 +69,9 @@
 .card2 {
     background-color: rgb(243, 223, 167);
 }
-
-.card3 {
-    background-color: rgb(30, 136, 229);
-}
-
-.graph {
-    width: 640px;
-    margin-top: 50px;
-    margin-left:15px
+ 
+.admin-graph {
+    width: 100vh;
+    margin-top: 8vh;
+    margin-left:5vh
 }

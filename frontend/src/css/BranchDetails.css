@@ -1,56 +1,38 @@
-.detail-main-wrapper{
+.branch-detail-main-wrapper{
     width: 100%;
-    height:10vh;
-    background-color: rgb(51, 150, 226);
+    background-color: rgb(255, 255, 255);
     margin-top: 10px;
     box-shadow: 1px 1px rgb(37, 105, 224);
     display: flex;
+    border-radius: 25px;
 }
-.emp-detail-grp{
-    padding-top: 20px;
-    width:91%;
+.branch-detail-grp{
+    width:88%;
     display: flex;
+    padding: 4vh;
 }
-.emp-details{
-    padding-left: 20px;
-    width:45vh; 
+.branch-details{
+    width:40vh; 
     color:rgb(2, 27, 30);
     font-weight: 500;
-    margin-left: 10px;
-    /* background-color:aliceblue */
+    margin-left: 15px;
+    margin-top: -2px;
+    
 }
-.name{
-    width: 28vh; 
+.branch-detail-wrapper{
+    display: flex;
+    /* background-color: aqua; */
 }
-.nic{
-    width: 28vh; 
-}
-.contact{
-    width: 28vh; 
-}
-.pass{
-    width: 16vh; 
-    color:rgb(2, 27, 30);
-    font-weight: 500;
-    margin-left: 10px;
-    /* background-color:aliceblue */
-}
-.emp-action-btn{
+.branch-action-btn{
     height:50%;
     width: 35px;
     outline: none;
     border: none;
-   margin-left:30px;
-    margin-top:15px;
-    background-color: transparent;
-    color:white;
+    margin-top:4vh;
+    color:rgb(234, 54, 54);
     border-radius:50%;
+    background-color: transparent;
 }
-.emp-action-btn:hover{
-    
-    color:rgb(15, 41, 65) ;
+.branch-action-btn:hover{
+    color:rgb(148, 30, 30);
 }
-.branch{
-    margin-left:40px
-}
- 

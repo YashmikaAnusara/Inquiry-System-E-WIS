@@ -1,33 +1,33 @@
-import React, { useState,useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import '../css/EmpRegForm.css'
 import axios from 'axios'
 import Notification from './Alert'
 
 function EmpRegForm() {
   const [active, setActive] = useState(false)
-  const [details,setDetails]=useState([])
+  const [details, setDetails] = useState([])
   const [type, setType] = useState()
-  const [message,setMessage]=useState()
+  const [message, setMessage] = useState()
   const [Name, setName] = useState('')
   const [NIC, setnic] = useState('')
   const [Contact, setContact] = useState('')
   const [Email, setEmail] = useState('')
   const [Branch, setBranch] = useState('')
+  const [Branch_Two, setBranchTow] = useState('')
+  const [Branch_Three, setBranchThree] = useState('')
   const [Position, setPosition] = useState('')
-  const code=(Math.floor((Math.random() * 1000000) + 1))
-  const Password=code.toString()
+  const code = (Math.floor((Math.random() * 1000000) + 1))
+  const Password = code.toString()
 
-  useEffect(()=>{
+  useEffect(() => {
     axios.get('http://localhost:8070/branch/get/details')
-    .then((res)=>{
+      .then((res) => {
         setDetails(res.data)
-    })
-    .catch(e=>{
+      })
+      .catch(e => {
         alert(e)
-    })
-
-},[])
-
+      })
+  }, [])
 
   const data = {
     Name,
@@ -35,21 +35,23 @@ function EmpRegForm() {
     Contact,
     Email,
     Branch,
+    Branch_Two,
+    Branch_Three,
     Position,
     Password
   }
 
   const regHandler = () => {
 
-    axios.post('http://localhost:8070/employee/register',data)
-      .then(() => { 
+    axios.post('http://localhost:8070/employee/register', data)
+      .then(() => {
         setType("success")
         setMessage("Done")
         setActive(true)
         setTimeout(() => {
           setActive(false)
         }, 4000)
-        
+
       })
       .catch(() => {
         setType("erorr")
@@ -65,14 +67,27 @@ function EmpRegForm() {
       <center> <input type='text' className='input-feilds' placeholder="Employee's Email..." onChange={(event) => { setEmail(event.target.value) }} /></center>
       <center> <select className='select-input-feilds' onChange={(event) => { setBranch(event.target.value) }}>
         <option value="">Select a Branch...</option>
-        {details.map((detail)=>(
+        {details.map((detail) => (
           <option value={detail.Name}>{detail.Name}</option>
-        ))}        
+        ))}
+      </select></center>
+      <center> <select className='select-input-feilds' onChange={(event) => { setBranchTow(event.target.value) }}>
+        <option value="">Select a Branch...</option>
+        {details.map((detail) => (
+          <option value={detail.Name}>{detail.Name}</option>
+        ))}
+      </select></center>
+      <center> <select className='select-input-feilds' onChange={(event) => { setBranchThree(event.target.value) }}>
+        <option value="">Select a Branch...</option>
+        {details.map((detail) => (
+          <option value={detail.Name}>{detail.Name}</option>
+        ))}
       </select></center>
       <center> <select className='select-input-feilds' onChange={(event) => { setPosition(event.target.value) }}>
         <option value="">Select a Position...</option>
-        <option value="Test">Secratory</option>
-        <option value="Test">Secratory</option>
+        <option value="Secratory">Secratory</option>
+        <option value="Manager">Manager</option>
+        <option value="Senior-Manager">Senior-Manager</option>
       </select></center>
 
       <center> <button className='reg-btn' onClick={regHandler}>Register</button></center>

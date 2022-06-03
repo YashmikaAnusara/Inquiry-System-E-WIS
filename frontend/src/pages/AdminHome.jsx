@@ -1,7 +1,7 @@
 import React from "react";
 import '../css/AdminHome.css'
 import AdminNavbar from "../components/AdminNavbar";
-// import Graph from "../components/Char";
+import BarGraph from "../components/Char";
 
 
 function AdminHome() {
@@ -10,23 +10,21 @@ function AdminHome() {
             <div><AdminNavbar /></div>
             <div className='contentMainWrapper'>
                 <div className="contentbodywrapper">
-                    <div className="cardMainWrapper">
-                        <div className='cardwrapper card1'>
+                    <div className="card-main-wrapper">
+                        <div className='card-wrapper card1'>
                             <div><p>120</p></div>
                             <div><p>120</p></div>
                         </div>
 
-                        <div className='cardwrapper card3'>
+                        <div className='card-wrapper card3'>
                             <div><p>120</p></div>
                             <div><p>120</p></div>
                         </div>
                     </div>
-                    {/* <div className='graph'>
-                        <Graph />
+                    <div className='admin-graph'>
+                        <BarGraph />
                     </div>
-                    <div className='graph'>
-                        <Graph />
-                    </div> */}
+
                 </div>
             </div>
 

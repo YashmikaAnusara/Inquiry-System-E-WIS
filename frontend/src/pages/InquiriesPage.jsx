@@ -6,6 +6,8 @@ import { useParams } from 'react-router-dom'
 import EmailIcon from '@mui/icons-material/Email';
 import HomeIcon from '@mui/icons-material/Home';
 
+import InquiriesDetail from '../components/InquiriesDetail'
+
 function InquiriesPage() {
     const params = useParams()
     const [details, setDetails] = useState([])
@@ -20,8 +22,8 @@ function InquiriesPage() {
         .catch(err=>{
             alert(err)
         })
-
-    }, [])
+    },[branch])
+    
 
     return (
         <div>
@@ -43,7 +45,7 @@ function InquiriesPage() {
                     <div className='inquiry-body-wrapper clearfix'>
                         <div className='inquiry-details'>
                             {details.map((detail) => (
-                                <div>{detail.firstname}</div>
+                                <div><InquiriesDetail firstName={detail.firstname} secondName={detail.secondname} email={detail.email} contact={detail.mobilenumber} course={detail.course} branch={detail.branch} message={detail.message} id={detail._id}/></div>
                             ))}
                         </div>
                     </div>

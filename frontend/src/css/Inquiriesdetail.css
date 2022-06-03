@@ -1,0 +1,65 @@
+.inquirie-detail-main-wrapper{
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    margin-top: 10px;
+    box-shadow: 1px 1px rgb(37, 105, 224);
+    display: flex;
+    border-radius: 25px;
+}
+.inquirie-detail-grp{
+    width:88%;
+    padding: 4vh;
+}
+.inquirie-detail-box{
+    display: flex;
+    margin-left: 15px;
+    gap:5vh;
+    padding: 1vh;
+     
+ }
+.inquirie-detail-wrapper{
+    gap:10px;
+    display: flex;
+    /* background-color: aqua; */
+}
+.inquirie-message-wrapper{
+    gap:20px;
+    display: flex;
+    margin-top: 10px;
+    /* background-color: aqua; */
+}
+.inquirie-details{
+    width:35vh;
+    margin-left:10px
+}
+.inquirie-message {
+    background-color: rgb(238, 245, 250);
+    width:100%;
+    padding: 10px;
+    box-shadow: 1px 1px rgb(37, 105, 224);
+    border-radius: 10px;
+    max-height: 120px;
+    min-height: 50px;
+    width:122vh;
+    overflow-y: scroll;
+}
+.inquirie-message::-webkit-scrollbar{
+    display: none
+}
+
+.inquirie-action-btn{
+    height:50%;
+    width: 35px;
+    outline: none;
+    border: none;
+    margin-top:8vh;
+    color:rgb(234, 54, 54);
+    border-radius:50%;
+    background-color: transparent;
+     
+}
+.inquirie-action-btn:hover{
+    color:rgb(148, 30, 30);
+}
+
+ 

@@ -38,13 +38,13 @@ function BranchRegistration() {
                             <input type='search' className='branch-search' placeholder='Search Branch...' />
                         </div>
                         <div className='branch-add-wrapper'>
-                            <button className='branch-add-btn' onClick={addBranchHandler}><AddCircleIcon fontSize='large' /></button>
+                            <button className='branch-add-btn' onClick={addBranchHandler}><AddCircleIcon className='add-btn' fontSize='large' /></button>
                         </div>
                     </div>
                     <div className='branch-body-wrapper clearfix'>
                         <div className='branch-reg-form'>
                             {details.map((detail) => (
-                                <BranchDetails Name={detail.Name} Contact={detail.Contact} Email={detail.Email}/>
+                                <BranchDetails Name={detail.Name} Contact={detail.Contact} Email={detail.Email} id={detail._id}/>
                             ))}
                         </div>
                     </div>
