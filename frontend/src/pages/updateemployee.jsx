@@ -2,13 +2,15 @@ import React, { useState, useEffect } from "react";
 import MarketingNavBar from "../components/MarketingNavBar";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-// import { useParams } from "react-router";
+import { useParams } from "react-router";
+import LoadingButton from "@mui/lab/LoadingButton";
 import axios from "axios";
-// import Button from "@mui/material/Button";
+import "../css/Updateemployee.css";
 
 export default function Updateemployee() {
-  //   const { id } = useParams();
+  const { id } = useParams();
 
+  const [loading, setLoading] = React.useState(false);
   const [Name, setName] = useState("");
   const [NIC, setNIC] = useState("");
   const [Contact, setContact] = useState("");
@@ -16,10 +18,9 @@ export default function Updateemployee() {
   const [Branch, setBranch] = useState("");
 
   useEffect(() => {
+    console.log(id);
     axios
-      .get(
-        `http://localhost:8070/employee/update/detail/6298a15c0ba7fc272ccddd34`
-      )
+      .get(`http://localhost:8070/employee/update/detail/${id}`)
       .then((res) => {
         setName(res.data.Name);
         setNIC(res.data.NIC);
@@ -32,68 +33,88 @@ export default function Updateemployee() {
       });
   }, []);
 
+  const submithendle = (e) => {
+    setLoading(true);
+  };
+
   return (
     <div>
       <MarketingNavBar />
-      <Box
-        component="form"
-        sx={{
-          "& > :not(style)": { m: 2, width: "45ch" },
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <h2>Update Employee</h2>
-        <TextField
-          id="outlined-basic"
-          label="Employee's Name"
-          variant="outlined"
-          value={Name}
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
-        />
-        <TextField
-          id="outlined-basic"
-          label="Employee's NIC"
-          variant="outlined"
-          value={NIC}
-          onChange={(e) => {
-            setNIC(e.target.value);
-          }}
-        />
-        <TextField
-          type="number"
-          id="outlined-basic"
-          label="Employee's Contact"
-          variant="outlined"
-          value={Contact}
-          onChange={(e) => {
-            setContact(e.target.value);
-          }}
-        />
-        <TextField
-          id="outlined-basic"
-          label="Employee's Email"
-          variant="outlined"
-          value={Email}
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
-        />
-        <TextField
-          id="outlined-basic"
-          label="Employee's Branch"
-          variant="outlined"
-          value={Branch}
-          onChange={(e) => {
-            setBranch(e.target.value);
-          }}
-          InputProps={{
-            readOnly: true,
-          }}
-        />
-      </Box>
+      <div className="employeecontentMainWrapper">
+        <div className="from">
+          <Box
+            component="form"
+            sx={{
+              "& > :not(style)": { m: 2, width: "45ch" },
+            }}
+            noValidate
+            autoComplete="off"
+          >
+            <h2 className="heading">Update Employee</h2>
+            <TextField
+              id="outlined-basic"
+              label="Employee's Name"
+              variant="outlined"
+              value={Name || ""}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            />
+            <TextField
+              id="outlined-basic"
+              label="Employee's NIC"
+              variant="outlined"
+              value={NIC || ""}
+              onChange={(e) => {
+                setNIC(e.target.value);
+              }}
+            />
+            <TextField
+              type="number"
+              id="outlined-basic"
+              label="Employee's Contact"
+              variant="outlined"
+              value={Contact || ""}
+              onChange={(e) => {
+                setContact(e.target.value);
+              }}
+            />
+            <TextField
+              id="outlined-basic"
+              label="Employee's Email"
+              variant="outlined"
+              value={Email || ""}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
+            />
+            <TextField
+              id="outlined-basic"
+              label="Employee's Branch"
+              variant="outlined"
+              value={Branch || ""}
+              onChange={(e) => {
+                setBranch(e.target.value);
+              }}
+              InputProps={{
+                readOnly: true,
+              }}
+            />
+          </Box>
+          <div className="updatefield">
+            <LoadingButton
+              className="updatebutton"
+              size="small"
+              onClick={submithendle}
+              loading={loading}
+              color="primary"
+              variant="contained"
+            >
+              Update
+            </LoadingButton>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

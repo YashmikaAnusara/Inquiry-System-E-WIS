@@ -58,12 +58,13 @@ router.route("/delete/employee/:id").get((req, res) => {
 router.route("/update/detail/:id").get((req, res) => {
   let id = req.params.id;
 
-  EmployeeRegister.findOneAndUpdate({ _id: id })
+  EmployeeRegister.findByIdAndUpdate(id)
     .then((data) => {
       res.json(data);
     })
     .catch((err) => {
-      res.json(data);
+      res.json(err);
     });
 });
+
 module.exports = router;

@@ -7,7 +7,7 @@ import EmpRegistration from "./pages/EmpRegistration";
 import BranchRegistration from "./pages/BranchRegistration";
 import MarktingHome from "./pages/MarktingHome";
 import ViewEmployee from "./pages/ViewEmployee";
-import Updateemployee from "./pages/updateemployee";
+import Updateemployee from "./pages/Updateemployee";
 
 import InquiriesPage from "./pages/InquiriesPage";
 
@@ -19,7 +19,7 @@ function App() {
           <Route path="/dashBoard" element={<AdminHome />} />
           <Route path="/InquiryForm" element={<InquiryForm />} />
           <Route path="/inquiry/:branch/:email" element={<InquiriesPage />} />
-          <Route path="/Login" element={<LoginPage />} />
+          <Route path="/" element={<LoginPage />} />
           <Route path="/employee" element={<EmpRegistration />} />
           <Route path="/branch" element={<BranchRegistration />} />
           <Route path="/market" element={<MarktingHome />} />
@@ -27,7 +27,7 @@ function App() {
           <Route path="/addbranch" element={<BranchRegistration />} />
           <Route path="/marketingdashBoard" element={<MarktingHome />} />
           <Route path="/viewemployee" element={<ViewEmployee />} />
-          <Route path="/updateemployee" element={<Updateemployee />} />
+          <Route path="/updateemployee/:id" element={<Updateemployee />} />
         </Routes>
       </BrowserRouter>
     </div>

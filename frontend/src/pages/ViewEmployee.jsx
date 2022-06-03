@@ -31,7 +31,7 @@ export default function ViewEmployee() {
   return (
     <div>
       <MarketingNavBar />
-      <div>
+      <div className="viewemployeeback">
         <div className="container">
           {employee.map((data, index) => (
             <div key={index}>
@@ -43,7 +43,7 @@ export default function ViewEmployee() {
                   <h3>Email : {data.Email}</h3>
                   <Box sx={{ "& button": { m: 1 } }}>
                     <div className="button">
-                      <Link to="/updateemployee">
+                      <Link to={`/updateemployee/${data._id}`}>
                         <Button size="medium">Update</Button>
                       </Link>
                       <Button size="medium">Delete</Button>
