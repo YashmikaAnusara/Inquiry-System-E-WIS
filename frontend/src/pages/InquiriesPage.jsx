@@ -11,6 +11,7 @@ import InquiriesDetail from '../components/InquiriesDetail'
 function InquiriesPage() {
   const params = useParams();
   const [details, setDetails] = useState([]);
+  const [search,setSearch]=useState('')
   const branch = params.branch;
   const email = params.email;
 
@@ -24,6 +25,11 @@ function InquiriesPage() {
             alert(err)
         })
     },[branch])
+
+
+    const filterteacher=details.filter(data=>{
+        return data.email.toLowerCase().includes(search.toLowerCase())||data.course.toLowerCase().includes(search.toLowerCase())
+    })
     
 
     return (
@@ -34,7 +40,7 @@ function InquiriesPage() {
 
                     <div className='inquiry-header'>
                         <div className='inquiry-search-wrapper'>
-                            <input type='search' className='inquiry-search' placeholder='Search Branch...' />
+                            <input type='search' className='inquiry-search' placeholder='Search Email or Course...' onChange={(event)=>{setSearch(event.target.value)}}/>
                         </div>
                         <div className='inquiry-branch-wrapper'>
 
@@ -45,7 +51,7 @@ function InquiriesPage() {
                     </div>
                     <div className='inquiry-body-wrapper clearfix'>
                         <div className='inquiry-details'>
-                            {details.map((detail) => (
+                            {filterteacher.map((detail) => (
                                 <div><InquiriesDetail firstName={detail.firstname} secondName={detail.secondname} email={detail.email} contact={detail.mobilenumber} course={detail.course} branch={detail.branch} message={detail.message} id={detail._id}/></div>
                             ))}
                         </div>
