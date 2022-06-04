@@ -9,6 +9,7 @@ router.route("/AddInquiry").post((req, res) => {
   const course = req.body.Course;
   const branch = req.body.Branch;
   const message = req.body.Message;
+  const month = req.body.frommonth;
 
   const addinquiry = new InquiryForm({
     firstname,
@@ -18,6 +19,7 @@ router.route("/AddInquiry").post((req, res) => {
     course,
     branch,
     message,
+    month,
   });
   addinquiry
     .save()

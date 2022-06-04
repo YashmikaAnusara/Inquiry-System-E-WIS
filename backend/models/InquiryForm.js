@@ -36,6 +36,10 @@ const InquiryForm = new Schema({
     type: String,
     required: true,
   },
+  month: {
+    type: String,
+    required: true,
+  },
 });
 
 const data = mongoose.model("Inquiry_Form", InquiryForm);

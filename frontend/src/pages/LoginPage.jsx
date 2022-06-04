@@ -40,7 +40,7 @@ export default function LoginPage() {
         } else if (res.data.Position === "Marketing") {
           sessionStorage.setItem("Managerbranch", res.data.Branch);
           setTimeout(() => {
-            nav("/marketingdashBoard");
+            nav("/InquiryForm");
           }, 3000);
         } else if (positions === "") {
           setTimeout(() => {
