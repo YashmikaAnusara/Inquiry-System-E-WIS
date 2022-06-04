@@ -11,6 +11,7 @@ function BranchInquiriesPage() {
   const branch = sessionStorage.getItem("marketingbranch");
   const branch2 = sessionStorage.getItem("marketingbranch2");
   const branch3 = sessionStorage.getItem("marketingbranch3");
+  const [found, setfound] = useState("");
 
   const [dispalybranch, setdispalybranch] = useState([]);
 
@@ -24,10 +25,15 @@ function BranchInquiriesPage() {
       setdispalybranch(branch3);
     }
   };
+
+  const inquiries = details.filter((data) => {
+    return (
+      data.email.toLowerCase().includes(found.toLowerCase()) ||
+      data.course.toLowerCase().includes(found.toLowerCase())
+    );
+  });
+
   useEffect(() => {
-    // const branch = sessionStorage.getItem("marketingbranch");
-    // const branch2 = sessionStorage.getItem("marketingbranch2");
-    // const branch3 = sessionStorage.getItem("marketingbranch3");
     axios
       .get(`http://localhost:8070/InquiryForm/get/details/${dispalybranch}`)
       .then((res) => {
@@ -51,7 +57,10 @@ function BranchInquiriesPage() {
               <input
                 type="search"
                 className="inquiry-search"
-                placeholder="Search Branch..."
+                placeholder="Search Branch Inquiries..."
+                onChange={(event) => {
+                  setfound(event.target.value);
+                }}
               />
             </div>
             <Stack spacing={2} direction="row">
@@ -75,7 +84,7 @@ function BranchInquiriesPage() {
           <div className="buttonbranch"></div>
           <div className="inquiry-body-wrapper clearfix">
             <div className="inquiry-details">
-              {details.map((detail, index) => (
+              {inquiries.map((detail, index) => (
                 <div key={index}>
                   <BranchInquiriesDeatils
                     firstName={detail.firstname}
