@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import MarketingNavBar from "../components/MarketingNavBar";
-import "../css/InquiriesPage.css";
+import "../css/BranchInquiriesPage.css";
 import axios from "axios";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
 import BranchInquiriesDeatils from "../components/BranchInquiriesDeatils";
 
 function BranchInquiriesPage() {
@@ -10,19 +12,32 @@ function BranchInquiriesPage() {
   const branch2 = sessionStorage.getItem("marketingbranch2");
   const branch3 = sessionStorage.getItem("marketingbranch3");
 
+  const [dispalybranch, setdispalybranch] = useState([]);
+
+  const branchanger = (name) => {
+    if (name === branch) {
+      setdispalybranch(branch);
+      console.log(name);
+    } else if (name === branch2) {
+      setdispalybranch(branch2);
+    } else if (name === branch3) {
+      setdispalybranch(branch3);
+    }
+  };
   useEffect(() => {
-    const branch = sessionStorage.getItem("marketingbranch");
-    const branch2 = sessionStorage.getItem("marketingbranch2");
-    const branch3 = sessionStorage.getItem("marketingbranch3");
+    // const branch = sessionStorage.getItem("marketingbranch");
+    // const branch2 = sessionStorage.getItem("marketingbranch2");
+    // const branch3 = sessionStorage.getItem("marketingbranch3");
     axios
-      .get(`http://localhost:8070/InquiryForm/get/details/${branch}`)
+      .get(`http://localhost:8070/InquiryForm/get/details/${dispalybranch}`)
       .then((res) => {
         setDetails(res.data);
+        console.log(res.data);
       })
       .catch((err) => {
         alert(err);
       });
-  }, []);
+  }, [dispalybranch]);
 
   return (
     <div>
@@ -39,10 +54,25 @@ function BranchInquiriesPage() {
                 placeholder="Search Branch..."
               />
             </div>
-            {branch ? <button> test1</button> : null}
-            {branch2 ? <button> test2</button> : null}
-            {branch3 ? <button> test3</button> : null}
+            <Stack spacing={2} direction="row">
+              {branch ? (
+                <Button variant="text" onClick={() => branchanger(branch)}>
+                  {branch}
+                </Button>
+              ) : null}
+              {branch2 ? (
+                <Button variant="text" onClick={() => branchanger(branch2)}>
+                  {branch2}
+                </Button>
+              ) : null}
+              {branch3 ? (
+                <Button variant="text" onClick={() => branchanger(branch3)}>
+                  {branch3}
+                </Button>
+              ) : null}
+            </Stack>
           </div>
+          <div className="buttonbranch"></div>
           <div className="inquiry-body-wrapper clearfix">
             <div className="inquiry-details">
               {details.map((detail, index) => (
