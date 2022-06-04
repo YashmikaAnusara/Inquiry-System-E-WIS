@@ -1,29 +1,29 @@
 import React from "react";
 import "../css/Inquiriesdetail.css";
-import DeleteIcon from "@mui/icons-material/Delete";
+// import DeleteIcon from "@mui/icons-material/Delete";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import EmailIcon from "@mui/icons-material/Email";
 import PersonIcon from "@mui/icons-material/Person";
 import PhoneIcon from "@mui/icons-material/Phone";
 import HomeIcon from "@mui/icons-material/Home";
 import MessageIcon from "@mui/icons-material/Message";
-import axios from "axios";
+// import axios from "axios";
 
 function BranchInquiriesDeatils(props) {
-  const deleteHandler = () => {
-    const id = props.id;
-    const confirmBox = window.confirm("Are you sure want to remove?");
-    if (confirmBox) {
-      axios
-        .get(`http://localhost:8070/InquiryForm/remove/${id}`)
-        .then(() => {
-          alert("done");
-        })
-        .catch((err) => {
-          alert(err);
-        });
-    }
-  };
+  //   const deleteHandler = () => {
+  //     const id = props.id;
+  //     const confirmBox = window.confirm("Are you sure want to remove?");
+  //     if (confirmBox) {
+  //       axios
+  //         .get(`http://localhost:8070/InquiryForm/remove/${id}`)
+  //         .then(() => {
+  //           alert("done");
+  //         })
+  //         .catch((err) => {
+  //           alert(err);
+  //         });
+  //     }
+  //   };
   return (
     <div className="inquirie-detail-main-wrapper">
       <div className="inquirie-detail-grp ">
@@ -62,9 +62,9 @@ function BranchInquiriesDeatils(props) {
           </div>
         </div>
       </div>
-      <button className="inquirie-action-btn" onClick={deleteHandler}>
+      {/* <button className="inquirie-action-btn" onClick={deleteHandler}>
         <DeleteIcon />
-      </button>
+      </button> */}
     </div>
   );
 }

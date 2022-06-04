@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "../css/MarketingNavBar.css";
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import HomeWorkIcon from "@mui/icons-material/HomeWork";
+import PeopleIcon from "@mui/icons-material/People";
 import { Link } from "react-router-dom";
 import BranchReg from "./BranchRegForm";
 
@@ -33,7 +35,7 @@ function MarketingNavBar() {
           <Link to="/Branchinquiry">
             <div className="Dashboardcontent">
               <div className="Dashboardcontentext">
-                <DashboardIcon />
+                <HomeWorkIcon />
                 <p className="DashboardcontenWord"> Branch Inquiry</p>
               </div>
             </div>
@@ -45,7 +47,7 @@ function MarketingNavBar() {
           <Link to="/viewemployee">
             <div className="Dashboardcontent">
               <div className="Dashboardcontentext">
-                <DashboardIcon />
+                <PeopleIcon />
                 <p className="DashboardcontenWord">View Employee</p>
               </div>
             </div>
