@@ -8,9 +8,9 @@ import BranchInquiriesDeatils from "../components/BranchInquiriesDeatils";
 
 function BranchInquiriesPage() {
   const [details, setDetails] = useState([]);
-  const branch = sessionStorage.getItem("marketingbranch");
-  const branch2 = sessionStorage.getItem("marketingbranch2");
-  const branch3 = sessionStorage.getItem("marketingbranch3");
+  const branch = sessionStorage.getItem("Managerbranch");
+  const branch2 = sessionStorage.getItem("Managerbranch2");
+  const branch3 = sessionStorage.getItem("Managerbranch3");
   const [found, setfound] = useState("");
 
   const [dispalybranch, setdispalybranch] = useState([]);

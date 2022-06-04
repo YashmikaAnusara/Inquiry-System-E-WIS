@@ -31,9 +31,14 @@ export default function LoginPage() {
             nav("/dashBoard");
           }, 3000);
         } else if (res.data.Position === "Senior-Manager") {
-          sessionStorage.setItem("marketingbranch", res.data.Branch);
-          sessionStorage.setItem("marketingbranch2", res.data.Branch_Two);
-          sessionStorage.setItem("marketingbranch3", res.data.Branch_Three);
+          sessionStorage.setItem("Managerbranch", res.data.Branch);
+          sessionStorage.setItem("Managerbranch2", res.data.Branch_Two);
+          sessionStorage.setItem("Managerbranch3", res.data.Branch_Three);
+          setTimeout(() => {
+            nav("/marketingdashBoard");
+          }, 3000);
+        } else if (res.data.Position === "Marketing") {
+          sessionStorage.setItem("Managerbranch", res.data.Branch);
           setTimeout(() => {
             nav("/marketingdashBoard");
           }, 3000);
