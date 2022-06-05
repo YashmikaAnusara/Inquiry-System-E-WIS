@@ -1,0 +1,175 @@
+ .clearfix{overflow:auto}
+* {
+    margin: 0;
+    padding: 0
+}
+
+.profile-content-Main-Wrapper{
+    background-color: rgb(227, 242, 253);
+    width: 83%;
+    height:86vh;
+    margin-left: 5px;
+     
+    overflow-y: scroll;
+}
+
+.profile-content-Main-Wrapper::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+.profile-content-Main-Wrapper::-webkit-scrollbar-track {
+    background-color: rgb(227, 242, 253);
+
+}
+
+/* Handle */
+
+.profile-content-Main-Wrapper::-webkit-scrollbar-thumb {
+    background: rgb(175, 211, 236);
+    border-radius: 15px;
+}
+
+/* Handle on hover */
+.profile-content-Main-Wrapper::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.profile-content-body-wrapper {
+    margin-top: 5vh;
+    margin-left: 30vh;
+    margin-right: 30vh;
+
+    
+}
+.admin-profile-wrapper{
+    width:100%;
+    height:8vh;
+}
+.profile-action-btn{
+    width:48%;
+    height:6vh;
+    outline:none;
+    background-color: rgb(189, 212, 228);
+    border: none;
+    margin:5px ;
+    border-radius: 10px;
+    box-shadow: 1px 1px rgb(143, 174, 226);
+    
+}
+.profile-action-btn:hover{
+    transform: scale(1.01);
+}
+.overview-wrapper{
+    background-color: rgb(255, 255, 255);
+    height: 65vh;
+    width: 100%;
+    margin-top: 10px;
+    border-radius:15px
+}
+.security-wrapper{
+    background-color: rgb(255, 255, 255);
+    height: 65vh;
+    width: 100%;
+    margin-top: 10px;
+    border-radius:15px
+}
+.sec-info{
+    background-color:rgb(255, 246, 224);
+    color: rgb(232, 153, 41);
+    width: 88%;
+    height: 12vh;
+    margin: auto;
+    margin-top: 30px;
+    padding-left: 30px;
+    padding-top: 20px;
+}
+.over-info{
+    background-color:rgb(245, 242, 234);
+    color: rgb(15, 41, 65);
+    width: 88%;
+    height: 12vh;
+    margin: auto;
+    margin-top: 30px;
+    padding-left: 30px;
+    padding-top: 20px;
+}
+.sec-inputs-wrapper{
+    width: 90%;
+    height: 15vh;
+    margin: auto;
+    margin-top: 20px; 
+    padding-top: 30px;
+    
+}
+.sec-inputs{
+    width:45%;
+    margin: 5px;
+    height: 6vh;
+    border-radius:5px;
+    outline: none;
+    border: 1px solid rgb(208, 208, 208);
+    padding-left: 10px;
+}
+.change-pass-btn{
+    width: 28vh;
+    height: 6vh;
+    margin-left:15px;
+    margin-top: 20px;
+    outline: none;
+    border: none;
+    color: white;
+    border-radius:5px;
+    background-color: rgb(15, 41, 65);
+}
+.change-email-btn{
+    width: 28vh;
+    height: 6vh;
+    margin-left:8vh;
+    margin-top: 25px;
+    outline: none;
+    border: none;
+    color: white;
+    border-radius:5px;
+    background-color: rgb(15, 41, 65);
+}
+.change-email-btn:hover{
+    background-color:rgb(44, 75, 103)
+}
+.change-pass-btn:hover{
+    background-color:rgb(44, 75, 103)
+}
+.ovr-main-wrapper{
+    margin-top: 5vh;   
+}
+.ovr-detail-wrapper{
+    display: flex;
+    padding-left: 8vh;
+    margin-top:10px
+}
+.ovr-detail{
+    margin-left: 4vh;
+}
+.ovr-pass-btn:hover{
+    color:rgb(153, 51, 51)
+}
+.email-change-wrapper{
+    display: flex;
+}
+
+.change-email-main-wrapper{
+    margin-top: 5vh; 
+    margin-left:7vh;
+}
+.logo-main-wrapper{
+    margin-top: 5vh; 
+    margin-left:22vh;
+}
+.email-inputs{
+    width:44vh;
+    height: 5vh;
+    border-radius:5px;
+    outline: none;
+    border: 1px solid rgb(208, 208, 208);
+    padding-left: 10px;
+}

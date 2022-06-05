@@ -34,4 +34,14 @@ router.route("/remove/:id").get((req, res) => {
     })
 })
 
+router.route("/count").get((req, res) => {
+    BranchRegister.find()
+    .then(data=>{
+        res.json(data.length)
+    })
+    .catch((err)=>{
+        res.json(err)
+    })
+})
+
 module.exports = router;

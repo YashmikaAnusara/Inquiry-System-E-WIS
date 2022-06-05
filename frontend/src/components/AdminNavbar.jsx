@@ -8,6 +8,8 @@ import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import { Link } from 'react-router-dom'
 import axios from 'axios';
 
+import AccountMenu from './Menu';
+
 function AdminNavbar() {
     const [details, setDetails] = useState([])
 
@@ -25,7 +27,8 @@ function AdminNavbar() {
     return (
         <div>
             <div className='admin-headerWraper'>
-
+                    <div className='logo-wrapper'></div> 
+                    <div className='menu-wrapper'> <div className="menu-icon"><AccountMenu /></div>   </div> 
             </div>
 
             <div className='admin-navWraper'>
