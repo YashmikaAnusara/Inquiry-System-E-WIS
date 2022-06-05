@@ -1,8 +1,14 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, } from "chart.js";
 import { Bar } from "react-chartjs-2";
 
 function BarGraph() {
+    
+    
+    useEffect(()=>{
+    
+    },[])
+
     ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
     const state = {
         labels: ["January", "February", "March", "April", "May","June","July","Agust","September","October","November","December"],
@@ -16,6 +22,8 @@ function BarGraph() {
             },
         ],
     };
+
+
     return (
         <div>
             <Bar

@@ -24,7 +24,7 @@ router.route("/Log/:username/:password").get((req, res) => {
   let username = req.params.username;
   let password = req.params.password;
 
-  EmployeeRegister.findOne({
+  Login.findOne({
     $and: [{ Email: { $eq: username } }, { Password: { $eq: password } }],
   })
     .then((data) => {
@@ -39,5 +39,30 @@ router.route("/Log/:username/:password").get((req, res) => {
       console.log(err);
     });
 });
+
+router.route("/email/update/:id/:email").put((req, res) => {
+  const id = req.params.id;
+  const email = req.params.email;
+  Login.findOneAndUpdate({_id:id},{Email:email})
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+router.route("/password/update/:id/:password").put((req, res) => {
+  const id = req.params.id;
+  const password = req.params.password;
+  Login.findOneAndUpdate({_id:id},{Password:password})
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
 
 module.exports = router;

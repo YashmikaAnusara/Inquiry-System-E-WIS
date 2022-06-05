@@ -27,10 +27,13 @@ export default function LoginPage() {
       .get(`http://localhost:8070/Login/Log/${username}/${password}`)
       .then((res) => {
         if (res.data.Position === "Admin") {
+          sessionStorage.setItem("adminId", res.data._id);
+          sessionStorage.setItem("adminEmail", res.data.Email);
+          sessionStorage.setItem("adminpassword", res.data.Password);
           setTimeout(() => {
             nav("/dashBoard");
           }, 3000);
-        } else if (res.data.Position === "Senior-Manager") {
+        } else if (res.data.Position === "Manager") {
           sessionStorage.setItem("Managerbranch", res.data.Branch);
           sessionStorage.setItem("Managerbranch2", res.data.Branch_Two);
           sessionStorage.setItem("Managerbranch3", res.data.Branch_Three);

@@ -5,11 +5,14 @@ import PersonIcon from '@mui/icons-material/Person';
 import SecurityIcon from '@mui/icons-material/Security';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import Logo from '../images/pic6.png'
-
-
+import axios from 'axios';
 
 function Profile() {
-    const email="admin@admin.com"
+    
+    const id=sessionStorage.getItem('adminId')
+    const email=sessionStorage.getItem('adminEmail')
+    const cpassword=sessionStorage.getItem('adminpassword')
+
     const [actOver, setActOver] = useState(true)
     const [actSec, setActSec] = useState(false)
     const [passActive, setPassActive] = useState(false)
@@ -38,6 +41,7 @@ function Profile() {
         setEmailActive(!emaiActive)
         setEmailActive1(!emaiActive1)
     }
+
     const emailChangeHandler=()=>{
         if(currentEmail===''||newEmail===''||reNewEmail==='')
         {
@@ -54,7 +58,13 @@ function Profile() {
             alert('Current email ane new email cannot be same!')
         }
         else{
-            alert('done')
+            axios.put(`http://localhost:8070/Login/email/update/${id}/${reNewEmail}`)
+            .then(()=>{
+                alert("Email updated successfully!")
+            })
+            .catch(err=>{
+                alert(err)
+            })
         }
     }
 
@@ -66,10 +76,15 @@ function Profile() {
             alert("Password is not matching!")
         }
         else{
-            alert('Done')
+            axios.put(`http://localhost:8070/Login/password/update/${id}/${repassword}`)
+            .then(()=>{
+                alert("Password updated successfully!")
+            })
+            .catch(err=>{
+                alert(err)
+            })
         }
     }
-
 
     return (
         <div>
@@ -88,8 +103,8 @@ function Profile() {
                         </div>
                         <div className='email-change-wrapper'>
                             <div className="ovr-main-wrapper">
-                                <div className='ovr-detail-wrapper'><PersonIcon fontSize='medium' /><p className='ovr-detail'> admin@gmail.com</p></div>
-                                <div className='ovr-detail-wrapper'><VisibilityIcon fontSize='medium' className='ovr-pass-btn' onClick={visibilityHandler} />{passActive ? <p className='ovr-detail'> admin@gmail.com</p> : <p className='ovr-detail'> ########</p>}</div>
+                                <div className='ovr-detail-wrapper'><PersonIcon fontSize='medium' /><p className='ovr-detail'> {email}</p></div>
+                                <div className='ovr-detail-wrapper'><VisibilityIcon fontSize='medium' className='ovr-pass-btn' onClick={visibilityHandler} />{passActive ? <p className='ovr-detail'>{cpassword}</p> : <p className='ovr-detail'> ########</p>}</div>
                                 <button className='change-email-btn' onClick={editEmailFormHadler}>Change Email</button>
                             </div><br />
                             {emaiActive1 && <div className="logo-main-wrapper">
