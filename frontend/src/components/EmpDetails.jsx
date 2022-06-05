@@ -54,7 +54,7 @@ function EmpDetails(props) {
                 active && (
                     <div className='edit-popup-form'>
                         <button className='edit-btn-close' onClick={closeHandler}><CloseIcon fontSize='medium' /></button>
-                        <EditDetails name={props.Name} nic={props.Name} contact={props.Contact} email={props.Email} branch={props.Branch} password={props.Password} />
+                        <EditDetails id={props.id} name={props.Name} nic={props.NIC} contact={props.Contact} email={props.Email} branch={props.Branch1} branch2={props.Branch2} branch3={props.Branch3} password={props.Password} position={props.Position}/>
                     </div>
                 )
             }

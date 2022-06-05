@@ -54,7 +54,7 @@ function EmpRegistration() {
                         <div className='emp-reg-form'>
                             
                             {filterteacher.map((detail) => (
-                                <div><EmpDetails Name={detail.Name} NIC={detail.NIC} Contact={detail.Contact} Email={detail.Email} Password={detail.Password} Branch1={detail.Branch} Branch2={detail.Branch_Two} Branch3={detail.Branch_Three} Position={detail.Position}/></div>
+                                <div><EmpDetails id={detail._id} Name={detail.Name} NIC={detail.NIC} Contact={detail.Contact} Email={detail.Email} Password={detail.Password} Branch1={detail.Branch} Branch2={detail.Branch_Two} Branch3={detail.Branch_Three} Position={detail.Position}/></div>
                             ))}
                         </div>
                     </div>

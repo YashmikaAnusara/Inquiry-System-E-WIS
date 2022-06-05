@@ -8,6 +8,7 @@ function EmpRegForm() {
   const [details, setDetails] = useState([])
   const [type, setType] = useState()
   const [message, setMessage] = useState()
+
   const [Name, setName] = useState('')
   const [NIC, setnic] = useState('')
   const [Contact, setContact] = useState('')
@@ -42,21 +43,25 @@ function EmpRegForm() {
   }
 
   const regHandler = () => {
+    if (Name === '' || NIC === '' || Contact === '' || Email === '' || Branch === '' || Position === '') {
+      alert("Some inputs are required!")
+    }
+    else {
+      axios.post('http://localhost:8070/employee/register', data)
+        .then(() => {
+          setType("success")
+          setMessage("Done")
+          setActive(true)
+          setTimeout(() => {
+            setActive(false)
+          }, 4000)
 
-    axios.post('http://localhost:8070/employee/register', data)
-      .then(() => {
-        setType("success")
-        setMessage("Done")
-        setActive(true)
-        setTimeout(() => {
-          setActive(false)
-        }, 4000)
-
-      })
-      .catch(() => {
-        setType("erorr")
-        setMessage("Error")
-      })
+        })
+        .catch(() => {
+          setType("erorr")
+          setMessage("Error")
+        })
+    }
   }
 
   return (
