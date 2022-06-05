@@ -1,29 +1,53 @@
 import React, { useState, useEffect } from "react";
 import "../css/MarketingHome.css";
+import AllInboxIcon from "@mui/icons-material/AllInbox";
 import MarketingNavBar from "../components/MarketingNavBar";
-import { AreaChart, Area, XAxis, YAxis, Tooltip } from "recharts";
+import {
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+} from "recharts";
 import axios from "axios";
 
 const data = [
   {
     name: "Page A",
-    uv: 1300,
+    uv: 4000,
+    pv: 2400,
   },
   {
     name: "Page B",
-    uv: 200,
+    uv: 3000,
+    pv: 1398,
   },
   {
     name: "Page C",
-    uv: 500,
+    uv: 2000,
+    pv: 9800,
   },
   {
     name: "Page D",
-    uv: 900,
+    uv: 2780,
+    pv: 3908,
   },
   {
     name: "Page E",
-    uv: 1000,
+    uv: 1890,
+    pv: 4800,
+  },
+  {
+    name: "Page F",
+    uv: 2390,
+    pv: 3800,
+  },
+  {
+    name: "Page G",
+    uv: 3490,
+    pv: 4300,
   },
 ];
 
@@ -35,6 +59,7 @@ export default function MarktingHome() {
     axios
       .get(`http://localhost:8070/InquiryForm/Get/${branch}`)
       .then((res) => {
+        console.log(res);
         setInquiry(res.data);
       })
       .catch((error) => {
@@ -53,15 +78,20 @@ export default function MarktingHome() {
       <div className="contentMainWrapper">
         <div className="contentbodywrapper">
           <div className="cardMainWrapper">
-            <div className="cardwrapper card1"></div>
+            <div className="cardwrapper card1">
+              <div className="cardall">
+                <div className="cardaling">
+                  <AllInboxIcon sx={{ fontSize: 90 }} />
+                </div>
+                <div className="cardtext">All Inquiries</div>
+              </div>
+            </div>
             <div className="cardwrapper card2"></div>
             <div className="cardwrapper card3"></div>
           </div>
           <div className="chart">
-            {/* {Inquiry.map((data, index) => ( */}
-            {/* <div key={index}> */}
             <AreaChart
-              width={900}
+              width={1150}
               height={400}
               data={data}
               margin={{
@@ -71,6 +101,7 @@ export default function MarktingHome() {
                 bottom: 0,
               }}
             >
+              <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" />
               <YAxis />
               <Tooltip />
@@ -81,8 +112,6 @@ export default function MarktingHome() {
                 fill="#8884d8"
               />
             </AreaChart>
-            {/* </div> */}
-            {/* ))} */}
           </div>
         </div>
       </div>

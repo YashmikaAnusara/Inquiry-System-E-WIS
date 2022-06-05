@@ -1,4 +1,4 @@
-* {
+cardwrapper* {
   margin: 0;
   padding: 0;
 }
@@ -58,7 +58,20 @@
 }
 
 .card1 {
-  background-color: rgb(100, 100, 191);
+  background-color: rgb(58 112 113);  
+  color: rgb(255, 255, 255);
+}
+.cardall{
+  display: flex;
+    font-size: 4vh;
+}
+.cardaling{
+  padding-left: 1%;
+    padding-top: 4%;
+}
+.cardtext{
+  margin-left: 3%;
+    margin-top: 3%;
 }
 
 .card2 {

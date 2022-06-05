@@ -8,9 +8,11 @@ import BranchInquiriesDeatils from "../components/BranchInquiriesDeatils";
 
 function BranchInquiriesPage() {
   const [details, setDetails] = useState([]);
-  const branch = sessionStorage.getItem("Managerbranch");
-  const branch2 = sessionStorage.getItem("Managerbranch2");
-  const branch3 = sessionStorage.getItem("Managerbranch3");
+  const ManagerEmail = sessionStorage.getItem("ManagerEmail");
+  const [branch, setbranch] = useState("");
+  const [branch2, setbranch2] = useState("");
+  const [branch3, setbranch3] = useState("");
+
   const [found, setfound] = useState("");
 
   const [dispalybranch, setdispalybranch] = useState([]);
@@ -32,6 +34,20 @@ function BranchInquiriesPage() {
       data.course.toLowerCase().includes(found.toLowerCase())
     );
   });
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8070/employee/employee/${ManagerEmail}`)
+      .then((res) => {
+        setbranch(res.data.Branch);
+        setbranch2(res.data.Branch_Two);
+        setbranch3(res.data.Branch_Three);
+        console.log(res.data.Branch_Three);
+      })
+      .catch((e) => {
+        alert(e);
+      });
+  }, []);
 
   useEffect(() => {
     axios
