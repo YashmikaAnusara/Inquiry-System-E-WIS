@@ -53,11 +53,8 @@ function AdminHome() {
                         </div>
                     </div>
                     <div className='admin-graph'>
-
+                      
                         {/* <BarGraph /> */}
-
-                        
-                        <BarGraph />
 
                         {/* <Chart/> */}
                     </div>
