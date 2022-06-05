@@ -69,10 +69,10 @@ router.route("/get/detail/:branch").get((req, res) => {
     });
 });
 
-router.route("/delete/employee/:id").get((req, res) => {
-  let id = req.params.id;
+router.route("/employee/:email").get((req, res) => {
+  let email = req.params.email;
 
-  EmployeeRegister.findByIdAndDelete({ _id: id })
+  EmployeeRegister.findOne({ Email: email })
     .then((data) => {
       res.send(data);
     })

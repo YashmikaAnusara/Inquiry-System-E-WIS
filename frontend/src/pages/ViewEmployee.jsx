@@ -10,10 +10,11 @@ export default function ViewEmployee() {
   const [employee, setemployee] = useState([]);
   const [dispalybranch, setdispalybranch] = useState([]);
   const [found, setfound] = useState("");
+  const [branch, setbranch] = useState("");
+  const [branch2, setbranch2] = useState("");
+  const [branch3, setbranch3] = useState("");
 
-  const branch = sessionStorage.getItem("Managerbranch");
-  const branch2 = sessionStorage.getItem("Managerbranch2");
-  const branch3 = sessionStorage.getItem("Managerbranch3");
+  const ManagerEmail = sessionStorage.getItem("ManagerEmail");
 
   const branchanger = (name) => {
     if (name === branch) {
@@ -25,6 +26,20 @@ export default function ViewEmployee() {
       setdispalybranch(branch3);
     }
   };
+
+  useEffect(() => {
+    axios
+      .get(`http://localhost:8070/employee/employee/${ManagerEmail}`)
+      .then((res) => {
+        setbranch(res.data.Branch);
+        setbranch2(res.data.Branch_Two);
+        setbranch3(res.data.Branch_Three);
+        console.log(res.data.Branch_Three);
+      })
+      .catch((e) => {
+        alert(e);
+      });
+  }, []);
 
   useEffect(() => {
     axios

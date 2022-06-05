@@ -34,9 +34,7 @@ export default function LoginPage() {
             nav("/dashBoard");
           }, 3000);
         } else if (res.data.Position === "Manager") {
-          sessionStorage.setItem("Managerbranch", res.data.Branch);
-          sessionStorage.setItem("Managerbranch2", res.data.Branch_Two);
-          sessionStorage.setItem("Managerbranch3", res.data.Branch_Three);
+          sessionStorage.setItem("ManagerEmail", res.data.Email);
           setTimeout(() => {
             nav("/marketingdashBoard");
           }, 3000);

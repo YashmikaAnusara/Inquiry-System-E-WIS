@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import "../css/MarketingHome.css";
+import AllInboxIcon from "@mui/icons-material/AllInbox";
 import MarketingNavBar from "../components/MarketingNavBar";
 import {
-  LineChart,
-  Line,
+  AreaChart,
+  Area,
   XAxis,
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
+  ResponsiveContainer,
 } from "recharts";
 import axios from "axios";
 
@@ -77,35 +78,40 @@ export default function MarktingHome() {
       <div className="contentMainWrapper">
         <div className="contentbodywrapper">
           <div className="cardMainWrapper">
-            <div className="cardwrapper card1"></div>
+            <div className="cardwrapper card1">
+              <div className="cardall">
+                <div className="cardaling">
+                  <AllInboxIcon sx={{ fontSize: 90 }} />
+                </div>
+                <div className="cardtext">All Inquiries</div>
+              </div>
+            </div>
             <div className="cardwrapper card2"></div>
             <div className="cardwrapper card3"></div>
           </div>
           <div className="chart">
-            <LineChart
-              width={1100}
+            <AreaChart
+              width={1150}
               height={400}
               data={data}
               margin={{
-                top: 5,
+                top: 10,
                 right: 30,
-                left: 20,
-                bottom: 5,
+                left: 0,
+                bottom: 0,
               }}
             >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name"/>
+              <XAxis dataKey="name" />
               <YAxis />
               <Tooltip />
-              <Legend />
-              <Line
+              <Area
                 type="monotone"
-                dataKey="pv"
+                dataKey="uv"
                 stroke="#8884d8"
-                activeDot={{ r: 8 }}
+                fill="#8884d8"
               />
-              <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
-            </LineChart>
+            </AreaChart>
           </div>
         </div>
       </div>
