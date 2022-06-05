@@ -7,7 +7,6 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import PersonAdd from '@mui/icons-material/PersonAdd';
 import Logout from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
 import { useNavigate } from 'react-router-dom';
@@ -26,6 +25,11 @@ export default function AccountMenu() {
   const profileHandler=()=>{
     navigate('/admin/profile')
   }
+
+  const logoutHandler=()=>{
+    alert('logout')
+  }
+
 
   return (
     <React.Fragment>
@@ -84,7 +88,7 @@ export default function AccountMenu() {
 
         <Divider />
 
-        <MenuItem>
+        <MenuItem onClick={logoutHandler}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>

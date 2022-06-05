@@ -8,7 +8,7 @@
 }
 .emp-detail-grp{
     padding: 2px 0px 8px 50px;
-    width:88%;
+    width:83%;
     display: flex;
     /* background-color:aquamarine */
 }
@@ -39,19 +39,29 @@
     
     /* background-color:aliceblue */
 }
-.emp-action-btn{
+.emp-action-btn {
     height:50%;
     width: 35px;
     outline: none;
     border: none;
-    margin-top:6vh;
-    color:rgb(15, 41, 65);
+    margin-top:6vh; 
     border-radius:50%;
     background-color: transparent;
 }
-.emp-action-btn:hover{
+ 
+.edit{
+    color:rgb(15, 41, 65);
+}
+.edit:hover{
     
     color:rgb(82, 102, 120) ;
+}
+.delete{
+    color:rgb(219, 37, 37);
+}
+.delete:hover{
+    
+    color:rgb(202, 117, 117) ;
 }
 .branch{
     margin-left:40px

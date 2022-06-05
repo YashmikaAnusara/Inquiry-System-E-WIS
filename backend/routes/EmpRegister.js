@@ -158,4 +158,28 @@ router.route("/count").get((req, res) => {
     });
 });
 
+router.route("/remove/employee/:email").delete((req, res) => {
+  let email=req.params.email
+  EmployeeRegister.deleteOne({Email:{$eq:email}})
+    .then((data) => {
+      res.json(data);
+      Login.deleteOne({Email:{$eq:email}})
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+router.route("/remove/login/:email").delete((req, res) => {
+  let email=req.params.email
+  Login.deleteOne({Email:{$eq:email}})
+    .then((data) => {
+      res.json(data);
+       
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
+
 module.exports = router;

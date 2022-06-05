@@ -27,7 +27,7 @@ function InquiriesPage() {
     },[branch])
 
 
-    const filterteacher=details.filter(data=>{
+    const filter=details.filter(data=>{
         return data.email.toLowerCase().includes(search.toLowerCase())||data.course.toLowerCase().includes(search.toLowerCase())
     })
     
@@ -51,7 +51,7 @@ function InquiriesPage() {
                     </div>
                     <div className='inquiry-body-wrapper clearfix'>
                         <div className='inquiry-details'>
-                            {filterteacher.map((detail) => (
+                            {filter.map((detail) => (
                                 <div><InquiriesDetail firstName={detail.firstname} secondName={detail.secondname} email={detail.email} contact={detail.mobilenumber} course={detail.course} branch={detail.branch} message={detail.message} id={detail._id}/></div>
                             ))}
                         </div>

@@ -5,7 +5,7 @@ import axios from 'axios'
 import TextField from '@mui/material/TextField';
 
 import IconButton from '@mui/material/IconButton';
-import PhotoCamera from '@mui/icons-material/PhotoCamera';
+import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
 
 
 function BarGraph() {
@@ -55,8 +55,8 @@ function BarGraph() {
     return (
         <div>
             <TextField id="standard-basic" variant="standard" value={year} onChange={(e) => { setYear(e.target.value) }} />
-            <IconButton color="primary" aria-label="upload picture" component="span">
-                <PhotoCamera />
+            <IconButton color="primary" aria-label="upload picture" component="span" onClick={yearHandler}>
+                <ArrowForwardOutlinedIcon />
             </IconButton>
             <Bar
                 data={state}
