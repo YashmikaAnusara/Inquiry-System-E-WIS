@@ -53,8 +53,8 @@
     height: 6vh;
     margin-top: 10px;
     border-radius: 25px;
-    
     border: 1px solid black;
+    padding-right:10px;
     padding-left: 10px;
 }
 .branch-add-wrapper{
@@ -107,10 +107,15 @@
     float: right;
     margin-right: 10vh;
     margin-top: 5vh;
-    color: red;
-    border-radius: 5px;
+    color: rgb(255, 255, 255);
     outline: none;
-    border: none
+    border: none;
+    border-radius: 50%;
+    width: 38px;
+    height: 37px;
+    background-color:rgb(15, 41, 65);
+    padding-top:2px;
+    padding-left:2px
 }
 .branch-reg-form{
     margin:auto;

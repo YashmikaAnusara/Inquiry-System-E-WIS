@@ -12,6 +12,19 @@
     background-color: rgb(15, 41, 65);
 }
 
+.logo-wrapper{
+    width:50%;
+}
+.menu-wrapper{
+    width:50%;
+}
+.menu-icon{
+    width: fit-content;
+    height:fit-content;
+    margin-top: 3vh;
+    margin-left:85%;
+}
+
 .admin-navWraper::-webkit-scrollbar {
     display: none
 }

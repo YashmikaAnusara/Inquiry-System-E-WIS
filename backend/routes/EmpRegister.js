@@ -2,15 +2,15 @@ const router = require("express").Router();
 let EmployeeRegister = require("../models/EmpReg");
 
 router.route("/register").post((req, res) => {
-    const { Name, NIC, Contact, Email, Branch,Branch_Two,Branch_Three,Position,Password } = req.body
-    const details = new EmployeeRegister({ Name: Name, NIC: NIC, Contact: Contact, Email: Email, Branch: Branch,Branch_Two:Branch_Two,Branch_Three:Branch_Three,Position:Position,Password:Password });
-    details.save()
-        .then((data) => {
-            res.send(data);
-        })
-        .catch((err) => {
-            res.status();
-        });
+  const { Name, NIC, Contact, Email, Branch, Branch_Two, Branch_Three, Position, Password } = req.body
+  const details = new EmployeeRegister({ Name: Name, NIC: NIC, Contact: Contact, Email: Email, Branch: Branch, Branch_Two: Branch_Two, Branch_Three: Branch_Three, Position: Position, Password: Password });
+  details.save()
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status();
+    });
 
 });
 
@@ -88,12 +88,35 @@ router.route("/update/employee/:id").put((req, res) => {
     });
 });
 
+
 router.route("/delete/detail/:id").delete((req, res) => {
   let id = req.params.id;
-
+  
   EmployeeRegister.findByIdAndDelete(id)
+  .then((data) => {
+    res.json(data);
+  })
+  .catch((err) => {
+    res.json(err);
+  });
+});
+
+router.route("/update/:id").put((req, res) => {
+  let id = req.params.id;
+  const { Name, NIC, Contact, Email, Branch, BranchTwo, BranchThree, Position, Password } = req.body
+  EmployeeRegister.findOneAndUpdate({ _id: id }, { Name: Name, NIC: NIC, Contact: Contact, Email: Email, Branch: Branch, Branch_Two: BranchTwo, Branch_Three: BranchThree, Position: Position, Password: Password })
     .then((data) => {
-      res.json(data);
+      res.send(data);
+    })
+    .catch((err) => {
+      res.send("err");
+    });
+});
+
+router.route("/count").get((req, res) => {
+  EmployeeRegister.find()
+    .then((data) => {
+      res.json(data.length);
     })
     .catch((err) => {
       res.json(err);
