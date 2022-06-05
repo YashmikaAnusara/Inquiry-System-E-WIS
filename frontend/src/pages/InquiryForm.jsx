@@ -28,6 +28,8 @@ export default function InquiryForm() {
 
   const inquirymonth = new Date();
 
+  let year = inquirymonth.getFullYear();
+
   const month = inquirymonth.getMonth();
 
   const months = [
@@ -86,7 +88,8 @@ export default function InquiryForm() {
       Course,
       Branch,
       Message,
-      frommonth
+      frommonth,
+      year
     };
     
     axios
