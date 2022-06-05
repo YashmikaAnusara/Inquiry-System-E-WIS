@@ -100,7 +100,7 @@ export default function MarktingHome() {
               <Legend />
               <Line
                 type="monotone"
-                dataKey="uv"
+                dataKey="pv"
                 stroke="#8884d8"
                 activeDot={{ r: 8 }}
               />

@@ -1,5 +1,5 @@
 .viewemployeeback {
-  background-color: whitesmoke;
+  background-color: rgb(227, 242, 253);
   /* background-image: url(../images/pic4.jpg); */
   /* background: rgb(15, 41, 65);
   background: linear-gradient(
@@ -91,4 +91,14 @@
 .button {
   margin-top: 1%;
   display: flex;
+}
+.viewbuttons {
+  display: flex;
+  margin-left: 45%;
+}
+.inquiry-search-wrapper123 {
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  padding-left: 25px;
 }

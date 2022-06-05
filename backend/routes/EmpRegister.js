@@ -33,9 +33,6 @@ router.route("/register").post((req, res) => {
     .catch((err) => {
       res.status();
     });
-
-
-
 });
 
 router.route("/get/details").get((req, res) => {
@@ -51,7 +48,13 @@ router.route("/get/details").get((req, res) => {
 router.route("/get/detail/:branch").get((req, res) => {
   let branch = req.params.branch;
 
-  EmployeeRegister.find({ Branch: branch })
+  EmployeeRegister.find({
+    $or: [
+      { Branch: { $eq: branch } },
+      { Branch_Two: { $eq: branch } },
+      { Branch_Three: { $eq: branch } },
+    ],
+  })
     .then((data) => {
       res.send(data);
     })
@@ -112,23 +115,45 @@ router.route("/update/employee/:id").put((req, res) => {
     });
 });
 
-
 router.route("/delete/detail/:id").delete((req, res) => {
   let id = req.params.id;
-  
+
   EmployeeRegister.findByIdAndDelete(id)
-  .then((data) => {
-    res.json(data);
-  })
-  .catch((err) => {
-    res.json(err);
-  });
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
 });
 
 router.route("/update/:id").put((req, res) => {
   let id = req.params.id;
-  const { Name, NIC, Contact, Email, Branch, BranchTwo, BranchThree, Position, Password } = req.body
-  EmployeeRegister.findOneAndUpdate({ _id: id }, { Name: Name, NIC: NIC, Contact: Contact, Email: Email, Branch: Branch, Branch_Two: BranchTwo, Branch_Three: BranchThree, Position: Position, Password: Password })
+  const {
+    Name,
+    NIC,
+    Contact,
+    Email,
+    Branch,
+    BranchTwo,
+    BranchThree,
+    Position,
+    Password,
+  } = req.body;
+  EmployeeRegister.findOneAndUpdate(
+    { _id: id },
+    {
+      Name: Name,
+      NIC: NIC,
+      Contact: Contact,
+      Email: Email,
+      Branch: Branch,
+      Branch_Two: BranchTwo,
+      Branch_Three: BranchThree,
+      Position: Position,
+      Password: Password,
+    }
+  )
     .then((data) => {
       res.send(data);
     })

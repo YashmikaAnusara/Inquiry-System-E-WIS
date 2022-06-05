@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from "react";
 import '../css/AdminHome.css'
 import AdminNavbar from "../components/AdminNavbar";
-import BarGraph from "../components/Char";
+// import BarGraph from "../components/Char";
 import axios from "axios";
 
 import PersonIcon from '@mui/icons-material/Person';
@@ -45,7 +45,7 @@ function AdminHome() {
                         </div>
                     </div>
                     <div className='admin-graph'>
-                        <BarGraph />
+                        {/* <BarGraph /> */}
                         {/* <Chart/> */}
                     </div>
 
