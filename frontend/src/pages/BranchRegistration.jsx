@@ -31,7 +31,7 @@ function BranchRegistration() {
 
     },[])
  
-    const filterteacher=details.filter(data=>{
+    const filter=details.filter(data=>{
         return data.Email.toLowerCase().includes(search.toLowerCase())||data.Name.toLowerCase().includes(search.toLowerCase())
       })
 
@@ -51,7 +51,7 @@ function BranchRegistration() {
                     </div>
                     <div className='branch-body-wrapper clearfix'>
                         <div className='branch-reg-form'>
-                            {filterteacher.map((detail) => (
+                            {filter.map((detail) => (
                                 <BranchDetails Name={detail.Name} Contact={detail.Contact} Email={detail.Email} id={detail._id}/>
                             ))}
                         </div>

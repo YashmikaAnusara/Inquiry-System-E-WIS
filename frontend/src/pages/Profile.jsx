@@ -47,11 +47,11 @@ function Profile() {
         {
             alert("Email cannot be empty!")
         }
-        else if(currentEmail!=email)
+        else if(currentEmail!==email)
         {
             alert("Current email is invalid!")
         }
-        else if(newEmail!=reNewEmail){
+        else if(newEmail!==reNewEmail){
             alert("New emails are not matching")
         }
         else if(currentEmail===newEmail){
@@ -72,7 +72,7 @@ function Profile() {
         if(password===''||repassword===''){
             alert("Passwords cannot be empty!")
         }
-        else if(password!=repassword){
+        else if(password!==repassword){
             alert("Password is not matching!")
         }
         else{

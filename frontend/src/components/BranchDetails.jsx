@@ -18,7 +18,6 @@ function BranchDetails(props) {
                 .catch((err) => {
                     alert(err)
                 })
-
         }
     }
     return (
