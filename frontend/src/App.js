@@ -10,7 +10,11 @@ import ViewEmployee from "./pages/ViewEmployee";
 import Updateemployee from "./pages/Updateemployee";
 import InquiriesPage from "./pages/InquiriesPage";
 import Deleteemployee from "./pages/Deleteemployee";
+
 import Profile from "./pages/Profile";
+
+import BranchInquiriesPage from "./pages/BranchInquiriesPage";
+
 
 function App() {
   return (
@@ -30,7 +34,11 @@ function App() {
           <Route path="/viewemployee" element={<ViewEmployee />} />
           <Route path="/updateemployee/:id" element={<Updateemployee />} />
           <Route path="/deleteemployee/:id" element={<Deleteemployee />} />
+
           <Route path="/admin/profile" element={<Profile />} />
+
+          <Route path="/Branchinquiry" element={<BranchInquiriesPage />} />
+
         </Routes>
       </BrowserRouter>
     </div>

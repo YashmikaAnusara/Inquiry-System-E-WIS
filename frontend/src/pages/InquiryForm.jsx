@@ -26,6 +26,25 @@ export default function InquiryForm() {
   const [Branch, setBranch] = useState("");
   const [Message, setMessage] = useState("");
 
+  const inquirymonth = new Date();
+
+  const month = inquirymonth.getMonth();
+
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
   React.useEffect(() => {
     let active = true;
 
@@ -58,6 +77,7 @@ export default function InquiryForm() {
   }, [open]);
 
   const submithandler = (e) => {
+    const frommonth = months[month];
     const data = {
       FirstName,
       SecondName,
@@ -66,11 +86,14 @@ export default function InquiryForm() {
       Course,
       Branch,
       Message,
+      frommonth
     };
+    
     axios
       .post(`http://localhost:8070/InquiryForm/AddInquiry`, data)
       .then((res) => {
         alert("data added");
+        
       });
   };
   return (

@@ -7,7 +7,7 @@ import axios from "axios";
 const data = [
   {
     name: "Page A",
-    uv: 1000,
+    uv: 1300,
   },
   {
     name: "Page B",
@@ -28,21 +28,23 @@ const data = [
 ];
 
 export default function MarktingHome() {
-  const [employee, setemployee] = useState([]);
+  const [Inquiry, setInquiry] = useState([]);
 
   useEffect(() => {
-    const branch = sessionStorage.getItem("marketingbranch");
+    const branch = sessionStorage.getItem("Managerbranch");
     axios
       .get(`http://localhost:8070/InquiryForm/Get/${branch}`)
       .then((res) => {
-        setemployee(res.data);
-        console.log(res.data.email);
+        setInquiry(res.data);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
 
+  // const data = (name) => {
+  //   return 5;
+  // };
   return (
     <div>
       <div>
@@ -56,6 +58,8 @@ export default function MarktingHome() {
             <div className="cardwrapper card3"></div>
           </div>
           <div className="chart">
+            {/* {Inquiry.map((data, index) => ( */}
+            {/* <div key={index}> */}
             <AreaChart
               width={900}
               height={400}
@@ -77,6 +81,8 @@ export default function MarktingHome() {
                 fill="#8884d8"
               />
             </AreaChart>
+            {/* </div> */}
+            {/* ))} */}
           </div>
         </div>
       </div>

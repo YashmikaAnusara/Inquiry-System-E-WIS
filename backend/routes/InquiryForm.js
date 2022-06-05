@@ -9,6 +9,7 @@ router.route("/AddInquiry").post((req, res) => {
   const course = req.body.Course;
   const branch = req.body.Branch;
   const message = req.body.Message;
+  const month = req.body.frommonth;
 
   const addinquiry = new InquiryForm({
     firstname,
@@ -18,6 +19,7 @@ router.route("/AddInquiry").post((req, res) => {
     course,
     branch,
     message,
+    month,
   });
   addinquiry
     .save()
@@ -29,36 +31,35 @@ router.route("/AddInquiry").post((req, res) => {
     });
 });
 
-
-
-router.route('/get/details/:branch').get((req, res)=>{
-  const branch=req.params.branch
-  InquiryForm.find({branch:{$eq:branch}})
-    .then(data=>{
-        res.send(data) 
+router.route("/get/details/:branch").get((req, res) => {
+  const branch = req.params.branch;
+  InquiryForm.find({ branch: { $eq: branch } })
+    .then((data) => {
+      res.send(data);
     })
-    .catch((err)=>{
-        res.send(err)
-    })
-})
-
-router.route('/remove/:id').get((req, res)=>{
-  let id=req.params.id
-  InquiryForm.deleteOne({_id:id})
-    .then(data=>{
-        res.send(data)
-    })
-    .catch((err)=>{
-        res.send(err)
+    .catch((err) => {
+      res.send(err);
     });
-  });
+});
+
+router.route("/remove/:id").get((req, res) => {
+  let id = req.params.id;
+  InquiryForm.deleteOne({ _id: id })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.send(err);
+
+      res.send(err);
+    });
+});
 
 router.route("/Get/:branch").get((req, res) => {
   const branch = req.params.branch;
   InquiryForm.find({ branch: { $eq: branch } })
     .then((data) => {
       res.json(data);
-
     })
     .catch((err) => {
       res.send(err);
