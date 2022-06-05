@@ -1,29 +1,52 @@
 import React, { useState, useEffect } from "react";
 import "../css/MarketingHome.css";
 import MarketingNavBar from "../components/MarketingNavBar";
-import { AreaChart, Area, XAxis, YAxis, Tooltip } from "recharts";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+} from "recharts";
 import axios from "axios";
 
 const data = [
   {
     name: "Page A",
-    uv: 1300,
+    uv: 4000,
+    pv: 2400,
   },
   {
     name: "Page B",
-    uv: 200,
+    uv: 3000,
+    pv: 1398,
   },
   {
     name: "Page C",
-    uv: 500,
+    uv: 2000,
+    pv: 9800,
   },
   {
     name: "Page D",
-    uv: 900,
+    uv: 2780,
+    pv: 3908,
   },
   {
     name: "Page E",
-    uv: 1000,
+    uv: 1890,
+    pv: 4800,
+  },
+  {
+    name: "Page F",
+    uv: 2390,
+    pv: 3800,
+  },
+  {
+    name: "Page G",
+    uv: 3490,
+    pv: 4300,
   },
 ];
 
@@ -35,6 +58,7 @@ export default function MarktingHome() {
     axios
       .get(`http://localhost:8070/InquiryForm/Get/${branch}`)
       .then((res) => {
+        console.log(res);
         setInquiry(res.data);
       })
       .catch((error) => {
@@ -58,31 +82,30 @@ export default function MarktingHome() {
             <div className="cardwrapper card3"></div>
           </div>
           <div className="chart">
-            {/* {Inquiry.map((data, index) => ( */}
-            {/* <div key={index}> */}
-            <AreaChart
-              width={900}
+            <LineChart
+              width={1100}
               height={400}
               data={data}
               margin={{
-                top: 10,
+                top: 5,
                 right: 30,
-                left: 0,
-                bottom: 0,
+                left: 20,
+                bottom: 5,
               }}
             >
-              <XAxis dataKey="name" />
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name"/>
               <YAxis />
               <Tooltip />
-              <Area
+              <Legend />
+              <Line
                 type="monotone"
                 dataKey="uv"
                 stroke="#8884d8"
-                fill="#8884d8"
+                activeDot={{ r: 8 }}
               />
-            </AreaChart>
-            {/* </div> */}
-            {/* ))} */}
+              <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+            </LineChart>
           </div>
         </div>
       </div>
