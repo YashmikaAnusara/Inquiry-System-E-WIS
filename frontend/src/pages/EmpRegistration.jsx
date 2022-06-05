@@ -20,8 +20,6 @@ function EmpRegistration() {
             .catch(e => {
                 alert(e)
             })
-
-
     }, [])
 
     const addFormHandler = () => {
@@ -31,7 +29,7 @@ function EmpRegistration() {
         setActive(!active)
     }
 
-    const filterteacher=details.filter(data=>{
+    const filter=details.filter(data=>{
         return data.NIC.toLowerCase().includes(search.toLowerCase())||data.Name.toLowerCase().includes(search.toLowerCase())||data.Email.toLowerCase().includes(search.toLowerCase())||data.Position.toLowerCase().includes(search.toLowerCase())
     })
 
@@ -53,7 +51,7 @@ function EmpRegistration() {
                     <div className='emp-body-wrapper clearfix'>
                         <div className='emp-reg-form'>
                             
-                            {filterteacher.map((detail) => (
+                            {filter.map((detail) => (
                                 <div><EmpDetails id={detail._id} Name={detail.Name} NIC={detail.NIC} Contact={detail.Contact} Email={detail.Email} Password={detail.Password} Branch1={detail.Branch} Branch2={detail.Branch_Two} Branch3={detail.Branch_Three} Position={detail.Position}/></div>
                             ))}
                         </div>

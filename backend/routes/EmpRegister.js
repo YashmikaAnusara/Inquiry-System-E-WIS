@@ -1,5 +1,6 @@
 const router = require("express").Router();
 let EmployeeRegister = require("../models/EmpReg");
+let Login = require("../models/LoginDetails");
 
 router.route("/register").post((req, res) => {
   const {
@@ -26,12 +27,17 @@ router.route("/register").post((req, res) => {
   });
   details
     .save()
-
     .then((data) => {
       res.send(data);
+      const logindetail = new Login({
+        Email: Email,
+        Position: Position,
+        Password: Password,
+      });
+      logindetail.save();
     })
     .catch((err) => {
-      res.status();
+      res.status(err);
     });
 });
 
@@ -155,10 +161,35 @@ router.route("/update/:id").put((req, res) => {
     }
   )
     .then((data) => {
-      res.send(data);
+      res.json(data);
     })
     .catch((err) => {
       res.send("err");
+    });
+});
+
+router.route("/update/login/:email").put((req, res) => {
+  let email = req.params.email;
+  const {
+    Name,
+    NIC,
+    Contact,
+    Email,
+    Branch,
+    BranchTwo,
+    BranchThree,
+    Position,
+    Password,
+  } = req.body;
+  Login.findOneAndUpdate(
+    { Email: email },
+    { Email: Email, Position: Position, Password: Password }
+  )
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.send(err);
     });
 });
 

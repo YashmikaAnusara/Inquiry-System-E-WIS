@@ -71,28 +71,27 @@ function EmpRegForm() {
       <center> <input type='text' className='input-feilds' placeholder="Employee's Contact..." onChange={(event) => { setContact(event.target.value) }} /></center>
       <center> <input type='text' className='input-feilds' placeholder="Employee's Email..." onChange={(event) => { setEmail(event.target.value) }} /></center>
       <center> <select className='select-input-feilds' onChange={(event) => { setBranch(event.target.value) }}>
-        <option value="">Select a Branch...</option>
+        <option value="">Select a first Branch...</option>
         {details.map((detail) => (
           <option value={detail.Name}>{detail.Name}</option>
         ))}
       </select></center>
       <center> <select className='select-input-feilds' onChange={(event) => { setBranchTow(event.target.value) }}>
-        <option value="">Select a Branch...</option>
+        <option value="">Select a second Branch...</option>
         {details.map((detail) => (
           <option value={detail.Name}>{detail.Name}</option>
         ))}
       </select></center>
       <center> <select className='select-input-feilds' onChange={(event) => { setBranchThree(event.target.value) }}>
-        <option value="">Select a Branch...</option>
+        <option value="">Select a third Branch...</option>
         {details.map((detail) => (
           <option value={detail.Name}>{detail.Name}</option>
         ))}
       </select></center>
       <center> <select className='select-input-feilds' onChange={(event) => { setPosition(event.target.value) }}>
         <option value="">Select a Position...</option>
-        <option value="Secratory">Secratory</option>
         <option value="Manager">Manager</option>
-        <option value="Senior-Manager">Senior-Manager</option>
+        <option value="Marketing">Marketing</option>
       </select></center>
 
       <center> <button className='reg-btn' onClick={regHandler}>Register</button></center>

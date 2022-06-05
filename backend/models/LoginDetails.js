@@ -2,14 +2,17 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const Login_modles = new Schema({
-  username: {
+  Email: {
     type: String,
     required: true,
   },
-
-  password: {
+  Position: {
     type: String,
     required: true,
+  },
+  Password: {
+    type: String,
+    // required: true,
   },
 });
 
