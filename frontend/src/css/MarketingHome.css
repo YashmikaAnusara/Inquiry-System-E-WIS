@@ -3,10 +3,10 @@ cardwrapper* {
   padding: 0;
 }
 
-.contentMainWrapper {
+.contentMainWrapper123 {
   background-color: rgb(227, 242, 253);
   width: 82%;
-  height: 86vh;
+  height: 91vh;
   margin-left: 5px;
   padding-right: 5px;
   overflow-y: scroll;
@@ -58,20 +58,20 @@ cardwrapper* {
 }
 
 .card1 {
-  background-color: rgb(58 112 113);  
+  background-color: rgb(58 112 113);
   color: rgb(255, 255, 255);
 }
-.cardall{
+.cardall {
   display: flex;
-    font-size: 4vh;
+  font-size: 4vh;
 }
-.cardaling{
+.cardaling {
   padding-left: 1%;
-    padding-top: 4%;
+  padding-top: 4%;
 }
-.cardtext{
+.cardtext {
   margin-left: 3%;
-    margin-top: 3%;
+  margin-top: 3%;
 }
 
 .card2 {
@@ -90,4 +90,7 @@ cardwrapper* {
 
 .chart {
   padding-top: 3%;
+}
+.date {
+  padding-left: 56%;
 }
