@@ -40,6 +40,10 @@ const InquiryForm = new Schema({
     type: String,
     required: true,
   },
+  year: {
+    type: String,
+    required: true,
+  },
 });
 
 const data = mongoose.model("Inquiry_Form", InquiryForm);
