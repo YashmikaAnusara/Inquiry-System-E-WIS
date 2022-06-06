@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import BranchReg from "./BranchRegForm";
 import BranchMenu from "./BranchMenu";
 
-function MarketingNavBar() {
+function ManagerNavBar() {
   const [active, setActive] = useState(false);
   const addBranchHandler = () => {
     setActive(true);
@@ -28,7 +28,7 @@ function MarketingNavBar() {
       <div className="navWraper">
         <div className="headerContentsectionWrapper">
           <p className="DashboardTopic">Dashboard</p>
-          <Link to="/marketingdashBoard">
+          <Link to="/managerdashBoard">
             <div className="Dashboardcontent">
               <div className="Dashboardcontentext">
                 <DashboardIcon />
@@ -40,7 +40,7 @@ function MarketingNavBar() {
 
         <div className="headerContentsectionWrapper">
           <p className="DashboardTopic">Inquiries</p>
-          <Link to="/marketinginquiry">
+          <Link to="/Branchinquiry">
             <div className="Dashboardcontent">
               <div className="Dashboardcontentext">
                 <HomeWorkIcon />
@@ -52,7 +52,7 @@ function MarketingNavBar() {
 
         <div className="headerContentsectionWrapper">
           <p className="DashboardTopic">Configurations</p>
-          <Link to="/viewmarketingemployee">
+          <Link to="/viewemployee">
             <div className="Dashboardcontent">
               <div className="Dashboardcontentext">
                 <PeopleIcon />
@@ -66,4 +66,4 @@ function MarketingNavBar() {
   );
 }
 
-export default MarketingNavBar;
+export default ManagerNavBar;

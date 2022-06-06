@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import ManagerNavBar from "../components/ManagerNavBar";
+import MarketingNavBar from "../components/MarketingNavBar";
 import EmployeeView from "../components/EmployeeView";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import "../css/ViewEmployee.css";
 
-export default function ViewEmployee() {
+export default function ViewMarketingEmployee() {
   const [employee, setemployee] = useState([]);
   const [dispalybranch, setdispalybranch] = useState([]);
   const [found, setfound] = useState("");
   const [branch, setbranch] = useState("");
   const [branch2, setbranch2] = useState("");
   const [branch3, setbranch3] = useState("");
-  const ManagerEmail = sessionStorage.getItem("ManagerEmail");
+
+  const MarketingEmail = sessionStorage.getItem("MarketingEmail");
 
   const branchanger = (name) => {
     if (name === branch) {
@@ -28,7 +29,7 @@ export default function ViewEmployee() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8070/employee/employee/${ManagerEmail}`)
+      .get(`http://localhost:8070/employee/employee/${MarketingEmail}`)
       .then((res) => {
         setbranch(res.data.Branch);
         setbranch2(res.data.Branch_Two);
@@ -38,11 +39,13 @@ export default function ViewEmployee() {
       .catch((e) => {
         alert(e);
       });
-  }, [ManagerEmail]);
+  }, [MarketingEmail]);
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8070/employee/get/detail/${dispalybranch}`)
+      .get(
+        `http://localhost:8070/employee/get/marketingdetail/${dispalybranch}`
+      )
       .then((res) => {
         setemployee(res.data);
       })
@@ -56,9 +59,9 @@ export default function ViewEmployee() {
   });
 
   return (
-    ManagerEmail && (
+    MarketingEmail && (
       <div>
-        <ManagerNavBar />
+        <MarketingNavBar />
         <div className="viewemployeeback">
           <div className="container">
             <div className="inquiry-search-wrapper123">
