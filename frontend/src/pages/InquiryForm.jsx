@@ -5,6 +5,8 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import CircularProgress from "@mui/material/CircularProgress";
 import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 import axios from "axios";
 
 function sleep(delay = 0) {
@@ -13,11 +15,29 @@ function sleep(delay = 0) {
   });
 }
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 export default function InquiryForm() {
   const [open, setOpen] = React.useState(false);
   const [options, setOptions] = React.useState([]);
   const loading = open && options.length === 0;
+
   
+
+
+  const [wFirstName, setwFirstName] = React.useState(false);
+  const [wSecondName, setwSecondName] = React.useState(false);
+  const [wEmail, setwEmail] = React.useState(false);
+  const [wMobileNumber, setwMobileNumber] = React.useState(false);
+  const [wCourse, setwCourse] = React.useState(false);
+  const [wBranch, setwBranch] = React.useState(false);
+  const [wMessage, setwMessage] = React.useState(false);
+
+  const [success, setsuccess] = React.useState(false);
+
+
   const [FirstName, setFirstName] = useState("");
   const [SecondName, setSecondName] = useState("");
   const [Email, setEmail] = useState("");
@@ -92,6 +112,7 @@ export default function InquiryForm() {
       Message,
       frommonth,
       year,
+
       newdate
     };
     
@@ -102,6 +123,43 @@ export default function InquiryForm() {
         
       });
    
+
+    };
+    if (FirstName === "") {
+      setwFirstName(true);
+    } else if (SecondName === "") {
+      setwSecondName(true);
+    } else if (Email === "") {
+      setwEmail(true);
+    } else if (MobileNumber === "") {
+      setwMobileNumber(true);
+    } else if (Course === "") {
+      setwCourse(true);
+    } else if (Branch === "") {
+      setwBranch(true);
+    } else if (Message === "") {
+      setwMessage(true);
+    } else {
+      axios
+        .post(`http://localhost:8070/InquiryForm/AddInquiry`, data)
+        .then((res) => {
+          setsuccess(true);
+        });
+    }
+  };
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setwFirstName(false);
+    setwSecondName(false);
+    setwEmail(false);
+    setwMobileNumber(false);
+    setwCourse(false);
+    setwBranch(false);
+    setwMessage(false);
+    setsuccess(false);
+
   };
   return (
     <div className="InquiryBody">
@@ -245,6 +303,55 @@ export default function InquiryForm() {
           <p className="InquiryPar">© 2022 Inquiry Message, Inc.</p>
         </div>
       </div>
+
+      <Snackbar open={wFirstName} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="warning" sx={{ width: "100%" }}>
+          Enter your Frist Name
+        </Alert>
+      </Snackbar>
+      <Snackbar
+        open={wSecondName}
+        autoHideDuration={6000}
+        onClose={handleClose}
+      >
+        <Alert onClose={handleClose} severity="warning" sx={{ width: "100%" }}>
+          Enter your Second Name
+        </Alert>
+      </Snackbar>
+      <Snackbar open={wEmail} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="warning" sx={{ width: "100%" }}>
+          Enter your Email
+        </Alert>
+      </Snackbar>
+      <Snackbar
+        open={wMobileNumber}
+        autoHideDuration={6000}
+        onClose={handleClose}
+      >
+        <Alert onClose={handleClose} severity="warning" sx={{ width: "100%" }}>
+          Enter your Mobile Number
+        </Alert>
+      </Snackbar>
+      <Snackbar open={wCourse} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="warning" sx={{ width: "100%" }}>
+          Select your Course
+        </Alert>
+      </Snackbar>
+      <Snackbar open={wBranch} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="warning" sx={{ width: "100%" }}>
+          Select your Branch
+        </Alert>
+      </Snackbar>
+      <Snackbar open={wMessage} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="warning" sx={{ width: "100%" }}>
+          Enter your Message
+        </Alert>
+      </Snackbar>
+      <Snackbar open={success} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
+          Inquiry Send Successfully
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

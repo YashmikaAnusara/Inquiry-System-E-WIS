@@ -3,10 +3,10 @@ cardwrapper* {
   padding: 0;
 }
 
-.contentMainWrapper {
+.contentMainWrapper123 {
   background-color: rgb(227, 242, 253);
   width: 82%;
-  height: 86vh;
+  height: 91vh;
   margin-left: 5px;
   padding-right: 5px;
   overflow-y: scroll;
@@ -46,40 +46,44 @@ cardwrapper* {
   margin-top: 40px;
 }
 
-.cardwrapper {
-  width: 270px;
+.cardwrapper123 {
+  width: 261px;
   height: 120px;
   border-radius: 15px;
   transition: transform 0.2s;
 }
 
-.cardwrapper:hover {
+.cardwrapper123:hover {
   transform: scale(1.03);
 }
 
 .card1 {
-  background-color: rgb(58 112 113);  
+  background-color: rgb(58 112 113);
   color: rgb(255, 255, 255);
 }
-.cardall{
+.cardall {
   display: flex;
-    font-size: 4vh;
+  font-size: 4vh;
 }
-.cardaling{
+.cardaling {
   padding-left: 1%;
-    padding-top: 4%;
+  padding-top: 4%;
 }
-.cardtext{
-  margin-left: 3%;
-    margin-top: 3%;
+.cardtext {
+  margin-left: 1%;
+  margin-top: 3%;
+  width: 55%;
+  text-align: center;
 }
 
 .card2 {
-  background-color: rgb(243, 223, 167);
+  background-color: rgb(108 136 142);
+  color: rgb(255, 255, 255);
 }
 
 .card3 {
-  background-color: rgb(30, 136, 229);
+  background-color: rgb(152 155 157);
+  color: rgb(255, 255, 255);
 }
 
 .graph {
@@ -89,5 +93,22 @@ cardwrapper* {
 }
 
 .chart {
+  padding-top: 2%;
+}
+.date {
+  padding-left: 56%;
+  display: flex;
+}
+.count {
+  text-align: center;
+}
+.view {
   padding-top: 3%;
+  display: inline;
+}
+.cardfront {
+  font-size: 120%;
+}
+.cardallfont {
+  font-size: 95%;
 }

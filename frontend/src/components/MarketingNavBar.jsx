@@ -5,6 +5,7 @@ import HomeWorkIcon from "@mui/icons-material/HomeWork";
 import PeopleIcon from "@mui/icons-material/People";
 import { Link } from "react-router-dom";
 import BranchReg from "./BranchRegForm";
+import BranchMenu from "./BranchMenu";
 
 function MarketingNavBar() {
   const [active, setActive] = useState(false);
@@ -15,7 +16,14 @@ function MarketingNavBar() {
     <div>
       {active ? <BranchReg /> : ""}
 
-      <div className="headerWraper"></div>
+      <div className="headerWraper">
+        <div className="logo-wrapper"></div>
+        <div className="menu-wrapper">
+          <div className="menu-icon">
+            <BranchMenu />
+          </div>
+        </div>
+      </div>
 
       <div className="navWraper">
         <div className="headerContentsectionWrapper">
