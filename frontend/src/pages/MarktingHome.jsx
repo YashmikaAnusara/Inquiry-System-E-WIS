@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../css/MarketingHome.css";
 import AllInboxIcon from "@mui/icons-material/AllInbox";
+import HouseIcon from "@mui/icons-material/House";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import MarketingNavBar from "../components/MarketingNavBar";
 import {
   AreaChart,
@@ -15,40 +13,24 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  ResponsiveContainer,
 } from "recharts";
 import axios from "axios";
 
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
-
 export default function MarktingHome() {
   const [Inquiry, setInquiry] = useState([]);
-  const [branch, setbranch] = useState("");
-  const [branch2, setbranch2] = useState("");
-  const [branch3, setbranch3] = useState("");
+  const [Inquirybranch, setInquirybranch] = useState();
+  const [Inquirybranch2, setInquirybranch2] = useState();
+  const [Inquirybranch3, setInquirybranch3] = useState();
+  const [branch, setbranch] = useState();
+  const [branch2, setbranch2] = useState();
+  const [branch3, setbranch3] = useState();
   const [dispalybranch, setdispalybranch] = useState("Borella");
-  const [value, setValue] = React.useState(new Date());
-
-  const ManagerEmail = sessionStorage.getItem("ManagerEmail");
+  const [AllInquiry, setAllInquiry] = useState();
+  const [year, setyear] = useState();
 
   const branchanger = (name) => {
     if (name === branch) {
       setdispalybranch(branch);
-      console.log(name);
     } else if (name === branch2) {
       setdispalybranch(branch2);
     } else if (name === branch3) {
@@ -58,22 +40,9 @@ export default function MarktingHome() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8070/employee/employee/${ManagerEmail}`)
-      .then((res) => {
-        setbranch(res.data.Branch);
-        setbranch2(res.data.Branch_Two);
-        setbranch3(res.data.Branch_Three);
-      })
-      .catch((e) => {
-        alert(e);
-      });
-  }, []);
-
-  useEffect(() => {
-    axios
       .get(`http://localhost:8070/InquiryForm/inquiry/${dispalybranch}`)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setInquiry(res.data);
       })
       .catch((error) => {
@@ -81,20 +50,86 @@ export default function MarktingHome() {
       });
   }, [dispalybranch]);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(
-  //       `http://localhost:8070/InquiryForm/inquiry/${dispalybranch}/${value}`
-  //     )
-  //     .then((res) => {
-  //       console.log(res.data);
-  //       setInquiry(res.data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, [dispalybranch]);
+  useEffect(() => {
+    const ManagerEmail = sessionStorage.getItem("ManagerEmail");
+    axios
+      .get(`http://localhost:8070/employee/employee/${ManagerEmail}`)
+      .then((res) => {
+        setbranch(res.data.Branch);
+        setbranch2(res.data.Branch_Two);
+        setbranch3(res.data.Branch_Three);
 
+        setInquirybranch(res.data.Branch);
+        setInquirybranch2(res.data.Branch_Two);
+        setInquirybranch3(res.data.Branch_Three);
+      })
+      .catch((e) => {
+        alert(e);
+      });
+  }, [dispalybranch]);
+
+  useEffect(() => {
+    if (Inquirybranch === "") {
+      axios
+        .get(
+          `http://localhost:8070/InquiryForm/count/null/${Inquirybranch2}/${Inquirybranch3}`
+        )
+        .then((res) => {
+          setAllInquiry(res.data);
+        })
+        .catch((e) => {
+          alert(e);
+        });
+    } else if (Inquirybranch2 === "") {
+      axios
+        .get(
+          `http://localhost:8070/InquiryForm/count/${Inquirybranch}/null/${Inquirybranch3}`
+        )
+        .then((res) => {
+          setAllInquiry(res.data);
+        })
+        .catch((e) => {
+          alert(e);
+        });
+    } else if (Inquirybranch3 === "") {
+      axios
+        .get(
+          `http://localhost:8070/InquiryForm/count/${Inquirybranch}/${Inquirybranch2}/null`
+        )
+        .then((res) => {
+          setAllInquiry(res.data);
+        })
+        .catch((e) => {
+          alert(e);
+        });
+    }
+    // console.log(Inquirybranch);
+    // console.log(Inquirybranch2);
+    // console.log(Inquirybranch3);
+    axios
+      .get(
+        `http://localhost:8070/InquiryForm/count/${Inquirybranch}/${Inquirybranch2}/${Inquirybranch3}`
+      )
+      .then((res) => {
+        setAllInquiry(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, [Inquirybranch]);
+
+  const view = (e) => {
+    axios
+      .get(`http://localhost:8070/InquiryForm/inquiry/${dispalybranch}/${year}`)
+      .then((res) => {
+        console.log(res.data);
+        console.log(year);
+        setInquiry(res.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div>
       <div>
@@ -103,16 +138,58 @@ export default function MarktingHome() {
       <div className="contentMainWrapper123">
         <div className="contentbodywrapper">
           <div className="cardMainWrapper">
-            <div className="cardwrapper card1">
+            <div className="cardwrapper123 card1">
               <div className="cardall">
                 <div className="cardaling">
                   <AllInboxIcon sx={{ fontSize: 90 }} />
                 </div>
-                <div className="cardtext">All Inquiries</div>
+                <div className="cardtext">
+                  <div className="cardallfont"> All Inquiries</div>
+                  <div className="count">{AllInquiry}</div>
+                </div>
               </div>
             </div>
-            <div className="cardwrapper card2"></div>
-            <div className="cardwrapper card3"></div>
+            {Inquirybranch ? (
+              <div className="cardwrapper123 card2">
+                <div className="cardall">
+                  <div className="cardaling">
+                    <HouseIcon sx={{ fontSize: 90 }} />
+                  </div>
+                  <div className="cardtext">
+                    <div className="cardfront">{Inquirybranch}</div>
+                    <div className="count">{AllInquiry}</div>
+                  </div>
+                </div>
+              </div>
+            ) : null}
+
+            {Inquirybranch2 ? (
+              <div className="cardwrapper123 card3">
+                <div className="cardall">
+                  <div className="cardaling">
+                    <HouseIcon sx={{ fontSize: 90 }} />
+                  </div>
+                  <div className="cardtext">
+                    <div className="cardfront">{Inquirybranch2}</div>
+                    <div className="count">{AllInquiry}</div>
+                  </div>
+                </div>
+              </div>
+            ) : null}
+
+            {Inquirybranch3 ? (
+              <div className="cardwrapper123 card3">
+                <div className="cardall">
+                  <div className="cardaling">
+                    <HouseIcon sx={{ fontSize: 90 }} />
+                  </div>
+                  <div className="cardtext">
+                    <div className="cardfront">{Inquirybranch3}</div>
+                    <div className="count">{AllInquiry}</div>
+                  </div>
+                </div>
+              </div>
+            ) : null}
           </div>
 
           <div className="chart">
@@ -133,20 +210,22 @@ export default function MarktingHome() {
                 </Button>
               ) : null}
               <div className="date">
-              <LocalizationProvider dateAdapter={AdapterDateFns}>
-                <DatePicker
-                  views={["year"]}
-                  label="Select Year...."
-                  value={value}
-                  onChange={(newValue) => {
-                    setValue(newValue);
+                <TextField
+                  type="number"
+                  id="outlined-basic"
+                  label="Enter the Year"
+                  variant="outlined"
+                  value={year}
+                  onChange={(e) => {
+                    setyear(e.target.value);
                   }}
-                  renderInput={(params) => (
-                    <TextField {...params} helperText={null} />
-                  )}
                 />
-                </LocalizationProvider>
+                <div className="view">
+                  <Button variant="text" onClick={view}>
+                    View
+                  </Button>
                 </div>
+              </div>
             </Stack>
 
             <AreaChart

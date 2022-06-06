@@ -272,4 +272,24 @@ router.route("/inquiry/:branch/:year").get((req, res) => {
     }
   );
 });
+
+router.route("/count/:branch1/:branch2/:branch3").get((req, res) => {
+  let branch1 = req.params.branch1;
+  let branch2 = req.params.branch2;
+  let branch3 = req.params.branch3;
+
+  InquiryForm.find({
+    $or: [
+      { branch: { $eq: branch1 } },
+      { branch: { $eq: branch2 } },
+      { branch: { $eq: branch3 } },
+    ],
+  })
+    .then((data) => {
+      res.json(data.length);
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
 module.exports = router;
