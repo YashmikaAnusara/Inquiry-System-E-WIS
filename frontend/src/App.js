@@ -15,7 +15,6 @@ import Profile from "./pages/Profile";
 
 import BranchInquiriesPage from "./pages/BranchInquiriesPage";
 
-
 function App() {
   return (
     <div>
@@ -38,7 +37,6 @@ function App() {
           <Route path="/admin/profile" element={<Profile />} />
 
           <Route path="/Branchinquiry" element={<BranchInquiriesPage />} />
-
         </Routes>
       </BrowserRouter>
     </div>
