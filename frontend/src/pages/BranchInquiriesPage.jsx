@@ -62,10 +62,6 @@ function BranchInquiriesPage() {
       });
   }, [dispalybranch]);
 
-
-  return  (
-    <div>
-
   return (
     ManagerEmail && (
 

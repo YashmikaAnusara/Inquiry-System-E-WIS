@@ -7,7 +7,7 @@ import EmpRegistration from "./pages/EmpRegistration";
 import BranchRegistration from "./pages/BranchRegistration";
 import MarktingHome from "./pages/MarktingHome";
 import ViewEmployee from "./pages/ViewEmployee";
-import Updateemployee from "./pages/Updateemployee";
+import Updateemployee from "./pages/updateemployee";
 import InquiriesPage from "./pages/InquiriesPage";
 import Deleteemployee from "./pages/Deleteemployee";
 
