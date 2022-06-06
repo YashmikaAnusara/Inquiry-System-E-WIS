@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import MarketingNavBar from "../components/MarketingNavBar";
+import MarketingNavBar from "../components/ManagerNavBar";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useNavigate } from "react-router-dom";

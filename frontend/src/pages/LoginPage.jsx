@@ -36,12 +36,12 @@ export default function LoginPage() {
         } else if (res.data.Position === "Manager") {
           sessionStorage.setItem("ManagerEmail", res.data.Email);
           setTimeout(() => {
-            nav("/marketingdashBoard");
+            nav("/managerdashBoard");
           }, 3000);
         } else if (res.data.Position === "Marketing") {
-          sessionStorage.setItem("Managerbranch", res.data.Branch);
+          sessionStorage.setItem("MarketingEmail", res.data.Email);
           setTimeout(() => {
-            nav("/InquiryForm");
+            nav("/marketingdashBoard");
           }, 3000);
         } else if (positions === "") {
           setTimeout(() => {
