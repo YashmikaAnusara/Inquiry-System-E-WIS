@@ -26,6 +26,9 @@ export default function MarktingHome() {
   const [branch3, setbranch3] = useState();
   const [dispalybranch, setdispalybranch] = useState("Borella");
   const [AllInquiry, setAllInquiry] = useState();
+  const [BranchInquiry, setBranchInquiry] = useState();
+  const [BranchInquiry2, setBranchInquiry2] = useState();
+  const [BranchInquiry3, setBranchInquiry3] = useState();
   const [year, setyear] = useState();
 
   const branchanger = (name) => {
@@ -103,9 +106,6 @@ export default function MarktingHome() {
           alert(e);
         });
     }
-    // console.log(Inquirybranch);
-    // console.log(Inquirybranch2);
-    // console.log(Inquirybranch3);
     axios
       .get(
         `http://localhost:8070/InquiryForm/count/${Inquirybranch}/${Inquirybranch2}/${Inquirybranch3}`
@@ -116,7 +116,7 @@ export default function MarktingHome() {
       .catch((e) => {
         console.log(e);
       });
-  }, [Inquirybranch]);
+  }, [Inquirybranch, Inquirybranch2, Inquirybranch3]);
 
   const view = (e) => {
     axios
@@ -130,6 +130,91 @@ export default function MarktingHome() {
         console.log(error);
       });
   };
+
+  useEffect(() => {
+    if (Inquirybranch !== "") {
+      axios
+        .get(
+          `http://localhost:8070/InquiryForm/countbranch/${Inquirybranch}/null/null`
+        )
+        .then((res) => {
+          setBranchInquiry(res.data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+      if (Inquirybranch2 !== "") {
+        axios
+          .get(
+            `http://localhost:8070/InquiryForm/countbranch/null/${Inquirybranch2}/null`
+          )
+          .then((res) => {
+            setBranchInquiry2(res.data);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+        if (Inquirybranch3 !== "") {
+          axios
+            .get(
+              `http://localhost:8070/InquiryForm/countbranch/null/null/${Inquirybranch3}`
+            )
+            .then((res) => {
+              setBranchInquiry3(res.data);
+            })
+            .catch((e) => {
+              console.log(e);
+            });
+        }
+      } else if (Inquirybranch3 !== "") {
+        axios
+          .get(
+            `http://localhost:8070/InquiryForm/countbranch/null/null/${Inquirybranch3}`
+          )
+          .then((res) => {
+            setBranchInquiry3(res.data);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      }
+    } else if (Inquirybranch2 !== "") {
+      axios
+        .get(
+          `http://localhost:8070/InquiryForm/countbranch/null/${Inquirybranch2}/null`
+        )
+        .then((res) => {
+          setBranchInquiry2(res.data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+      if (Inquirybranch3 !== "") {
+        axios
+          .get(
+            `http://localhost:8070/InquiryForm/countbranch/null/null/${Inquirybranch3}`
+          )
+          .then((res) => {
+            setBranchInquiry3(res.data);
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      }
+    } else if (Inquirybranch3 !== "") {
+      axios
+        .get(
+          `http://localhost:8070/InquiryForm/countbranch/null/null/${Inquirybranch3}`
+        )
+        .then((res) => {
+          setBranchInquiry3(res.data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }
+  }, [Inquirybranch, Inquirybranch2, Inquirybranch3]);
+
   return (
     <div>
       <div>
@@ -157,7 +242,7 @@ export default function MarktingHome() {
                   </div>
                   <div className="cardtext">
                     <div className="cardfront">{Inquirybranch}</div>
-                    <div className="count">{AllInquiry}</div>
+                    <div className="count">{BranchInquiry}</div>
                   </div>
                 </div>
               </div>
@@ -171,7 +256,7 @@ export default function MarktingHome() {
                   </div>
                   <div className="cardtext">
                     <div className="cardfront">{Inquirybranch2}</div>
-                    <div className="count">{AllInquiry}</div>
+                    <div className="count">{BranchInquiry2}</div>
                   </div>
                 </div>
               </div>
@@ -185,7 +270,7 @@ export default function MarktingHome() {
                   </div>
                   <div className="cardtext">
                     <div className="cardfront">{Inquirybranch3}</div>
-                    <div className="count">{AllInquiry}</div>
+                    <div className="count">{BranchInquiry3}</div>
                   </div>
                 </div>
               </div>
