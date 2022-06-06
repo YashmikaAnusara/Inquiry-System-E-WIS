@@ -14,16 +14,38 @@
 
 .logo-wrapper{
     width:50%;
+    display: flex;
+
+}
+.company-logo{
+    width:35%;
+}
+.company-image{
+    width:96%;
+    height: 14vh;
+}
+.greeting-text{
+    width:50%;
+    height: fit-content;
+    color: aliceblue;
+    font-weight: bold;
+    margin-top:4vh;
+    font-size:25px;
+    margin-left: 10px;
 }
 .menu-wrapper{
     width:50%;
+    display: flex;
 }
-.menu-icon{
+.admin-menu-icon{
     width: fit-content;
     height:fit-content;
     margin-top: 3vh;
-    margin-left:85%;
+    margin-left:84%;
+    display: flex;
+    gap: 10px;
 }
+
 
 .admin-navWraper::-webkit-scrollbar {
     display: none

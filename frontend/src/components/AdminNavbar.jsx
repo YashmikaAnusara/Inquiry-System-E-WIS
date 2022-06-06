@@ -4,15 +4,27 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import HomeIcon from '@mui/icons-material/Home';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
-
 import { Link } from 'react-router-dom'
 import axios from 'axios';
-
 import AccountMenu from './Menu';
+import WbSunnyIcon from '@mui/icons-material/WbSunny';
+import Pic from '../images/pic5.jpg'
+
 
 function AdminNavbar() {
     const [details, setDetails] = useState([])
+     
 
+    const time = new Date().getHours();
+    let greeting;
+    if (time < 10) {
+      greeting = "Good Morning!";
+    } else if (time < 20) {
+      greeting = "Good Afternoon!";
+    } else {
+      greeting = "Good Evening!";
+    }
+    
     useEffect(() => {
         axios.get('http://localhost:8070/branch/get/details')
             .then((res) => {
@@ -21,16 +33,18 @@ function AdminNavbar() {
             .catch(e => {
                 alert(e)
             })
-
     }, [])
+
 
     return (
         <div>
             <div className='admin-headerWraper'>
-                    <div className='logo-wrapper'></div> 
-                    <div className='menu-wrapper'> <div className="menu-icon"><AccountMenu /></div>   </div> 
+                <div className='logo-wrapper'>
+                    <div className='company-logo'><img src={Pic} alt="logo" className='company-image'/></div>
+                    <div className='greeting-text'>{greeting} <WbSunnyIcon/></div> 
+                </div>
+                <div className='menu-wrapper'> <div className="admin-menu-icon"><AccountMenu /></div>   </div>
             </div>
-
             <div className='admin-navWraper'>
                 <div className="headerContentsectionWrapper">
                     <p className='DashboardTopic'>Dashboard</p>
@@ -71,9 +85,7 @@ function AdminNavbar() {
                             </div>
                         </div>
                     </Link>
-
                 </div>
-
             </div>
         </div>
     )

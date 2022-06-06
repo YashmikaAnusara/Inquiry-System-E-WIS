@@ -41,7 +41,7 @@ export default function Deleteemployee() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [id]);
 
   const handleClickOpen = () => {
     setOpen(true);

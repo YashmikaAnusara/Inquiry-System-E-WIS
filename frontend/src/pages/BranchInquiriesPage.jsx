@@ -62,12 +62,7 @@ function BranchInquiriesPage() {
       });
   }, [dispalybranch]);
 
-
-  return  (
-    <div>
-
-  return (
-    ManagerEmail && (
+  return ManagerEmail && (
 
       <div>
         <div>
@@ -127,7 +122,6 @@ function BranchInquiriesPage() {
         </div>
       </div>
     )
-  );
 }
 
 export default BranchInquiriesPage;

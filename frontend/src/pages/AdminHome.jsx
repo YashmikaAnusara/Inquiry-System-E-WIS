@@ -3,13 +3,10 @@ import '../css/AdminHome.css'
 import AdminNavbar from "../components/AdminNavbar";
 import BarGraph from "../components/Char";
 import axios from "axios";
-
 import PersonIcon from '@mui/icons-material/Person';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 // import Chart from "../components/Chart2";
  
-
-
 function AdminHome() {
     const [empCount, setEmpCount] = useState('')
     const [branchCount, setBranchCount] = useState('')
@@ -50,9 +47,7 @@ function AdminHome() {
                         </div>
                     </div>
                     <div className='admin-graph'>
-                      
-                        <BarGraph />
-
+                      <BarGraph />
                         {/* <Chart/> */}
                     </div>
 

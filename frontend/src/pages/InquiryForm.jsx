@@ -115,16 +115,6 @@ export default function InquiryForm() {
 
       newdate
     };
-    
-    axios
-      .post(`http://localhost:8070/InquiryForm/AddInquiry`, data)
-      .then((res) => {
-        alert("data added");
-        
-      });
-   
-
-    };
     if (FirstName === "") {
       setwFirstName(true);
     } else if (SecondName === "") {

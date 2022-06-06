@@ -38,7 +38,7 @@ export default function Updateemployee() {
       .catch((error) => {
         console.log(error);
       });
-  }, []);
+  }, [id]);
 
   const submithendle = (e) => {
     setLoading(true);
