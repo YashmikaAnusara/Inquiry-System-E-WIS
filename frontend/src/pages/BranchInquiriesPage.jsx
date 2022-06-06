@@ -47,7 +47,7 @@ function BranchInquiriesPage() {
       .catch((e) => {
         alert(e);
       });
-  }, []);
+  }, [ManagerEmail]);
 
   useEffect(() => {
     axios

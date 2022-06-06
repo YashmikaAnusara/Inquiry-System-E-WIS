@@ -39,7 +39,7 @@ export default function ViewEmployee() {
       .catch((e) => {
         alert(e);
       });
-  }, []);
+  }, [ManagerEmail]);
 
   useEffect(() => {
     axios
