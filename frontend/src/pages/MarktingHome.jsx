@@ -31,6 +31,8 @@ export default function MarktingHome() {
   const [BranchInquiry3, setBranchInquiry3] = useState();
   const [year, setyear] = useState();
 
+  const ManagerEmail = sessionStorage.getItem("ManagerEmail");
+
   const branchanger = (name) => {
     if (name === branch) {
       setdispalybranch(branch);
@@ -54,7 +56,6 @@ export default function MarktingHome() {
   }, [dispalybranch]);
 
   useEffect(() => {
-    const ManagerEmail = sessionStorage.getItem("ManagerEmail");
     axios
       .get(`http://localhost:8070/employee/employee/${ManagerEmail}`)
       .then((res) => {
@@ -69,7 +70,7 @@ export default function MarktingHome() {
       .catch((e) => {
         alert(e);
       });
-  }, [dispalybranch]);
+  }, [dispalybranch, ManagerEmail]);
 
   useEffect(() => {
     if (Inquirybranch === "") {
@@ -216,128 +217,130 @@ export default function MarktingHome() {
   }, [Inquirybranch, Inquirybranch2, Inquirybranch3]);
 
   return (
-    <div>
+    ManagerEmail && (
       <div>
-        <MarketingNavBar />
-      </div>
-      <div className="contentMainWrapper123">
-        <div className="contentbodywrapper">
-          <div className="cardMainWrapper">
-            <div className="cardwrapper123 card1">
-              <div className="cardall">
-                <div className="cardaling">
-                  <AllInboxIcon sx={{ fontSize: 90 }} />
-                </div>
-                <div className="cardtext">
-                  <div className="cardallfont"> All Inquiries</div>
-                  <div className="count">{AllInquiry}</div>
+        <div>
+          <MarketingNavBar />
+        </div>
+        <div className="contentMainWrapper123">
+          <div className="contentbodywrapper">
+            <div className="cardMainWrapper">
+              <div className="cardwrapper123 card1">
+                <div className="cardall">
+                  <div className="cardaling">
+                    <AllInboxIcon sx={{ fontSize: 90 }} />
+                  </div>
+                  <div className="cardtext">
+                    <div className="cardallfont"> All Inquiries</div>
+                    <div className="count">{AllInquiry}</div>
+                  </div>
                 </div>
               </div>
+              {Inquirybranch ? (
+                <div className="cardwrapper123 card2">
+                  <div className="cardall">
+                    <div className="cardaling">
+                      <HouseIcon sx={{ fontSize: 90 }} />
+                    </div>
+                    <div className="cardtext">
+                      <div className="cardfront">{Inquirybranch}</div>
+                      <div className="count">{BranchInquiry}</div>
+                    </div>
+                  </div>
+                </div>
+              ) : null}
+
+              {Inquirybranch2 ? (
+                <div className="cardwrapper123 card3">
+                  <div className="cardall">
+                    <div className="cardaling">
+                      <HouseIcon sx={{ fontSize: 90 }} />
+                    </div>
+                    <div className="cardtext">
+                      <div className="cardfront">{Inquirybranch2}</div>
+                      <div className="count">{BranchInquiry2}</div>
+                    </div>
+                  </div>
+                </div>
+              ) : null}
+
+              {Inquirybranch3 ? (
+                <div className="cardwrapper123 card3">
+                  <div className="cardall">
+                    <div className="cardaling">
+                      <HouseIcon sx={{ fontSize: 90 }} />
+                    </div>
+                    <div className="cardtext">
+                      <div className="cardfront">{Inquirybranch3}</div>
+                      <div className="count">{BranchInquiry3}</div>
+                    </div>
+                  </div>
+                </div>
+              ) : null}
             </div>
-            {Inquirybranch ? (
-              <div className="cardwrapper123 card2">
-                <div className="cardall">
-                  <div className="cardaling">
-                    <HouseIcon sx={{ fontSize: 90 }} />
-                  </div>
-                  <div className="cardtext">
-                    <div className="cardfront">{Inquirybranch}</div>
-                    <div className="count">{BranchInquiry}</div>
-                  </div>
-                </div>
-              </div>
-            ) : null}
 
-            {Inquirybranch2 ? (
-              <div className="cardwrapper123 card3">
-                <div className="cardall">
-                  <div className="cardaling">
-                    <HouseIcon sx={{ fontSize: 90 }} />
-                  </div>
-                  <div className="cardtext">
-                    <div className="cardfront">{Inquirybranch2}</div>
-                    <div className="count">{BranchInquiry2}</div>
-                  </div>
-                </div>
-              </div>
-            ) : null}
-
-            {Inquirybranch3 ? (
-              <div className="cardwrapper123 card3">
-                <div className="cardall">
-                  <div className="cardaling">
-                    <HouseIcon sx={{ fontSize: 90 }} />
-                  </div>
-                  <div className="cardtext">
-                    <div className="cardfront">{Inquirybranch3}</div>
-                    <div className="count">{BranchInquiry3}</div>
-                  </div>
-                </div>
-              </div>
-            ) : null}
-          </div>
-
-          <div className="chart">
-            <Stack spacing={2} direction="row">
-              {branch ? (
-                <Button variant="text" onClick={() => branchanger(branch)}>
-                  {branch}
-                </Button>
-              ) : null}
-              {branch2 ? (
-                <Button variant="text" onClick={() => branchanger(branch2)}>
-                  {branch2}
-                </Button>
-              ) : null}
-              {branch3 ? (
-                <Button variant="text" onClick={() => branchanger(branch3)}>
-                  {branch3}
-                </Button>
-              ) : null}
-              <div className="date">
-                <TextField
-                  type="number"
-                  id="outlined-basic"
-                  label="Enter the Year"
-                  variant="outlined"
-                  value={year}
-                  onChange={(e) => {
-                    setyear(e.target.value);
-                  }}
-                />
-                <div className="view">
-                  <Button variant="text" onClick={view}>
-                    View
+            <div className="chart">
+              <Stack spacing={2} direction="row">
+                {branch ? (
+                  <Button variant="text" onClick={() => branchanger(branch)}>
+                    {branch}
                   </Button>
+                ) : null}
+                {branch2 ? (
+                  <Button variant="text" onClick={() => branchanger(branch2)}>
+                    {branch2}
+                  </Button>
+                ) : null}
+                {branch3 ? (
+                  <Button variant="text" onClick={() => branchanger(branch3)}>
+                    {branch3}
+                  </Button>
+                ) : null}
+                <div className="date">
+                  <TextField
+                    type="number"
+                    id="outlined-basic"
+                    label="Enter the Year"
+                    variant="outlined"
+                    value={year}
+                    onChange={(e) => {
+                      setyear(e.target.value);
+                    }}
+                  />
+                  <div className="view">
+                    <Button variant="text" onClick={view}>
+                      View
+                    </Button>
+                  </div>
                 </div>
-              </div>
-            </Stack>
+              </Stack>
 
-            <AreaChart
-              width={1150}
-              height={400}
-              data={Inquiry}
-              margin={{
-                top: 10,
-                right: 30,
-                left: 0,
-                bottom: 0,
-              }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Area
-                type="monotone"
-                dataKey="Inquiry"
-                stroke="#8884d8"
-                fill="#8884d8"
-              />
-            </AreaChart>
+              <AreaChart
+                width={1150}
+                height={400}
+                data={Inquiry}
+                margin={{
+                  top: 10,
+                  right: 30,
+                  left: 0,
+                  bottom: 0,
+                }}
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Area
+                  type="monotone"
+                  dataKey="Inquiry"
+                  stroke="#8884d8"
+                  fill="#8884d8"
+                />
+              </AreaChart>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    )
   );
 }
