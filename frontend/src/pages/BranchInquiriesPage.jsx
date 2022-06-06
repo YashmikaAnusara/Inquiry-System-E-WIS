@@ -16,6 +16,7 @@ function BranchInquiriesPage() {
   const [found, setfound] = useState("");
 
   const [dispalybranch, setdispalybranch] = useState([]);
+  
 
   const branchanger = (name) => {
     if (name === branch) {
@@ -61,8 +62,13 @@ function BranchInquiriesPage() {
       });
   }, [dispalybranch]);
 
+
+  return  (
+    <div>
+
   return (
     ManagerEmail && (
+
       <div>
         <div>
           <MarketingNavBar />

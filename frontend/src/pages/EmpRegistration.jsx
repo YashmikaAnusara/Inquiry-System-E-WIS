@@ -11,6 +11,8 @@ function EmpRegistration() {
     const [active, setActive] = useState(false);
     const [details, setDetails] = useState([]);
     const [search,setSearch]=useState('')
+    const session=sessionStorage.getItem('adminId')
+    
 
     useEffect(() => {
         axios.get('http://localhost:8070/employee/get/details')
@@ -33,7 +35,7 @@ function EmpRegistration() {
         return data.NIC.toLowerCase().includes(search.toLowerCase())||data.Name.toLowerCase().includes(search.toLowerCase())||data.Email.toLowerCase().includes(search.toLowerCase())||data.Position.toLowerCase().includes(search.toLowerCase())
     })
 
-    return (
+    return session &&(
         <div>
             <div><AdminNavbar /></div>
             <div className='empcontentMainWrapper'>

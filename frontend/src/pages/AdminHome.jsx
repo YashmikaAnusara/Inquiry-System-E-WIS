@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import '../css/AdminHome.css'
 import AdminNavbar from "../components/AdminNavbar";
-// import BarGraph from "../components/Char";
+import BarGraph from "../components/Char";
 import axios from "axios";
 
 import PersonIcon from '@mui/icons-material/Person';
@@ -14,8 +14,7 @@ function AdminHome() {
     const [empCount, setEmpCount] = useState('')
     const [branchCount, setBranchCount] = useState('')
 
-    
-
+    const session=sessionStorage.getItem('adminId')
 
     useEffect(() => {
         axios.get('http://localhost:8070/employee/count')
@@ -34,9 +33,7 @@ function AdminHome() {
             })
     }, [])
 
-    
-
-    return (
+   return session &&(
         <div>
             <div><AdminNavbar /></div>
             <div className='contentMainWrapper'>
@@ -54,16 +51,13 @@ function AdminHome() {
                     </div>
                     <div className='admin-graph'>
                       
-                        {/* <BarGraph /> */}
+                        <BarGraph />
 
                         {/* <Chart/> */}
                     </div>
 
                 </div>
             </div>
-
-
-
         </div>
     )
 }

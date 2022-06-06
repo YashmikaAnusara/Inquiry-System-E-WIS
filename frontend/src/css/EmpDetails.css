@@ -41,16 +41,17 @@
 }
 .emp-action-btn {
     height:50%;
-    width: 35px;
+    width: fit-content;
     outline: none;
     border: none;
-    margin-top:6vh; 
+    margin-top:4%; 
     border-radius:50%;
     background-color: transparent;
 }
  
 .edit{
     color:rgb(15, 41, 65);
+    margin-left:2vh ;
 }
 .edit:hover{
     

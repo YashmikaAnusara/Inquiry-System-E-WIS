@@ -61,10 +61,10 @@ function EmpDetails(props) {
                     <div className='detail-line'> <HomeIcon fontSize='small' /><p className='emp-details nic'>{props.Branch3}</p></div>
                 </div>
             </div>
-
-            <button className='emp-action-btn delete' onClick={deleteHandler}><DeleteIcon /></button>
-            <button className='emp-action-btn edit' onClick={editHandler}><EditIcon /></button>
-
+            
+                <button className='emp-action-btn delete' onClick={deleteHandler}><DeleteIcon /></button>
+                <button className='emp-action-btn edit' onClick={editHandler}><EditIcon /></button>
+            
 
             {
                 active && (

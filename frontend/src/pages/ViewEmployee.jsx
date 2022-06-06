@@ -13,7 +13,7 @@ export default function ViewEmployee() {
   const [branch, setbranch] = useState("");
   const [branch2, setbranch2] = useState("");
   const [branch3, setbranch3] = useState("");
-
+  const session=sessionStorage.getItem('adminId')
   const ManagerEmail = sessionStorage.getItem("ManagerEmail");
 
   const branchanger = (name) => {
@@ -56,6 +56,50 @@ export default function ViewEmployee() {
     return data.Name.toLowerCase().includes(found.toLowerCase());
   });
 
+
+  return session &&(
+    <div>
+      <MarketingNavBar />
+      <div className="viewemployeeback">
+        <div className="container">
+          <div className="inquiry-search-wrapper123">
+            <input
+              type="search"
+              className="inquiry-search"
+              placeholder="Search Employees..."
+              onChange={(event) => {
+                setfound(event.target.value);
+              }}
+            />
+            <div className="viewbuttons">
+              <Stack spacing={2} direction="row">
+                {branch ? (
+                  <Button variant="text" onClick={() => branchanger(branch)}>
+                    {branch}
+                  </Button>
+                ) : null}
+                {branch2 ? (
+                  <Button variant="text" onClick={() => branchanger(branch2)}>
+                    {branch2}
+                  </Button>
+                ) : null}
+                {branch3 ? (
+                  <Button variant="text" onClick={() => branchanger(branch3)}>
+                    {branch3}
+                  </Button>
+                ) : null}
+              </Stack>
+            </div>
+          </div>
+          {inquiries.map((data, index) => (
+            <div key={index}>
+              <EmployeeView
+                Name={data.Name}
+                NIC={data.NIC}
+                Contact={data.Contact}
+                Email={data.Email}
+                id={data._id}
+
   return (
     ManagerEmail && (
       <div>
@@ -70,6 +114,7 @@ export default function ViewEmployee() {
                 onChange={(event) => {
                   setfound(event.target.value);
                 }}
+
               />
               <div className="viewbuttons">
                 <Stack spacing={2} direction="row">

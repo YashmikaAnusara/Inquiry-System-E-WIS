@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar'
 import Menu from '@mui/material/Menu';
@@ -12,7 +12,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import { useNavigate } from 'react-router-dom';
 
 export default function AccountMenu() {
-  const navigate=useNavigate()
+  const navigate = useNavigate()
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -22,12 +22,13 @@ export default function AccountMenu() {
     setAnchorEl(null);
   };
 
-  const profileHandler=()=>{
+  const profileHandler = () => {
     navigate('/admin/profile')
   }
 
-  const logoutHandler=()=>{
-    alert('logout')
+  const logoutHandler = () => {
+      sessionStorage.clear();
+      navigate('/')
   }
 
 
@@ -43,7 +44,7 @@ export default function AccountMenu() {
             aria-haspopup="true"
             aria-expanded={open ? 'true' : undefined}
           >
-            <Avatar sx={{ width: 32, height: 32 }}><PersonIcon/></Avatar>
+            <Avatar sx={{ width: 32, height: 32 }}><PersonIcon /></Avatar>
           </IconButton>
         </Tooltip>
       </Box>

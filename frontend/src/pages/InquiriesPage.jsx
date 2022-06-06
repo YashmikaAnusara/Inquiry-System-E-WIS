@@ -14,7 +14,7 @@ function InquiriesPage() {
   const [search,setSearch]=useState('')
   const branch = params.branch;
   const email = params.email;
-
+  const session=sessionStorage.getItem('adminId')
 
     useEffect(() => {
         axios.get(`http://localhost:8070/InquiryForm/get/details/${branch}`)
@@ -32,7 +32,7 @@ function InquiriesPage() {
     })
     
 
-    return (
+    return session && (
         <div>
             <div><AdminNavbar /></div>
             <div className='inquiry-content-Wrapper'>
@@ -52,7 +52,7 @@ function InquiriesPage() {
                     <div className='inquiry-body-wrapper clearfix'>
                         <div className='inquiry-details'>
                             {filter.map((detail) => (
-                                <div><InquiriesDetail firstName={detail.firstname} secondName={detail.secondname} email={detail.email} contact={detail.mobilenumber} course={detail.course} branch={detail.branch} message={detail.message} id={detail._id}/></div>
+                                <div><InquiriesDetail firstName={detail.firstname} secondName={detail.secondname} email={detail.email} contact={detail.mobilenumber} course={detail.course} branch={detail.branch} message={detail.message} id={detail._id} date={detail.date}/></div>
                             ))}
                         </div>
                     </div>

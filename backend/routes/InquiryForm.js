@@ -11,6 +11,7 @@ router.route("/AddInquiry").post((req, res) => {
   const message = req.body.Message;
   const month = req.body.frommonth;
   const year = req.body.year;
+  const date = req.body.newdate;
 
   const addinquiry = new InquiryForm({
     firstname,
@@ -22,7 +23,9 @@ router.route("/AddInquiry").post((req, res) => {
     message,
     month,
     year,
+    date
   });
+
   addinquiry
     .save()
     .then(() => {
@@ -37,7 +40,7 @@ router.route("/get/details/:branch").get((req, res) => {
   const branch = req.params.branch;
   InquiryForm.find({ branch: { $eq: branch } })
     .then((data) => {
-      res.send(data);
+      res.send(data.reverse());
     })
     .catch((err) => {
       res.send(err);
@@ -67,6 +70,7 @@ router.route("/Get/:branch").get((req, res) => {
       res.send(err);
     });
 });
+
 
 router.route("/inquiry/:branch").get((req, res) => {
   let branch = req.params.branch;
@@ -135,6 +139,7 @@ router.route("/inquiry/:branch").get((req, res) => {
     }
   });
 });
+
 
 router.route("/inquiry/count/:year").get((req, res) => {
   let year = req.params.year;
