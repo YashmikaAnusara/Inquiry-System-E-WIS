@@ -14,7 +14,7 @@ export default function Updateemployee() {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
   });
   const { id } = useParams();
-
+   
   const [open, setOpen] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
@@ -66,7 +66,7 @@ export default function Updateemployee() {
     setOpen(false);
   };
 
-  return (
+  return(
     <div>
       <MarketingNavBar />
       <div className="employeecontentMainWrapper">

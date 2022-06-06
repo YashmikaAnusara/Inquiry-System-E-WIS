@@ -13,6 +13,7 @@ function Profile() {
     const email=sessionStorage.getItem('adminEmail')
     const cpassword=sessionStorage.getItem('adminpassword')
 
+
     const [actOver, setActOver] = useState(true)
     const [actSec, setActSec] = useState(false)
     const [passActive, setPassActive] = useState(false)
@@ -86,7 +87,7 @@ function Profile() {
         }
     }
 
-    return (
+    return id &&(
         <div>
             <div><AdminNavbar /></div>
             <div className='profile-content-Main-Wrapper'>

@@ -17,7 +17,7 @@ export default function InquiryForm() {
   const [open, setOpen] = React.useState(false);
   const [options, setOptions] = React.useState([]);
   const loading = open && options.length === 0;
-
+  
   const [FirstName, setFirstName] = useState("");
   const [SecondName, setSecondName] = useState("");
   const [Email, setEmail] = useState("");
@@ -27,6 +27,8 @@ export default function InquiryForm() {
   const [Message, setMessage] = useState("");
 
   const inquirymonth = new Date();
+  const currentdate = new Date();
+  var newdate = currentdate.getFullYear()+'-'+(currentdate.getMonth()+1)+'-'+currentdate.getDate();
 
   let year = inquirymonth.getFullYear();
 
@@ -89,7 +91,8 @@ export default function InquiryForm() {
       Branch,
       Message,
       frommonth,
-      year
+      year,
+      newdate
     };
     
     axios
@@ -98,6 +101,7 @@ export default function InquiryForm() {
         alert("data added");
         
       });
+   
   };
   return (
     <div className="InquiryBody">

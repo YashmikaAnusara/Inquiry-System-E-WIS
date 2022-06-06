@@ -11,6 +11,7 @@ router.route("/AddInquiry").post((req, res) => {
   const message = req.body.Message;
   const month = req.body.frommonth;
   const year = req.body.year;
+  const date = req.body.newdate;
 
   const addinquiry = new InquiryForm({
     firstname,
@@ -21,8 +22,9 @@ router.route("/AddInquiry").post((req, res) => {
     branch,
     message,
     month,
-    year
-  });
+    year,
+    date
+  }); 
   addinquiry
     .save()
     .then(() => {
@@ -37,7 +39,7 @@ router.route("/get/details/:branch").get((req, res) => {
   const branch = req.params.branch;
   InquiryForm.find({ branch: { $eq: branch } })
     .then((data) => {
-      res.send(data);
+      res.send(data.reverse());
     })
     .catch((err) => {
       res.send(err);
@@ -68,72 +70,6 @@ router.route("/Get/:branch").get((req, res) => {
     });
 });
 
-router.route("/inquiry/count").get((req, res) => {
-  InquiryForm.find()
-    .exec(function (err, details) {
-      var a = 0;
-      var jan = 0;
-      var feb = 0;
-      var march = 0;
-      var april = 0;
-      var may = 0;
-      var june = 0;
-      var july = 0;
-      var aug = 0;
-      var sep = 0;
-      var oct = 0;
-      var nov = 0;
-      var dec = 0;
-       
-      if (err) {
-        res.json(err)
-      }
-      else {
-        while(a < details.length){
-            if(details[a].month=="January"){
-              jan++
-            }
-            else if(details[a].month=="February"){
-              feb++
-            }
-            else if(details[a].month=="March"){
-              march++
-            }
-            else if(details[a].month=="April"){
-              april++
-            }
-            else if(details[a].month=="May"){
-              may++
-            }
-            else if(details[a].month=="June"){
-              june++
-            }
-            else if(details[a].month=="July"){
-              july++
-            }
-            else if(details[a].month=="August"){
-              aug++
-            }
-            else if(details[a].month=="September"){
-              sep++
-            }
-            else if(details[a].month=="October"){
-              oct++
-            }
-            else if(details[a].month=="November"){
-              nov++
-            }
-            else{
-              dec++
-            }
-          a=a+1;
-        }
-        const MonthArray=[jan,feb,march,april,may,june,july,aug,sep,oct,nov,dec]
-        res.json(MonthArray)
-        
-      } 
-    })
-});
 
 router.route("/inquiry/count/:year").get((req, res) => {
   let year=req.params.year

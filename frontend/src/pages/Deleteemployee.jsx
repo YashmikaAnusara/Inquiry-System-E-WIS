@@ -17,6 +17,7 @@ import "../css/Updateemployee.css";
 export default function Deleteemployee() {
   const { id } = useParams();
   const nav = useNavigate();
+  
 
   const [open, setOpen] = React.useState(false);
   const [loading, setLoading] = React.useState(false);

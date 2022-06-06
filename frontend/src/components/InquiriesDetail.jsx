@@ -7,6 +7,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import PhoneIcon from '@mui/icons-material/Phone';
 import HomeIcon from '@mui/icons-material/Home';
 import MessageIcon from '@mui/icons-material/Message';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import axios from 'axios' 
 
 
@@ -28,9 +29,9 @@ function InquiriesDetail(props) {
         <div className='inquirie-detail-main-wrapper'>
             <div className='inquirie-detail-grp '>
                 <div className='inquirie-detail-box'>
-                    <div className='inquirie-detail-wrapper'><PersonIcon fontSize='small'/><p className='inquirie-details '>{props.firstName}</p></div>
-                    <div className='inquirie-detail-wrapper'><PersonIcon fontSize='small'/><p className='inquirie-details '>{props.secondName}</p></div>
+                    <div className='inquirie-detail-wrapper'><PersonIcon fontSize='small'/><p className='inquirie-details '>{props.firstName} {props.secondName}</p></div>
                     <div className='inquirie-detail-wrapper'><EmailIcon fontSize='small'/><p className='inquirie-details '>{props.email}</p></div>
+                    <div className='inquirie-detail-wrapper '><CalendarMonthIcon fontSize='small'/><p className='inquirie-details '>{props.date}</p></div>
                 </div>
                 <div className='inquirie-detail-box'>
                     <div className='inquirie-detail-wrapper'><PhoneIcon fontSize='small'/><p className='inquirie-details '>{props.contact}</p></div>

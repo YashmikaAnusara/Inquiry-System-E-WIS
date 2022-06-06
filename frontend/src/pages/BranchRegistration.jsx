@@ -11,6 +11,8 @@ function BranchRegistration() {
     const [active, setActive] = useState(false);
     const [details,setDetails]=useState([])
     const [search,setSearch]=useState('')
+    const session=sessionStorage.getItem('adminId')
+    
     const addBranchHandler = () => {
         setActive(!active)
     }
@@ -36,7 +38,7 @@ function BranchRegistration() {
       })
 
 
-    return (
+    return  session &&(
         <div>
             <div><AdminNavbar /></div>
             <div className='branchcontentMainWrapper'>

@@ -16,16 +16,16 @@ function BarGraph() {
     const [year, setYear] = useState(ye);
 
     useEffect(() => {
-        axios.get('http://localhost:8070/InquiryForm/inquiry/count')
-            .then((res) => {
-                setMonth(res.data)
-            })
-            .catch((err) => {
-                alert(err)
-            })
-    }, [])
+        axios.get(`http://localhost:8070/InquiryForm/inquiry/count/${year}`)
+        .then((res) => {
+            setMonth(res.data)
+        })
+        .catch((err) => {
+            alert(err)
+        })
+    }, [year])
 
-    const yearHandler = (e) => {
+    const yearHandler = () => {
         axios.get(`http://localhost:8070/InquiryForm/inquiry/count/${year}`)
             .then((res) => {
                 setMonth(res.data)

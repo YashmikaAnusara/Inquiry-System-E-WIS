@@ -13,7 +13,7 @@ export default function ViewEmployee() {
   const [branch, setbranch] = useState("");
   const [branch2, setbranch2] = useState("");
   const [branch3, setbranch3] = useState("");
-
+  const session=sessionStorage.getItem('adminId')
   const ManagerEmail = sessionStorage.getItem("ManagerEmail");
 
   const branchanger = (name) => {
@@ -56,7 +56,7 @@ export default function ViewEmployee() {
     return data.Name.toLowerCase().includes(found.toLowerCase());
   });
 
-  return (
+  return session &&(
     <div>
       <MarketingNavBar />
       <div className="viewemployeeback">
