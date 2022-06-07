@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 import axios from 'axios';
 import AccountMenu from './Menu';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
-import Pic from '../images/pic5.jpg'
+import Pic from '../images/pic5.png'
 
 
 function AdminNavbar() {

@@ -114,7 +114,6 @@ export default function InquiryForm() {
       frommonth,
       year,
       newdate
-
     };
     if (FirstName === "") {
       setwFirstName(true);
