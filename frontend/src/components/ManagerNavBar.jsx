@@ -6,7 +6,7 @@ import PeopleIcon from "@mui/icons-material/People";
 import { Link } from "react-router-dom";
 import BranchReg from "./BranchRegForm";
 import BranchMenu from "./BranchMenu";
-
+import Pic from '../images/pic5.png'
 
 function ManagerNavBar() {
   const [active] = useState(false);
@@ -15,7 +15,9 @@ function ManagerNavBar() {
       {active ? <BranchReg /> : ""}
 
       <div className="headerWraper">
-        <div className="logo-wrapper"></div>
+      <div className='logo-wrapper'>
+                    <div className='company-logo'><img src={Pic} alt="logo" className='company-image'/></div>
+                </div>
         <div className="menu-wrapper">
           <div className="menu-icon">
             <BranchMenu />
