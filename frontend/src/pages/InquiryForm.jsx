@@ -24,9 +24,6 @@ export default function InquiryForm() {
   const [options, setOptions] = React.useState([]);
   const loading = open && options.length === 0;
 
-  
-
-
   const [wFirstName, setwFirstName] = React.useState(false);
   const [wSecondName, setwSecondName] = React.useState(false);
   const [wEmail, setwEmail] = React.useState(false);
@@ -36,7 +33,6 @@ export default function InquiryForm() {
   const [wMessage, setwMessage] = React.useState(false);
 
   const [success, setsuccess] = React.useState(false);
-
 
   const [FirstName, setFirstName] = useState("");
   const [SecondName, setSecondName] = useState("");
@@ -48,7 +44,12 @@ export default function InquiryForm() {
 
   const inquirymonth = new Date();
   const currentdate = new Date();
-  var newdate = currentdate.getFullYear()+'-'+(currentdate.getMonth()+1)+'-'+currentdate.getDate();
+  var newdate =
+    currentdate.getFullYear() +
+    "-" +
+    (currentdate.getMonth() + 1) +
+    "-" +
+    currentdate.getDate();
 
   let year = inquirymonth.getFullYear();
 
@@ -113,7 +114,11 @@ export default function InquiryForm() {
       frommonth,
       year,
 
+
       newdate
+
+      newdate,
+
     };
     if (FirstName === "") {
       setwFirstName(true);
@@ -149,7 +154,6 @@ export default function InquiryForm() {
     setwBranch(false);
     setwMessage(false);
     setsuccess(false);
-
   };
   return (
     <div className="InquiryBody">

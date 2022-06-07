@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import MarketingNavBar from "../components/ManagerNavBar";
+import MarketingNavBar from "../components/MarketingNavBar";
 import "../css/BranchInquiriesPage.css";
 import axios from "axios";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import BranchInquiriesDeatils from "../components/BranchInquiriesDeatils";
+import MarketingInquiriesDeatils from "../components/MarketingInquiriesDeatils";
 
-function BranchInquiriesPage() {
+function MarketingInquiriesPage() {
   const [details, setDetails] = useState([]);
-  const ManagerEmail = sessionStorage.getItem("ManagerEmail");
+  const MarketingEmail = sessionStorage.getItem("MarketingEmail");
   const [branch, setbranch] = useState("");
   const [branch2, setbranch2] = useState("");
   const [branch3, setbranch3] = useState("");
@@ -16,7 +16,6 @@ function BranchInquiriesPage() {
   const [found, setfound] = useState("");
 
   const [dispalybranch, setdispalybranch] = useState([]);
-  
 
   const branchanger = (name) => {
     if (name === branch) {
@@ -38,7 +37,7 @@ function BranchInquiriesPage() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8070/employee/employee/${ManagerEmail}`)
+      .get(`http://localhost:8070/employee/employee/${MarketingEmail}`)
       .then((res) => {
         setbranch(res.data.Branch);
         setbranch2(res.data.Branch_Two);
@@ -48,7 +47,7 @@ function BranchInquiriesPage() {
       .catch((e) => {
         alert(e);
       });
-  }, [ManagerEmail]);
+  }, [MarketingEmail]);
 
   useEffect(() => {
     axios
@@ -62,13 +61,8 @@ function BranchInquiriesPage() {
       });
   }, [dispalybranch]);
 
-
-  return ManagerEmail && (
-
   return (
-    ManagerEmail && (
-
-
+    MarketingEmail && (
       <div>
         <div>
           <MarketingNavBar />
@@ -109,7 +103,7 @@ function BranchInquiriesPage() {
               <div className="inquiry-details">
                 {inquiries.map((detail, index) => (
                   <div key={index}>
-                    <BranchInquiriesDeatils
+                    <MarketingInquiriesDeatils
                       firstName={detail.firstname}
                       secondName={detail.secondname}
                       email={detail.email}
@@ -127,6 +121,7 @@ function BranchInquiriesPage() {
         </div>
       </div>
     )
+  );
 }
 
-export default BranchInquiriesPage;
+export default MarketingInquiriesPage;

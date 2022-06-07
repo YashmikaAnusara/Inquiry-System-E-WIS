@@ -16,7 +16,7 @@ import {
 } from "recharts";
 import axios from "axios";
 
-export default function MarktingHome() {
+export default function MarketingHome() {
   const [Inquiry, setInquiry] = useState([]);
   const [Inquirybranch, setInquirybranch] = useState();
   const [Inquirybranch2, setInquirybranch2] = useState();
@@ -24,14 +24,14 @@ export default function MarktingHome() {
   const [branch, setbranch] = useState();
   const [branch2, setbranch2] = useState();
   const [branch3, setbranch3] = useState();
-  const [dispalybranch, setdispalybranch] = useState("Borella");
+  const [dispalybranch, setdispalybranch] = useState("Kelaniya");
   const [AllInquiry, setAllInquiry] = useState();
   const [BranchInquiry, setBranchInquiry] = useState();
   const [BranchInquiry2, setBranchInquiry2] = useState();
   const [BranchInquiry3, setBranchInquiry3] = useState();
   const [year, setyear] = useState();
 
-  const ManagerEmail = sessionStorage.getItem("ManagerEmail");
+  const MarketingEmail = sessionStorage.getItem("MarketingEmail");
 
   const branchanger = (name) => {
     if (name === branch) {
@@ -57,7 +57,7 @@ export default function MarktingHome() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8070/employee/employee/${ManagerEmail}`)
+      .get(`http://localhost:8070/employee/employee/${MarketingEmail}`)
       .then((res) => {
         setbranch(res.data.Branch);
         setbranch2(res.data.Branch_Two);
@@ -70,13 +70,13 @@ export default function MarktingHome() {
       .catch((e) => {
         alert(e);
       });
-  }, [dispalybranch, ManagerEmail]);
+  }, [dispalybranch, MarketingEmail]);
 
   useEffect(() => {
-    if (Inquirybranch === "") {
+    if (Inquirybranch !== "") {
       axios
         .get(
-          `http://localhost:8070/InquiryForm/count/null/${Inquirybranch2}/${Inquirybranch3}`
+          `http://localhost:8070/InquiryForm/count/${Inquirybranch}/null/null`
         )
         .then((res) => {
           setAllInquiry(res.data);
@@ -84,10 +84,10 @@ export default function MarktingHome() {
         .catch((e) => {
           alert(e);
         });
-    } else if (Inquirybranch2 === "") {
+    } else if (Inquirybranch2 !== "") {
       axios
         .get(
-          `http://localhost:8070/InquiryForm/count/${Inquirybranch}/null/${Inquirybranch3}`
+          `http://localhost:8070/InquiryForm/count/null/${Inquirybranch2}/null`
         )
         .then((res) => {
           setAllInquiry(res.data);
@@ -95,10 +95,10 @@ export default function MarktingHome() {
         .catch((e) => {
           alert(e);
         });
-    } else if (Inquirybranch3 === "") {
+    } else if (Inquirybranch3 !== "") {
       axios
         .get(
-          `http://localhost:8070/InquiryForm/count/${Inquirybranch}/${Inquirybranch2}/null`
+          `http://localhost:8070/InquiryForm/count/null/null/${Inquirybranch3}`
         )
         .then((res) => {
           setAllInquiry(res.data);
@@ -107,16 +107,6 @@ export default function MarktingHome() {
           alert(e);
         });
     }
-    axios
-      .get(
-        `http://localhost:8070/InquiryForm/count/${Inquirybranch}/${Inquirybranch2}/${Inquirybranch3}`
-      )
-      .then((res) => {
-        setAllInquiry(res.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
   }, [Inquirybranch, Inquirybranch2, Inquirybranch3]);
 
   const view = (e) => {
@@ -217,7 +207,7 @@ export default function MarktingHome() {
   }, [Inquirybranch, Inquirybranch2, Inquirybranch3]);
 
   return (
-    ManagerEmail && (
+    MarketingEmail && (
       <div>
         <div>
           <MarketingNavBar />

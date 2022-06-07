@@ -69,6 +69,25 @@ router.route("/get/detail/:branch").get((req, res) => {
     });
 });
 
+router.route("/get/marketingdetail/:branch").get((req, res) => {
+  let branch = req.params.branch;
+  let Position = "Marketing";
+  EmployeeRegister.find({
+    $or: [
+      { Branch: { $eq: branch } },
+      { Branch_Two: { $eq: branch } },
+      { Branch_Three: { $eq: branch } },
+    ],
+    $and: [{ Position: { $eq: Position } }],
+  })
+    .then((data) => {
+      res.send(data);
+    })
+    .catch((err) => {
+      res.send(err);
+    });
+});
+
 router.route("/employee/:email").get((req, res) => {
   let email = req.params.email;
 
@@ -204,27 +223,25 @@ router.route("/count").get((req, res) => {
 });
 
 router.route("/remove/employee/:email").delete((req, res) => {
-  let email=req.params.email
-  EmployeeRegister.deleteOne({Email:{$eq:email}})
+  let email = req.params.email;
+  EmployeeRegister.deleteOne({ Email: { $eq: email } })
     .then((data) => {
       res.json(data);
-      Login.deleteOne({Email:{$eq:email}})
+      Login.deleteOne({ Email: { $eq: email } });
     })
     .catch((err) => {
       res.json(err);
     });
 });
 router.route("/remove/login/:email").delete((req, res) => {
-  let email=req.params.email
-  Login.deleteOne({Email:{$eq:email}})
+  let email = req.params.email;
+  Login.deleteOne({ Email: { $eq: email } })
     .then((data) => {
       res.json(data);
-       
     })
     .catch((err) => {
       res.json(err);
     });
 });
-
 
 module.exports = router;
