@@ -113,12 +113,7 @@ export default function InquiryForm() {
       Message,
       frommonth,
       year,
-
-
       newdate
-
-      newdate,
-
     };
     if (FirstName === "") {
       setwFirstName(true);

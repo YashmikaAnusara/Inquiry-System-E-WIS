@@ -65,10 +65,6 @@ function BranchInquiriesPage() {
 
   return ManagerEmail && (
 
-  return (
-    ManagerEmail && (
-
-
       <div>
         <div>
           <MarketingNavBar />
