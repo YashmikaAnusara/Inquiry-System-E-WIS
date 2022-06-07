@@ -7,8 +7,10 @@ import EmailIcon from "@mui/icons-material/Email";
 import HomeIcon from "@mui/icons-material/Home";
 
 import InquiriesDetail from '../components/InquiriesDetail'
+import {useNavigate} from 'react-router-dom'
 
 function InquiriesPage() {
+    const navigate=useNavigate()
   const params = useParams();
   const [details, setDetails] = useState([]);
   const [search,setSearch]=useState('')
@@ -32,7 +34,7 @@ function InquiriesPage() {
     })
     
 
-    return session && (
+    return session ? (
         <div>
             <div><AdminNavbar /></div>
             <div className='inquiry-content-Wrapper'>
@@ -59,7 +61,7 @@ function InquiriesPage() {
                 </div>
                             </div>
                             </div>
- );
+ ): navigate('/')
 }
 
 export default InquiriesPage;

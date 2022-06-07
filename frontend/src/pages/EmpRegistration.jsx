@@ -6,8 +6,10 @@ import EmpRegForm from '../components/EmpRegForm';
 import CloseIcon from '@mui/icons-material/Close';
 import EmpDetails from '../components/EmpDetails';
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom'
 
 function EmpRegistration() {
+    const navigate=useNavigate()
     const [active, setActive] = useState(false);
     const [details, setDetails] = useState([]);
     const [search,setSearch]=useState('')
@@ -35,7 +37,7 @@ function EmpRegistration() {
         return data.NIC.toLowerCase().includes(search.toLowerCase())||data.Name.toLowerCase().includes(search.toLowerCase())||data.Email.toLowerCase().includes(search.toLowerCase())||data.Position.toLowerCase().includes(search.toLowerCase())
     })
 
-    return session &&(
+    return session ?(
         <div>
             <div><AdminNavbar /></div>
             <div className='empcontentMainWrapper'>
@@ -67,7 +69,7 @@ function EmpRegistration() {
                 </div>
             )}
         </div>
-    )
+    ): navigate('/')
 }
 
 

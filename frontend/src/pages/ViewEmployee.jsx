@@ -5,8 +5,10 @@ import EmployeeView from "../components/EmployeeView";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import "../css/ViewEmployee.css";
+import {useNavigate} from 'react-router-dom'
 
 export default function ViewEmployee() {
+  const navigate=useNavigate()
   const [employee, setemployee] = useState([]);
   const [dispalybranch, setdispalybranch] = useState([]);
   const [found, setfound] = useState("");
@@ -56,7 +58,7 @@ export default function ViewEmployee() {
   });
 
   return (
-    ManagerEmail && (
+    ManagerEmail ? (
       <div>
         <ManagerNavBar />
         <div className="viewemployeeback">
@@ -104,6 +106,6 @@ export default function ViewEmployee() {
           </div>
         </div>
       </div>
-    )
+    ): navigate('/')
   );
 }

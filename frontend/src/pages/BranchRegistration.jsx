@@ -6,8 +6,10 @@ import BranchRegForm from '../components/BranchRegForm';
 import CloseIcon from '@mui/icons-material/Close';
 import BranchDetails from '../components/BranchDetails';
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom'
 
 function BranchRegistration() {
+    const navigate=useNavigate()
     const [active, setActive] = useState(false);
     const [details,setDetails]=useState([])
     const [search,setSearch]=useState('')
@@ -38,7 +40,7 @@ function BranchRegistration() {
       })
 
 
-    return  session &&(
+    return  session ?(
         <div>
             <div><AdminNavbar /></div>
             <div className='branchcontentMainWrapper'>
@@ -72,7 +74,7 @@ function BranchRegistration() {
                 )
             }
         </div >
-    )
+    ): navigate('/')
 }
 
 export default BranchRegistration
