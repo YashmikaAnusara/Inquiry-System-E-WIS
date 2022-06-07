@@ -6,9 +6,10 @@ import SecurityIcon from '@mui/icons-material/Security';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import Logo from '../images/pic6.png'
 import axios from 'axios';
+import {useNavigate} from 'react-router-dom'
 
 function Profile() {
-    
+    const navigate=useNavigate()    
     const id=sessionStorage.getItem('adminId')
     const email=sessionStorage.getItem('adminEmail')
     const cpassword=sessionStorage.getItem('adminpassword')
@@ -61,7 +62,9 @@ function Profile() {
         else{
             axios.put(`http://localhost:8070/Login/email/update/${id}/${reNewEmail}`)
             .then(()=>{
-                alert("Email updated successfully!")
+                alert("Email updated successfully!");
+                sessionStorage.clear()
+                navigate('/')
             })
             .catch(err=>{
                 alert(err)
@@ -80,6 +83,8 @@ function Profile() {
             axios.put(`http://localhost:8070/Login/password/update/${id}/${repassword}`)
             .then(()=>{
                 alert("Password updated successfully!")
+                sessionStorage.clear();
+                navigate('/')
             })
             .catch(err=>{
                 alert(err)

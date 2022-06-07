@@ -10,7 +10,9 @@ import ViewEmployee from "./pages/ViewEmployee";
 import Updateemployee from "./pages/updateemployee";
 import InquiriesPage from "./pages/InquiriesPage";
 import Deleteemployee from "./pages/Deleteemployee";
+
 import MarketingHome from "./pages/MarketingHome";
+
 import Profile from "./pages/Profile";
 import ViewMarketingEmployee from "./pages/ViewMarketingEmployee";
 import MarketingInquiriesPage from "./pages/MarketingInquiriesPage";
