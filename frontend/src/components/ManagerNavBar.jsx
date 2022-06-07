@@ -9,10 +9,7 @@ import BranchMenu from "./BranchMenu";
 
 
 function ManagerNavBar() {
-  const [active, setActive] = useState(false);
-  const addBranchHandler = () => {
-    setActive(true);
-  };
+  const [active] = useState(false);
   return (
     <div>
       {active ? <BranchReg /> : ""}
