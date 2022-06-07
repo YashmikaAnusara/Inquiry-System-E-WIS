@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import BranchReg from "./BranchRegForm";
 import BranchMenu from "./BranchMenu";
 
+
 function ManagerNavBar() {
   const [active, setActive] = useState(false);
   const addBranchHandler = () => {
