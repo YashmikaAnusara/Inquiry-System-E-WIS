@@ -113,3 +113,7 @@ cardwrapper* {
 .cardallfont {
   font-size: 95%;
 }
+.charsize {
+  width: auto;
+  height: auto;
+}

@@ -316,7 +316,7 @@ export default function ManagerHome() {
               </Stack>
 
               <AreaChart
-                width={1150}
+                width={150}
                 height={400}
                 data={Inquiry}
                 margin={{
