@@ -8,10 +8,7 @@ import BranchReg from "./BranchRegForm";
 import BranchMenu from "./BranchMenu";
 
 function MarketingNavBar() {
-  const [active, setActive] = useState(false);
-  const addBranchHandler = () => {
-    setActive(true);
-  };
+  const [active] = useState(false);
   return (
     <div>
       {active ? <BranchReg /> : ""}
