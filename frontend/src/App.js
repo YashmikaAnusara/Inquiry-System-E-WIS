@@ -10,9 +10,7 @@ import ViewEmployee from "./pages/ViewEmployee";
 import Updateemployee from "./pages/updateemployee";
 import InquiriesPage from "./pages/InquiriesPage";
 import Deleteemployee from "./pages/Deleteemployee";
-
 import MarketingHome from "./pages/MarketingHome";
-
 import Profile from "./pages/Profile";
 import ViewMarketingEmployee from "./pages/ViewMarketingEmployee";
 import MarketingInquiriesPage from "./pages/MarketingInquiriesPage";
@@ -30,7 +28,6 @@ function App() {
           <Route path="/employee" element={<EmpRegistration />} />
           <Route path="/branch" element={<BranchRegistration />} />
           <Route path="/addemployee" element={<EmpRegistration />} />
-          <Route path="/addbranch" element={<BranchRegistration />} />
           <Route path="/managerdashBoard" element={<ManagerHome />} />
           <Route path="/viewemployee" element={<ViewEmployee />} />
           <Route path="/updateemployee/:id" element={<Updateemployee />} />

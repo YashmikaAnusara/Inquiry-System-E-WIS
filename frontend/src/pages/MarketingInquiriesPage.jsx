@@ -5,8 +5,9 @@ import axios from "axios";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import MarketingInquiriesDeatils from "../components/MarketingInquiriesDeatils";
-
+import {useNavigate} from 'react-router-dom'
 function MarketingInquiriesPage() {
+  const navigate=useNavigate()
   const [details, setDetails] = useState([]);
   const MarketingEmail = sessionStorage.getItem("MarketingEmail");
   const [branch, setbranch] = useState("");
@@ -62,7 +63,7 @@ function MarketingInquiriesPage() {
   }, [dispalybranch]);
 
   return (
-    MarketingEmail && (
+    MarketingEmail ? (
       <div>
         <div>
           <MarketingNavBar />
@@ -120,7 +121,7 @@ function MarketingInquiriesPage() {
           </div>
         </div>
       </div>
-    )
+    ): navigate('/')
   );
 }
 

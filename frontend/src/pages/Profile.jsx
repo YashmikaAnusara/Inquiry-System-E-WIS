@@ -9,7 +9,8 @@ import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
 
 function Profile() {
-    const navigate=useNavigate()    
+
+    const navigate=useNavigate()
     const id=sessionStorage.getItem('adminId')
     const email=sessionStorage.getItem('adminEmail')
     const cpassword=sessionStorage.getItem('adminpassword')
@@ -43,7 +44,6 @@ function Profile() {
         setEmailActive(!emaiActive)
         setEmailActive1(!emaiActive1)
     }
-
     const emailChangeHandler=()=>{
         if(currentEmail===''||newEmail===''||reNewEmail==='')
         {
@@ -71,7 +71,6 @@ function Profile() {
             })
         }
     }
-
     const changePasswordHandler=()=>{
         if(password===''||repassword===''){
             alert("Passwords cannot be empty!")
@@ -91,8 +90,7 @@ function Profile() {
             })
         }
     }
-
-    return id &&(
+    return id ?(
         <div>
             <div><AdminNavbar /></div>
             <div className='profile-content-Main-Wrapper'>
@@ -101,7 +99,6 @@ function Profile() {
                         <button className='profile-action-btn' onClick={Handler1}><PersonIcon /></button>
                         <button className='profile-action-btn' onClick={Handler2}><SecurityIcon /></button>
                     </div>
-
                     {actOver && <div className="overview-wrapper clearfix">
                         <div className='over-info'>
                             <h3>Welcome!!!</h3>
@@ -137,14 +134,11 @@ function Profile() {
                             </center>
                             <button className='change-pass-btn' onClick={changePasswordHandler}>Change Password</button>
                         </div>
-
                     </div>}
-
-
                 </div>
             </div>
         </div>
-    )
+    ):navigate('/')
 }
 
 export default Profile

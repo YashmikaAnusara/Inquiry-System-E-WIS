@@ -6,8 +6,10 @@ import axios from "axios";
 import PersonIcon from '@mui/icons-material/Person';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 // import Chart from "../components/Chart2";
+import {useNavigate} from 'react-router-dom'
  
 function AdminHome() {
+    const navigate=useNavigate()
     const [empCount, setEmpCount] = useState('')
     const [branchCount, setBranchCount] = useState('')
 
@@ -30,7 +32,7 @@ function AdminHome() {
             })
     }, [])
 
-   return session &&(
+   return session ?(
         <div>
             <div><AdminNavbar /></div>
             <div className='contentMainWrapper'>
@@ -54,6 +56,6 @@ function AdminHome() {
                 </div>
             </div>
         </div>
-    )
+    ):navigate('/')
 }
 export default AdminHome;

@@ -15,8 +15,10 @@ import {
   Tooltip,
 } from "recharts";
 import axios from "axios";
+import {useNavigate} from 'react-router-dom'
 
 export default function MarketingHome() {
+  const navigate=useNavigate()
   const [Inquiry, setInquiry] = useState([]);
   const [Inquirybranch, setInquirybranch] = useState();
   const [Inquirybranch2, setInquirybranch2] = useState();
@@ -207,7 +209,7 @@ export default function MarketingHome() {
   }, [Inquirybranch, Inquirybranch2, Inquirybranch3]);
 
   return (
-    MarketingEmail && (
+    MarketingEmail ?(
       <div>
         <div>
           <MarketingNavBar />
@@ -331,6 +333,6 @@ export default function MarketingHome() {
           </div>
         </div>
       </div>
-    )
+    ): navigate('/')
   );
 }

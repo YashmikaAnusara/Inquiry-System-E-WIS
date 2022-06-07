@@ -9,6 +9,7 @@ import axios from 'axios';
 import AccountMenu from './Menu';
 import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import Pic from '../images/pic5.png'
+ 
 
 
 function AdminNavbar() {
@@ -26,7 +27,7 @@ function AdminNavbar() {
     }
     
     useEffect(() => {
-        axios.get('http://localhost:8070/branch/get/details')
+        axios.get(`http://localhost:8070/branch/get/details`)
             .then((res) => {
                 setDetails(res.data)
             })

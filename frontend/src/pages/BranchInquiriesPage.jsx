@@ -5,8 +5,10 @@ import axios from "axios";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import BranchInquiriesDeatils from "../components/BranchInquiriesDeatils";
+import {useNavigate} from 'react-router-dom'
 
 function BranchInquiriesPage() {
+  const navigate=useNavigate()
   const [details, setDetails] = useState([]);
   const ManagerEmail = sessionStorage.getItem("ManagerEmail");
   const [branch, setbranch] = useState("");
@@ -63,7 +65,7 @@ function BranchInquiriesPage() {
   }, [dispalybranch]);
 
 
-  return ManagerEmail && (
+  return ManagerEmail ? (
 
       <div>
         <div>
@@ -122,7 +124,7 @@ function BranchInquiriesPage() {
           </div>
         </div>
       </div>
-    )
+    ): navigate('/')
 }
 
 export default BranchInquiriesPage;
