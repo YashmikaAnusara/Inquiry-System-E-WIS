@@ -40,8 +40,9 @@ cardwrapper* {
 
 .cardMainWrapper {
   width: fit-content;
-  display: flex;
+  display: grid;
   margin: auto;
+  grid-template-columns: auto auto auto auto;
   gap: 40px;
   margin-top: 40px;
 }
