@@ -33,6 +33,8 @@ export default function ManagerHome() {
 
   const ManagerEmail = sessionStorage.getItem("ManagerEmail");
 
+  
+
   const branchanger = (name) => {
     if (name === branch) {
       setdispalybranch(branch);
